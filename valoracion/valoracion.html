@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valoración Fonoaudiológica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+   <!-- ======= Header ======= -->
+   <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <a href="../index.html" class="logo me-auto"
+        ><img src="/assets/img/logo - copia.png" alt=""
+      /></a>
+      <h1>FonoAudioTest</h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li>
+            <a class="nav-link scrollto" href="../index.html">Inicio</a>
+          </li>
+          <li class="dropdown">
+            <a href="#"
+              ><span>Mi Perfil</span> <i class="bi bi-chevron-down"></i
+            ></a>
+            <ul>
+              <li>
+                <a class="nav-link scrollto active" href="#"
+                  >Datos Personales</a
+                >
+              </li>
+              <li>
+                <a class="nav-link scrollto" href="#">Experiencia Laboral</a>
+              </li>
+              <li>
+                <a class="nav-link scrollto" href="#">Formación Académica</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="nav-link scrollto" href="/datosFono/datos-fono.html"
+              >Pacientes</a
+            >
+          </li>
+          <li>
+            <a href="../Login/index.html"
+              ><img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión</a
+            >
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center my-4">Valoración Fonoaudiológica</h1>
+                
+                <!-- Sección de búsqueda de paciente -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5>Datos del Paciente</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="buscarPaciente" class="form-label">Buscar Paciente:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="buscarPaciente" placeholder="Documento o nombre">
+                                    <button class="btn btn-primary" id="btnBuscar">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Datos del paciente -->
+                        <div class="row" id="datosPaciente">
+                            <div class="col-md-4">
+                                <p><strong>Nombre:</strong> <span id="nombrePaciente">-</span></p>
+                                <p><strong>Edad:</strong> <span id="edadPaciente">-</span></p>
+                                <p><strong>Género:</strong> <span id="generoPaciente">-</span></p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Teléfono:</strong> <span id="telefonoPaciente">-</span></p>
+                                <p><strong>Fecha Nacimiento:</strong> <span id="nacimientoPaciente">-</span></p>
+                                <p><strong>Estado Civil:</strong> <span id="estadoCivilPaciente">-</span></p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Dirección:</strong> <span id="direccionPaciente">-</span></p>
+                                <p><strong>Lugar Residencia:</strong> <span id="residenciaPaciente">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulario de valoración -->
+                <form id="formValoracion">
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5>Evaluación Fonoaudiológica</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="comunicacion" class="form-label">Comunicación y Lenguaje</label>
+                                <textarea class="form-control" id="comunicacion" rows="4" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="alimentacion" class="form-label">Proceso de Alimentación y Deglución</label>
+                                <textarea class="form-control" id="alimentacion" rows="4" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="diagnostico" class="form-label">Conclusión Diagnóstica</label>
+                                <textarea class="form-control" id="diagnostico" rows="4" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="intervencion" class="form-label">Plan de Intervención</label>
+                                <textarea class="form-control" id="intervencion" rows="4" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="recomendaciones" class="form-label">Recomendaciones</label>
+                                <textarea class="form-control" id="recomendaciones" rows="4" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Datos del profesional -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5>Profesional Responsable</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nombreProfesional" class="form-label">Nombre del Profesional</label>
+                                    <input type="text" class="form-control" id="nombreProfesional" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="idProfesional" class="form-label">Número de Identificación</label>
+                                    <input type="text" class="form-control" id="idProfesional" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="especialidad" class="form-label">Especialidad</label>
+                                    <input type="text" class="form-control" id="especialidad" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
+                        <button type="button" class="btn btn-secondary me-md-2" id="btnLimpiar">Limpiar Formulario</button>
+                        <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar Valoración</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="valoracion.js"></script>
+</body>
+</html>

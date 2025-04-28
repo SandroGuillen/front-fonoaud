@@ -1,0 +1,42 @@
+main{
+    width: 80%;
+    font-family: "Roboto", sans-serif;
+}
+.ventana{
+background:rgb(185, 184, 184);
+width: 80%;
+height: 100%;
+margin-left: 10%;
+margin-top: 60px;
+border-radius: 4px;
+}
+.datos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+}
+.datos p{
+    margin: 2px;
+}
+.nombre {
+ font-size: 30px;
+ margin: -5px;
+ font-style: italic;
+font-weight: bold;
+}
+.nombre .doct1 p{
+    font-size: 15px;
+    display: flex;
+    font-weight:bold;
+}
+.datos img{
+    padding: 10px;
+    width: 250px;
+    align-items: center;
+    border-radius: 20px;
+}
+.perfil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0px 20px 0px  20px;
+}

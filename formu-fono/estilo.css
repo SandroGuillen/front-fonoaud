@@ -1,0 +1,135 @@
+#main {
+    margin-top: 90px;
+    padding-top: 20px;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    position: fixed;
+    top: 90px;
+    bottom: 0;
+    left: -280px;
+    z-index: 1000;
+    width: 280px;
+    background-color: #1f6ab4;
+    transition: all 0.3s;
+    overflow-y: auto;
+  }
+  
+  .sidebar.show {
+    left: 0;
+  }
+  
+  .sidebar .nav-link {
+    color: #fff;
+    padding: 10px 15px;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+  }
+  
+  .sidebar .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar .nav-link.active {
+    color: #fff;
+    border-left-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.2);
+  }
+  
+  .sidebar .nav-link i {
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Main Content Area */
+  .main-content {
+    margin-left: 0;
+    transition: all 0.3s;
+  }
+  
+  .main-content.shifted {
+    margin-left: 280px;
+  }
+  
+  @media (max-width: 991.98px) {
+    .main-content.shifted {
+      margin-left: 0;
+    }
+  }
+  
+  /* Header Styles */
+  .dashboard-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  /* Dashboard Cards */
+  .dashboard-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-card:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-card .card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+    padding: 15px 20px;
+  }
+  
+  /* Patient Table Styles */
+  .patient-table {
+    width: 100%;
+  }
+  
+  .patient-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .patient-table td {
+    vertical-align: middle;
+  }
+  
+  /* Action Buttons */
+  .btn-action {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 3px;
+  }
+  
+  /* Form Styles */
+  .dashboard-form .form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 8px;
+  }
+  
+  /* Date Indicator */
+  .date-indicator {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+  }

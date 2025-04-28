@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>FonoAudioTest - Mi Perfil</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="../assets/img/logo-copia.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"  rel="stylesheet"/>
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="/datosFono/estilo.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <a href="../index.html" class="logo me-auto"
+          ><img src="../assets/img/logo-copia.png" alt=""
+        /></a>
+        <h1>FonoAudioTest</h1>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="../index.html">Inicio</a>
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                ><span>Mi Perfil</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li>
+                  <a class="nav-link scrollto active" href="#"
+                    >Datos Personales</a
+                  >
+                </li>
+                <li>
+                  <a class="nav-link scrollto" href="#">Experiencia Laboral</a>
+                </li>
+                <li>
+                  <a class="nav-link scrollto" href="#">Formación Académica</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/datosFono/datos-fono.html"
+                >Pacientes</a
+              >
+            </li>
+            <li>
+              <a href="../Login/index.html"
+                ><img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión</a
+              >
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Main Content ======= -->
+    <main id="main" class="mt-5 pt-4">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Main Content Area -->
+          <div class="col-md-12">
+            <!-- Sección de Foto y Datos Básicos -->
+            <div class="profile-section">
+              <div class="profile-header">
+                <div class="profile-upload-btn">
+                  <img
+                    src="../assets/img/avatar-default.png"
+                    alt="Foto de perfil"
+                    class="profile-avatar"
+                    id="profileAvatar"
+                  />
+                  <button class="btn btn-sm btn-primary mt-2">
+                    <i class="bi bi-camera"></i> Cambiar foto
+                    <input type="file" id="avatarUpload" accept="image/*" />
+                  </button>
+                </div>
+                <div>
+                  <h2 id="nombreCompleto">Nombre Apellido</h2>
+                  <p class="text-muted" id="especialidad">Especialidad</p>
+                </div>
+              </div>
+
+              <h3>
+                <i class="bi bi-person-lines-fill me-2"></i>Datos Personales
+              </h3>
+              <form id="formDatosPersonales">
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">Nombres</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nombres"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">Apellidos</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="apellidos"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">Especialidad</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="especialidadInput"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">Tipo de Documento</label>
+                    <select class="form-select" id="tipoDocumento">
+                      <option value="cc">Cédula de Ciudadanía</option>
+                      <option value="ce">Cédula de Extranjería</option>
+                      <option value="pasaporte">Pasaporte</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">Número de Documento</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="numeroDocumento"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">Fecha de Nacimiento</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="fechaNacimiento"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">Correo Electrónico</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefono" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" />
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-save"></i> Guardar Datos
+                </button>
+              </form>
+            </div>
+           
+
+            <!-- Sección de Formación Académica -->
+            <!-- Sección de Formación Académica -->
+<div class="profile-section">
+    <h3><i class="bi bi-mortarboard me-2"></i>Formación Académica</h3>
+    <div id="educacionContainer">
+      <!-- Los estudios se agregarán dinámicamente aquí -->
+      <div class="education-item">
+        <div class="item-actions">
+          <button class="btn btn-sm btn-outline-danger btn-remove-item" type="button">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Título Obtenido</label>
+            <input type="text" class="form-control" name="titulo[]" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Institución Educativa</label>
+            <input type="text" class="form-control" name="institucion_educativa[]" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Fecha de Inicio</label>
+            <input type="date" class="form-control" name="fecha_inicio_estudio[]" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Fecha de Finalización</label>
+            <input type="date" class="form-control" name="fecha_fin_estudio[]">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">¿Actualmente cursando?</label>
+            <select class="form-select" name="actualmente_estudiando[]">
+              <option value="no">No</option>
+              <option value="si">Sí</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label class="form-label">Descripción del Programa</label>
+            <textarea class="form-control" rows="2" name="descripcion_estudio[]"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-outline-primary btn-add-item" id="btnAddEducacion" type="button">
+      <i class="bi bi-plus-circle"></i> Agregar Formación
+    </button>
+  </div>
+
+            <!-- Sección de Experiencia Laboral -->
+            <!-- Sección de Experiencia Laboral -->
+<div class="profile-section">
+    <h3><i class="bi bi-briefcase me-2"></i>Experiencia Laboral</h3>
+    <div id="experienciaContainer">
+      <!-- Las experiencias se agregarán dinámicamente aquí -->
+      <div class="experience-item">
+        <div class="item-actions">
+          <button class="btn btn-sm btn-outline-danger btn-remove-item" type="button">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Puesto/Cargo</label>
+            <input type="text" class="form-control" name="puesto[]" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Institución/Empresa</label>
+            <input type="text" class="form-control" name="institucion[]" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Fecha de Inicio</label>
+            <input type="date" class="form-control" name="fecha_inicio[]" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Fecha de Finalización</label>
+            <input type="date" class="form-control" name="fecha_fin[]">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">¿Actualmente trabajando aquí?</label>
+            <select class="form-select" name="actualmente[]">
+              <option value="no">No</option>
+              <option value="si">Sí</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label class="form-label">Descripción de Funciones</label>
+            <textarea class="form-control" rows="3" name="descripcion[]"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-outline-primary btn-add-item" id="btnAddExperiencia" type="button">
+      <i class="bi bi-plus-circle"></i> Agregar Experiencia
+    </button>
+  </div>
+
+            <!-- Sección de Documentos -->
+            <div class="profile-section">
+              <h3>
+                <i class="bi bi-file-earmark-arrow-up me-2"></i>Documentos
+                Adjuntos
+              </h3>
+              <div class="mb-4">
+                <label class="form-label"
+                  >Subir documentos (Diplomas, Certificados, etc.)</label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  id="documentosUpload"
+                  multiple
+                />
+                <small class="text-muted"
+                  >Formatos aceptados: PDF, JPG, PNG (Máx. 5MB cada
+                  archivo)</small
+                >
+              </div>
+
+              <h5 class="mb-3">Documentos Subidos</h5>
+              <div class="list-group" id="documentosLista">
+                <!-- Los documentos subidos aparecerán aquí -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- JS específico para el perfil -->
+    <script src="../assets/js/datos-fono.js"></script>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>FonoAudioTest - Registro</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="/assets/img/logo - copia.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/Login/Registro/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <a href="../index.html" class="logo me-auto"><img src="/assets/img/logo - copia.png" alt=""></a>
+        <h1>FonoAudioTest</h1>
+       
+      </div>
+    </header><!-- End Header -->
+
+    <main id="main" class="main-registro">
+      <!-- ======= Registro Section ======= -->
+      <section class="registro-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+              <div class="card registro-card">
+                <div class="card-header">
+                  <h2 class="text-center">Registro de Usuario</h2>
+                </div>
+                <div class="card-body">
+                  <form id="formRegistro" class="row g-3">
+                    <!-- Primera columna -->
+                    <div class="col-md-6">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="input-nombre" placeholder="Nombre" required>
+                        <label for="input-nombre">Nombre</label>
+                      </div>
+                      
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="input-apellido" placeholder="Apellido" required>
+                        <label for="input-apellido">Apellido</label>
+                      </div>
+                      
+                      <div class="form-floating mb-3">
+                        <select class="form-select" id="tipoDocumento" required>
+                          <option value="" selected disabled>Seleccione...</option>
+                          <option value="TI">Tarjeta de Identidad</option>
+                          <option value="CC">Cédula de Ciudadanía</option>
+                          <option value="CE">Cédula de Extranjería</option>
+                        </select>
+                        <label for="tipoDocumento">Tipo de Documento</label>
+                      </div>
+                      
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="input-cedula" placeholder="Número de documento" required>
+                        <label for="input-cedula">Número de documento</label>
+                      </div>
+                      
+                      <div class="form-floating mb-3">
+                        <select class="form-select" id="input-sexobiologico" required>
+                          <option value="" selected disabled>Seleccione...</option>
+                          <option value="F">Femenino</option>
+                          <option value="M">Masculino</option>
+                          <option value="O">Otro</option>
+                        </select>
+                        <label for="input-sexobiologico">Sexo biológico</label>
+                      </div>
+                    </div>
+                    
+                    <!-- Segunda columna -->
+                    <div class="col-md-6">
+                      <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="input-fecha" required>
+                        <label for="input-fecha">Fecha de nacimiento</label>
+                      </div>
+                      
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="input-municipio" placeholder="Municipio" required>
+                        <label for="input-municipio">Municipio</label>
+                      </div>
+                      
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="input-barrio" placeholder="Barrio" required>
+                        <label for="input-barrio">Barrio</label>
+                      </div>
+                      
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="input-direccion" placeholder="Dirección" required>
+                        <label for="input-direccion">Dirección</label>
+                      </div>
+                    </div>
+                    
+                    <!-- Tercera columna (full width) -->
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3">
+                            <input type="tel" class="form-control" id="input-telefono" placeholder="Teléfono" required>
+                            <label for="input-telefono">Teléfono</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="input-correo" placeholder="Correo electrónico" required>
+                            <label for="input-correo">Correo electrónico</label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="input-password" placeholder="Contraseña" required>
+                            <label for="input-password">Contraseña</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="input-confirm-password" placeholder="Confirmar contraseña" required>
+                            <label for="input-confirm-password">Confirmar contraseña</label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="input-accept" required>
+                        <label class="form-check-label" for="input-accept">
+                          Acepto los <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">términos y condiciones</a>
+                        </label>
+                      </div>
+                    </div>
+                    
+                    <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-primary btn-lg" id="btn-register">Registrarse</button>
+                    </div>
+                    
+                    <div class="col-12 text-center mt-3">
+                      <p>¿Ya tienes una cuenta? <a href="../Login/index.html">Inicia sesión aquí</a></p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- End Registro Section -->
+    </main><!-- End #main -->
+
+    <!-- End Footer -->
+
+    <!-- Terms Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Términos y Condiciones</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Contenido de términos y condiciones -->
+            <p>Aquí van los términos y condiciones de uso de la plataforma...</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>FonoAduioTest</h3>
+              <p>
+
+                <strong>Phone:</strong> +57 321 4568907<br>
+                <strong>Email:</strong> fonoaudiotest@gmail.com<br>
+              </p>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+    <!-- Vendor JS Files -->
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Template Main JS File -->
+    <script src="/Login/Registro/registro.js"></script>
+    
+    <!-- Scripts específicos de registro -->
+    <script src="../assets/js/request.js"></script>
+  </body>
+</html>

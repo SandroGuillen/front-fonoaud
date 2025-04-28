@@ -1,0 +1,92 @@
+body {
+    background: rgb(76,246,7);
+background: linear-gradient(90deg, rgba(240, 219, 125, 0.884) 0%,  rgba(236, 208, 82, 0.884) 91%);
+    display: inline-grid;
+    place-items: center;
+    width: 98%;
+   
+}
+
+.simon {
+ background-color: white;
+    position: relative;
+    margin-top: 30px;
+    padding: 75px;
+    border-radius: 50px;
+}
+
+.buttonContainer {
+  
+    background-color: #0b0e0f;
+    padding: auto;
+    display: inline-grid;
+    border-radius: 100%;
+    grid-gap: 5px;
+    grid-template-columns: auto auto;
+    transform: rotate(135deg);
+}
+
+.square {
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.square:active,
+
+.active {
+    filter: brightness(125%);
+}
+
+.red {
+    background-color: #f14806 ;
+}
+
+.blue {
+    background-color: #06c6fc;
+}
+
+.green {
+    background-color: #0f5a20;
+}
+
+.yellow {
+    background-color: #fccb07;
+}
+
+#startButton {
+    width: 80px;
+    position: absolute;
+    top: 470px;
+    right: 50px;
+    border: none;
+    font-family: 'Merriweather', serif;
+    cursor: pointer;
+    border-radius: 5px;
+    color: rgb(252, 248, 248);
+    background-color: #d35309e3;
+    padding: 5px;
+}
+
+#startButton:disabled {
+    background-color: rgb(238, 181, 181);
+}
+
+.title {
+    background-color: #FFDF64;
+    position: relative;
+    
+    font-family: 'arial', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    border-radius: 5px;
+    width: 135px;
+    right: 50px;
+}
+
+.winner {
+    animation: spin 1s ease-in-out;
+}
+
+@keyframes spin { 
+    100% { transform:rotate(180deg) } }

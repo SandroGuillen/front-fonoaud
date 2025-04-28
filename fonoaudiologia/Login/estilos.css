@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bowlby One SC', cursive;
+}
+
+body{
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    height: 630px;
+    position: absolute;
+}
+.formulario{
+    width: 500px;
+    height: 310px;
+    position: absolute;
+    background-color: #fff;
+    border: 5px solid #1daad4;
+    border-radius: 10px;
+    padding: 30px 60px;
+    top: 290px;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+}
+
+
+.formulario input{
+    border: 2px solid #1daad4;
+    border-radius: 10px;
+    padding: 0 8px;
+}
+
+.formulario input,label{
+    display: block;
+    width: 40%;
+    margin: 5px 0;
+}
+.formulario input,labe2{
+    display: block;
+    width: 30%;
+    margin: 5px 0;
+}
+.formulario input,button{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.formulario button{
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    height: 40px;
+    background-color: #1daad4;
+    box-shadow: 4px 4px 6px #000;
+    color: #fff;
+}
+.formulario button:hover{
+    background-color: #3255a0;
+}
+
+#hero{
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  video{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .capa{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.493);
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+  }
+  
+  
+  
+
+  .lbl{
+    display: inline-block;
+    width: 32px;
+    height: 16px;
+    background: #979797;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    transition: .2s;
+  }
+   
+  .lbl::after{
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #eee;
+    border-radius: 100px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: .2s;
+  }
+   
+  #switch:checked + .lbl::after{
+    left: 16px;
+  }
+   
+  #switch:checked + .lbl{
+    background: #00C8B1;
+  }
+   
+  #switch{
+    display: none;
+  }

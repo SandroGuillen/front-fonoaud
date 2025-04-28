@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Meta tags y Bootstrap CSS -->
+    <link
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Iconos de Bootstrap Icons -->
+    <link
+      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/formu-fono/estilo.css" />
+  </head>
+  <body class="bg-light">
+    <!-- Header con botón de sidebar -->
+    <header
+      class="dashboard-header d-flex justify-content-between align-items-center"
+    >
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-light me-3" id="sidebarToggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <h1 class="h4 mb-0">FonoAudioTest</h1>
+      </div>
+      <nav class="d-none d-md-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-person-circle me-1"></i>Mi Perfil
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebarMenu">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white active" href="#">
+              <i class="bi bi-calendar-day me-2"></i>Pacientes Hoy
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-calendar-month me-2"></i>Agenda Mensual
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-people me-2"></i>Pacientes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-file-earmark-text me-2"></i>Reportes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-gear me-2"></i>Configuración
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main" class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Header secundario -->
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+            >
+              <h2 class="h2">Pacientes Programados</h2>
+              <div class="date-indicator">
+                <i class="bi bi-calendar-check me-2"></i>
+                <span id="fecha-hoy"></span>
+              </div>
+            </div>
+
+            <!-- Card CRUD - Bootstrap Card Component -->
+            <div class="card dashboard-card">
+              <div class="card-header bg-primary text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Gestión de Pacientes</span>
+                  <button id="btn-nuevo" class="btn btn-sm btn-light">
+                    <i class="bi bi-plus-circle"></i> Nuevo
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <form id="form-paciente" class="dashboard-form row g-3">
+                  <input type="hidden" id="paciente-id" />
+                  <div class="col-md-4">
+                    <label class="form-label">Nombre</label>
+                    <input
+                      type="text"
+                      id="nombre"
+                      class="form-control form-control-sm"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">Edad</label>
+                    <input
+                      type="number"
+                      id="edad"
+                      class="form-control form-control-sm"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Teléfono</label>
+                    <input
+                      type="tel"
+                      id="telefono"
+                      class="form-control form-control-sm"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Fecha Cita</label>
+                    <input
+                      type="datetime-local"
+                      id="fecha"
+                      class="form-control form-control-sm"
+                      required
+                    />
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-sm btn-success me-2">
+                      <i class="bi bi-check-circle"></i> Guardar
+                    </button>
+                    <button
+                      type="button"
+                      id="btn-cancelar"
+                      class="btn btn-sm btn-secondary"
+                    >
+                      <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Tabla - Bootstrap Table Component -->
+            <div class="table-responsive">
+              <table
+                class="table patient-table table-hover table-sm align-middle"
+              >
+                <thead class="table-dark">
+                  <tr>
+                    <th width="25%">Nombre</th>
+                    <th width="10%">Edad</th>
+                    <th width="15%">Teléfono</th>
+                    <th width="20%">Fecha Cita</th>
+                    <th width="30%">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="cuerpo-tabla" class="table-group-divider">
+                  <!-- Datos dinámicos -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Paginación - Bootstrap Pagination Component -->
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center pagination-sm mt-3">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Siguiente</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Tu archivo JS -->
+    <script src="/formu-fono/fono.js"></script>
+  </body>
+</html>

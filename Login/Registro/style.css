@@ -1,0 +1,80 @@
+/*--------------------------------------------------------------
+# Registro Section
+--------------------------------------------------------------*/
+.main-registro {
+  padding-top: 100px;
+  padding-bottom: 60px;
+  min-height: calc(100vh - 154px);
+}
+
+.registro-card {
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.registro-card .card-header {
+  background-color: #3498db;
+  color: white;
+  border-radius: 15px 15px 0 0 !important;
+  padding: 20px;
+  border-bottom: none;
+}
+
+.registro-card .card-body {
+  padding: 30px;
+}
+
+.form-floating label {
+  color: #495057;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  color: #3498db;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+.btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+  padding: 10px 30px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-registro {
+    padding-top: 80px;
+  }
+  
+  .registro-card .card-body {
+    padding: 20px;
+  }
+}
+
+/* Terms link */
+.form-check-label a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.form-check-label a:hover {
+  text-decoration: underline;
+}
+
+/* Login link */
+.text-center a {
+  color: #3498db;
+  font-weight: 500;
+}

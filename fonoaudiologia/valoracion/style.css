@@ -1,0 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #d7f5fa, #e2f0ff, #f2f7fb);
+  padding: 20px;
+}
+
+.wrapper {
+  background: #ffffff;
+  max-width: 600px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #155799;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.wrapper h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  height: 3px;
+  width: 60px;
+  background: #06cad8;
+  border-radius: 5px;
+}
+
+form .input-box {
+  margin-bottom: 20px;
+}
+
+.input-box input,
+.input-box textarea,
+.input-box select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1.5px solid #b0d4f1;
+  border-radius: 8px;
+  background: #f9fbfd;
+  transition: 0.3s ease;
+}
+
+.input-box input:focus,
+.input-box textarea:focus,
+.input-box select:focus {
+  border-color: #4070f4;
+  background: #fff;
+}
+
+.input-box textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form label {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: #155799;
+  margin-bottom: 6px;
+}
+
+.input-box.button input {
+  background: #4070f4;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.input-box.button input:hover {
+  background: #2952a3;
+}
