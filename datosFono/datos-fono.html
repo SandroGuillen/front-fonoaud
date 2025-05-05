@@ -18,9 +18,18 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"  rel="stylesheet"/>
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet" />
@@ -187,111 +196,175 @@
                 </button>
               </form>
             </div>
-           
 
             <!-- Sección de Formación Académica -->
             <!-- Sección de Formación Académica -->
-<div class="profile-section">
-    <h3><i class="bi bi-mortarboard me-2"></i>Formación Académica</h3>
-    <div id="educacionContainer">
-      <!-- Los estudios se agregarán dinámicamente aquí -->
-      <div class="education-item">
-        <div class="item-actions">
-          <button class="btn btn-sm btn-outline-danger btn-remove-item" type="button">
-            <i class="bi bi-trash"></i>
-          </button>J
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Título Obtenido</label>
-            <input type="text" class="form-control" name="titulo[]" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Institución Educativa</label>
-            <input type="text" class="form-control" name="institucion_educativa[]" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label class="form-label">Fecha de Inicio</label>
-            <input type="date" class="form-control" name="fecha_inicio_estudio[]" required>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label">Fecha de Finalización</label>
-            <input type="date" class="form-control" name="fecha_fin_estudio[]">
-          </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label">¿Actualmente cursando?</label>
-            <select class="form-select" name="actualmente_estudiando[]">
-              <option value="no">No</option>
-              <option value="si">Sí</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 mb-3">
-            <label class="form-label">Descripción del Programa</label>
-            <textarea class="form-control" rows="2" name="descripcion_estudio[]"></textarea>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-outline-primary btn-add-item" id="btnAddEducacion" type="button">
-      <i class="bi bi-plus-circle"></i> Agregar Formación
-    </button>
-  </div>
+            <div class="profile-section">
+              <h3><i class="bi bi-mortarboard me-2"></i>Formación Académica</h3>
+              <div id="educacionContainer">
+                <!-- Los estudios se agregarán dinámicamente aquí -->
+                <div class="education-item">
+                  <div class="item-actions">
+                    <button
+                      class="btn btn-sm btn-outline-danger btn-remove-item"
+                      type="button"
+                    >
+                      <i class="bi bi-trash"></i></button
+                    >J
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Título Obtenido</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="titulo[]"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Institución Educativa</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="institucion_educativa[]"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Fecha de Inicio</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        name="fecha_inicio_estudio[]"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Fecha de Finalización</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        name="fecha_fin_estudio[]"
+                      />
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">¿Actualmente cursando?</label>
+                      <select
+                        class="form-select"
+                        name="actualmente_estudiando[]"
+                      >
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 mb-3">
+                      <label class="form-label">Descripción del Programa</label>
+                      <textarea
+                        class="form-control"
+                        rows="2"
+                        name="descripcion_estudio[]"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="btn btn-outline-primary btn-add-item"
+                id="btnAddEducacion"
+                type="button"
+              >
+                <i class="bi bi-plus-circle"></i> Agregar Formación
+              </button>
+            </div>
 
             <!-- Sección de Experiencia Laboral -->
             <!-- Sección de Experiencia Laboral -->
-<div class="profile-section">
-    <h3><i class="bi bi-briefcase me-2"></i>Experiencia Laboral</h3>
-    <div id="experienciaContainer">
-      <!-- Las experiencias se agregarán dinámicamente aquí -->
-      <div class="experience-item">
-        <div class="item-actions">
-          <button class="btn btn-sm btn-outline-danger btn-remove-item" type="button">
-            <i class="bi bi-trash"></i>
-          </button>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Puesto/Cargo</label>
-            <input type="text" class="form-control" name="puesto[]" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Institución/Empresa</label>
-            <input type="text" class="form-control" name="institucion[]" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label class="form-label">Fecha de Inicio</label>
-            <input type="date" class="form-control" name="fecha_inicio[]" required>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label">Fecha de Finalización</label>
-            <input type="date" class="form-control" name="fecha_fin[]">
-          </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label">¿Actualmente trabajando aquí?</label>
-            <select class="form-select" name="actualmente[]">
-              <option value="no">No</option>
-              <option value="si">Sí</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 mb-3">
-            <label class="form-label">Descripción de Funciones</label>
-            <textarea class="form-control" rows="3" name="descripcion[]"></textarea>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-outline-primary btn-add-item" id="btnAddExperiencia" type="button">
-      <i class="bi bi-plus-circle"></i> Agregar Experiencia
-    </button>
-  </div>
+            <div class="profile-section">
+              <h3><i class="bi bi-briefcase me-2"></i>Experiencia Laboral</h3>
+              <div id="experienciaContainer">
+                <!-- Las experiencias se agregarán dinámicamente aquí -->
+                <div class="experience-item">
+                  <div class="item-actions">
+                    <button
+                      class="btn btn-sm btn-outline-danger btn-remove-item"
+                      type="button"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Puesto/Cargo</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="puesto[]"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Institución/Empresa</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="institucion[]"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Fecha de Inicio</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        name="fecha_inicio[]"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Fecha de Finalización</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        name="fecha_fin[]"
+                      />
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label"
+                        >¿Actualmente trabajando aquí?</label
+                      >
+                      <select class="form-select" name="actualmente[]">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 mb-3">
+                      <label class="form-label">Descripción de Funciones</label>
+                      <textarea
+                        class="form-control"
+                        rows="3"
+                        name="descripcion[]"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="btn btn-outline-primary btn-add-item"
+                id="btnAddExperiencia"
+                type="button"
+              >
+                <i class="bi bi-plus-circle"></i> Agregar Experiencia
+              </button>
+            </div>
 
             <!-- Sección de Documentos -->
             <div class="profile-section">
@@ -325,39 +398,37 @@
       </div>
     </main>
     <!-- End #main -->
-       <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-info">
+                <h3>FonoAduioTest</h3>
+                <p>
+                  <strong>Phone:</strong> +57 321 4568907<br />
+                  <strong>Email:</strong> fonoaudiotest@gmail.com<br />
+                </p>
+              </div>
+            </div>
 
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>FonoAduioTest</h3>
-              <p>
-
-                <strong>Phone:</strong> +57 321 4568907<br>
-                <strong>Email:</strong> fonoaudiotest@gmail.com<br>
-              </p>
-              
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"
+                  ><i class="bx bxl-instagram"></i
+                ></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
         </div>
       </div>
-    </div>
-
-  </footer><!-- End Footer -->
+    </footer>
+    <!-- End Footer -->
 
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
