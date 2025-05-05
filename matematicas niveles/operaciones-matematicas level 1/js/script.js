@@ -1,177 +1,151 @@
-//seleccionamos los elementos del DOM
-let num1 = document.querySelector("#num1");
-let num2 = document.querySelector("#num2");
-let respuesta_usuario = document.querySelector("#respuesta_usuario");
-let msj_correccion = document.querySelector("#msj_correccion");
-let operacion = document.querySelector("#operacion");
+// Variables globales
+let num1 = document.getElementById("num1");
+let num2 = document.getElementById("num2");
+let respuesta_usuario = document.getElementById("respuesta_usuario");
+let msj_correccion = document.getElementById("msj_correccion");
+let operacion = document.getElementById("operacion");
 let operacion_actual;
-//en n1 y n2 voy a guardar los numeros aletarios de cada operacion
 let n1, n2;
+let correctCount = 0;
+let incorrectCount = 0;
 
-//funcion suma
+// Inicialización del juego
+document.addEventListener('DOMContentLoaded', function() {
+    // Establecer suma como operación por defecto
+    btnSumar();
+    
+    // Configurar evento para tecla Enter
+    respuesta_usuario.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            corregir();
+        }
+    });
+});
+
+// Función para actualizar las estadísticas
+function updateStats() {
+    document.getElementById("correct-count").textContent = correctCount;
+    document.getElementById("incorrect-count").textContent = incorrectCount;
+}
+
+// Función para activar botones
+function activarBoton(idBoton) {
+    document.querySelectorAll('.operation-btn').forEach(btn => {
+        btn.classList.remove('activado');
+    });
+    document.getElementById(idBoton).classList.add('activado');
+}
+
+// Operación: Suma
 function btnSumar() {
-    //limpiamos el div contenedor de las correcciones
     msj_correccion.innerHTML = "";
-    //agregamos la clase activa al boton suma y la quitamos del resto
     activarBoton("suma");
     operacion_actual = "+";
-    //asignamos la operacion suma a la etiqueta
-    operacion.innerHTML = " + ";
-    //generamos los numeros aletarios de la suma
+    operacion.textContent = "+";
     nuevaSuma();
 }
 
 function nuevaSuma() {
-    //generamos dos numeros aletarios entre 0 y 9
-    n1 = parseInt(Math.random() * 9+1);
-    n2 = parseInt(Math.random() * 9+1);
-    //asignamos los numeros a las etiquetas
-    num1.innerHTML = n1;
-    num2.innerHTML = n2;
-    //colocamos el curso en el input
+    n1 = Math.floor(Math.random() * 9) + 1;
+    n2 = Math.floor(Math.random() * 9) + 1;
+    num1.textContent = n1;
+    num2.textContent = n2;
     respuesta_usuario.focus();
 }
 
-//Funcion producto
-function btnProducto() {
-    //limpiamos el div contenedor de las correcciones
-    msj_correccion.innerHTML = "";
-    //agregamos la clase activa al boton producto y la quitamos del resto
-    activarBoton("producto");
-    operacion_actual = "*";
-    //asignamos la operacion suma a la etiqueta
-    operacion.innerHTML = " x ";
-    //generamos los numeros aletarios de la suma
-    nuevoProducto();
-}
-
-function nuevoProducto() {
-    //generamos dos numeros aletarios entre 0 y 9
-    n1 = parseInt(Math.random() * 9+1);
-    n2 = parseInt(Math.random() * 9+1);
-    //asignamos los numeros a las etiquetas
-    num1.innerHTML = n1;
-    num2.innerHTML = n2;
-    //colocamos el curso en el input
-    respuesta_usuario.focus();
-}
-
-//funcion resta
+// Operación: Resta
 function btnResta() {
-    //limpiamos el div contenedor de las correcciones
     msj_correccion.innerHTML = "";
-    //agregamos la clase activa al boton suma y la quitamos del resto
     activarBoton("resta");
     operacion_actual = "-";
-    //asignamos la operacion suma a la etiqueta
-    operacion.innerHTML = " - ";
-    //generamos los numeros aletarios de la suma
+    operacion.textContent = "-";
     nuevaResta();
 }
 
 function nuevaResta() {
-    //generamos dun numeros aletarios entre 5 y 10
-    n1 = parseInt(Math.random() * 5 + 5);
-    //generamos un numero aleatorio entre 0 y 5
-    n2 = parseInt(Math.random() * 5);
-    //asignamos los numeros a las etiquetas
-    num1.innerHTML = n1;
-    num2.innerHTML = n2;
-    //colocamos el curso en el input
+    n1 = Math.floor(Math.random() * 5) + 5;
+    n2 = Math.floor(Math.random() * 5);
+    num1.textContent = n1;
+    num2.textContent = n2;
     respuesta_usuario.focus();
 }
 
-//funcion división
-function btnDivision() {
-    //limpiamos el div contenedor de las correcciones
+// Operación: Multiplicación
+function btnProducto() {
     msj_correccion.innerHTML = "";
-    //agregamos la clase activa al boton suma y la quitamos del resto
+    activarBoton("producto");
+    operacion_actual = "*";
+    operacion.textContent = "×";
+    nuevoProducto();
+}
+
+function nuevoProducto() {
+    n1 = Math.floor(Math.random() * 9) + 1;
+    n2 = Math.floor(Math.random() * 9) + 1;
+    num1.textContent = n1;
+    num2.textContent = n2;
+    respuesta_usuario.focus();
+}
+
+// Operación: División
+function btnDivision() {
+    msj_correccion.innerHTML = "";
     activarBoton("division");
     operacion_actual = "/";
-    //asignamos la operacion suma a la etiqueta
-    operacion.innerHTML = " / ";
-    //generamos los numeros aletarios de la division
+    operacion.textContent = "÷";
     nuevaDivision();
 }
 
 function nuevaDivision() {
-    //aqui voy a guardar los divisores del numero a dividr
     let divisores = [];
-
-    //generamos un numero aletorio entre 1 y 10
-    n1 = parseInt(Math.random() * 9+1 );
-    n2 = parseInt(Math.random() * 9+1);
-    //encontramos los divisores del numero generado y lo guardamos en el arreglo
-    for (var i = 1; i <= n1; i++) {
-        if (n1 % i === 0) { //es divisor
+    n1 = Math.floor(Math.random() * 9) + 1;
+    
+    // Encontrar divisores
+    for (let i = 1; i <= n1; i++) {
+        if (n1 % i === 0) {
             divisores.push(i);
         }
     }
-
-    //seleccionamos un posiciòn aleatorio de los numeros que son divisores
-    let pos = parseInt(Math.random() * (divisores.length));
-
+    
+    let pos = Math.floor(Math.random() * divisores.length);
     n2 = divisores[pos];
-    num1.innerHTML = n1;
-    num2.innerHTML = n2;
+    num1.textContent = n1;
+    num2.textContent = n2;
     respuesta_usuario.focus();
 }
 
-//funcion que controla si la respuesta es correcta
+// Función para corregir la respuesta
 function corregir() {
-    //si el usuario no ha ingresado nada no continuo
-    if (respuesta_usuario.value == "") {
-        return;
-    }
-
+    if (!respuesta_usuario.value) return;
+    
     let solucion;
-    //armo la operacion que se genero en una variable y veo cual es su reslutado
-    //En este caso el operador + es para concatener las cadenas
-    let operacion = n1 + operacion_actual + n2;
-    solucion = eval(operacion);
-
-    //creo un elemento i para agregar el icono de correcto o incorrecto
-    var i = document.createElement("i");
-    //controlo si coincide lo que el usuario respondio con la solucion
-    if (respuesta_usuario.value == solucion) {
-        i.className = "fa-regular fa-face-grin";
+    let operacionStr = n1 + operacion_actual + n2;
+    solucion = eval(operacionStr);
+    
+    let i = document.createElement("i");
+    let isCorrect = parseInt(respuesta_usuario.value) === solucion;
+    
+    if (isCorrect) {
+        i.className = "fas fa-check-circle";
+        i.style.color = "var(--correct-color)";
+        correctCount++;
     } else {
-        i.className = "fa-regular fa-face-frown";
+        i.className = "fas fa-times-circle";
+        i.style.color = "var(--incorrect-color)";
+        incorrectCount++;
     }
-
-    //agrego el elemento al contenedor de las correciones
+    
+    msj_correccion.innerHTML = "";
     msj_correccion.appendChild(i);
-
-    //controlo que tipo de operacion estoy para genera una nueva operacion
-    if (operacion_actual == "+") {
-        nuevaSuma();
-    } else if (operacion_actual == "-") {
-        nuevaResta();
-    } else if (operacion_actual == "*") {
-        nuevoProducto();
-    } else if (operacion_actual == "/") {
-        nuevaDivision();
+    updateStats();
+    
+    // Generar nueva operación según el tipo actual
+    switch(operacion_actual) {
+        case "+": nuevaSuma(); break;
+        case "-": nuevaResta(); break;
+        case "*": nuevoProducto(); break;
+        case "/": nuevaDivision(); break;
     }
-
-    //limpio el input
+    
     respuesta_usuario.value = "";
-}
-
-//agrego al input el evento onkeydown para detectar cuando se presiona Enter Y 
-//llamar directamente a la funcion corregir()
-respuesta_usuario.onkeydown = function(e) {
-    var ev = document.all ? window.event : e;
-    if (ev.keyCode == 13) {
-        corregir();
-    }
-}
-
-
-//Esta funcion la creamos luego, cuando tengamos listo los estilos
-function activarBoton(idBoton) {
-    document.getElementById("suma").className = "";
-    document.getElementById("resta").className = "";
-    document.getElementById("producto").className = "";
-    document.getElementById("division").className = "";
-    document.getElementById(idBoton).className = "activado";
 }

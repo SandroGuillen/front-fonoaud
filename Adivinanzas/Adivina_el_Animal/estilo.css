@@ -13,6 +13,7 @@ background: linear-gradient(0deg, rgba(34,45,195,1) 0%, rgba(45,253,247,1) 100%)
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20%;
 }
 section{
     

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Rápido de Fonoaudiología</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/test rapido/squiz.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="video-background">
+        <video muted autoplay loop>
+            <source src="../assets/video/video-4.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <div class="container quiz-wrapper">
+        <div class="quiz-intro" id="intro">
+            <div class="card">
+                <div class="card-body">
+                    <h2><i class="bi bi-heart-pulse-fill"></i> ¿Cómo saber si mi hijo/a necesita un fonoaudiólogo?</h2>
+                    <p>Este test rápido te ayudará a identificar posibles señales que indicarían la necesidad de una evaluación fonoaudiológica profesional.</p>
+                    <p>Responde sinceramente a cada pregunta para obtener un análisis personalizado.</p>
+                    <button id="startQuiz" class="btn btn-primary">Comenzar Test</button>
+                    <a href="/index.html">
+                        <button class="btn btn-primary">Inicio</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="quiz" style="display:none;">
+            <div class="card">
+                <div class="card-header">
+                    <h3 id="question-category"><i class="bi bi-chat-square-text-fill"></i> <span id="question"></span></h3>
+                    <h4 id="question-text"><span id="question2"></span></h4>
+                </div>
+                <div class="card-body">
+                    <div class="options-container">
+                        <div class="form-check option">
+                            <input class="form-check-input" type="radio" name="answer" id="a">
+                            <label class="form-check-label" for="a" id="a_text"></label>
+                        </div>
+                        <div class="form-check option">
+                            <input class="form-check-input" type="radio" name="answer" id="b">
+                            <label class="form-check-label" for="b" id="b_text"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="progress">
+                        <div class="progress-bar" id="quiz-progress" role="progressbar"></div>
+                    </div>
+                    <button id="submit" class="btn btn-primary">Siguiente <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-results" id="results" style="display:none;">
+            <div class="card">
+                <div class="card-body">
+                    <h2><i class="bi bi-clipboard2-pulse-fill"></i> Resultados del Test</h2>
+                    <div id="results-content"></div>
+                    <button id="restartQuiz" class="btn btn-outline-primary mt-3">Realizar otro test</button>
+                    <a href="/index.html">
+                    <button class="btn btn-outline-primary mt-3">Inicio</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="test-rapido.js"></script>
+</body>
+</html>

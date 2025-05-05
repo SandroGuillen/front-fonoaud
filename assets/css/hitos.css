@@ -1,0 +1,213 @@
+/* Variables de color */
+:root {
+    --primary-color: #3fbbc0;
+    --secondary-color: #65c9cd;
+    --dark-color: #1f3e5c;
+    --light-color: #f6f9fe;
+    --text-color: #444;
+    --white: #fff;
+}
+
+/* Hero Section */
+.hero-hitos {
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(31, 62, 92, 0.7), rgba(31, 62, 92, 0.7)), url('../assets/img/malos.jpg') center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-hitos h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-hitos h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* Section Header */
+.section-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.divider {
+    width: 100px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 20px auto;
+}
+
+/* Intro Section */
+.intro-image img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.intro-image img:hover {
+    transform: scale(1.02);
+}
+
+.intro-content {
+    padding: 20px;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Area Cards */
+.area-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    height: 100%;
+}
+
+.area-card:hover {
+    transform: translateY(-10px);
+}
+
+.area-header {
+    position: relative;
+}
+
+.area-header img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.area-header h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(31, 62, 92, 0.8);
+    color: var(--white);
+    padding: 15px;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.area-body {
+    padding: 20px;
+}
+
+.area-body p {
+    margin-bottom: 0;
+}
+
+/* Alert Section */
+.alert-signs .list-group-item {
+    border-left: none;
+    border-right: none;
+    padding: 15px 0;
+}
+
+.alert-signs .bi {
+    color: var(--primary-color);
+}
+
+/* Action Cards */
+.action-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    height: 100%;
+}
+
+.action-card:hover {
+    transform: translateY(-10px);
+}
+
+.action-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.action-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.action-card p {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-hitos {
+        height: 50vh;
+    }
+    
+    .hero-hitos h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-hitos h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-hitos {
+        height: 40vh;
+        text-align: center;
+    }
+    
+    .hero-hitos h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-hitos h2 {
+        font-size: 1.1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .intro-image {
+        margin-bottom: 30px;
+    }
+}

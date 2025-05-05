@@ -1,0 +1,247 @@
+:root {
+    --primary-color: #3fbbc0;
+    --secondary-color: #65c9cd;
+    --dark-color: #1f3e5c;
+    --light-color: #f6f9fe;
+    --accent-color: #ff7b00;
+    --text-color: #444;
+    --white: #fff;
+    --gray: #6c757d;
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+}
+
+/* Header */
+#header {
+    background: var(--dark-color);
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 15px 0;
+    top: 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#header .logo img {
+    max-height: 40px;
+}
+
+#header h1 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+.navbar ul li a {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.navbar ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Main Content */
+.main-admin {
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+}
+
+.sidebar {
+    background-color: var(--dark-color);
+    color: var(--white);
+    min-height: calc(100vh - 80px);
+    padding: 20px 0;
+    position: fixed;
+    width: 250px;
+}
+
+.sidebar-header {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-link {
+    color: var(--white);
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 0;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.sidebar .bi {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 30px;
+    background-color: var(--light-gray);
+    min-height: calc(100vh - 80px);
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+}
+
+/* Tables */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-bottom: none;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    transition: all 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(63, 187, 192, 0.1);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #36989c;
+    border-color: #36989c;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Badges */
+.badge {
+    padding: 6px 10px;
+    font-weight: 500;
+}
+
+.badge.bg-success {
+    background-color: var(--primary-color) !important;
+}
+
+/* Modal */
+.modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Tabs */
+.nav-tabs .nav-link {
+    color: var(--dark-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 220px;
+    }
+    
+    .main-content {
+        margin-left: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        min-height: auto;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    #header h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* DataTables Custom */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: var(--primary-color);
+    color: white !important;
+    border: 1px solid var(--primary-color);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: var(--dark-color);
+    color: white !important;
+    border: 1px solid var(--dark-color);
+}

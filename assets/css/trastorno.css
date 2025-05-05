@@ -1,0 +1,276 @@
+/* Variables de color */
+:root {
+    --primary-color: #3fbbc0;
+    --secondary-color: #65c9cd;
+    --dark-color: #1f3e5c;
+    --light-color: #f6f9fe;
+    --text-color: #444;
+    --white: #fff;
+}
+
+/* Hero Section */
+.hero-trastornos {
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(31, 62, 92, 0.7), rgba(31, 62, 92, 0.7)), url('../assets/img/trastornos-hero.jpg') center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.hero-trastornos h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-trastornos h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Introducción Section */
+.introduccion-section {
+    padding: 80px 0;
+}
+
+.intro-image img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.intro-image img:hover {
+    transform: scale(1.02);
+}
+
+.intro-content {
+    padding: 20px;
+}
+
+.intro-content h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Section Header */
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.divider {
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 15px auto;
+}
+
+/* Trastorno Categories */
+.trastorno-category {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.category-header i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+}
+
+.category-header h3 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin-bottom: 0;
+}
+
+.trastorno-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.trastorno-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    position: relative;
+    padding-left: 25px;
+}
+
+.trastorno-list li:last-child {
+    border-bottom: none;
+}
+
+.trastorno-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 17px;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Trastorno Cards */
+.trastorno-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 25px;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.trastorno-card:hover {
+    transform: translateY(-10px);
+}
+
+.trastorno-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.trastorno-card h4 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.trastorno-card ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.trastorno-card li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.trastorno-card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Importancia Section */
+.importancia-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.consecuencia-box {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.consecuencia-box i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.consecuencia-box p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 0;
+    color: var(--white);
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-trastornos {
+        height: 50vh;
+    }
+    
+    .hero-trastornos h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-trastornos h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-trastornos {
+        height: 40vh;
+    }
+    
+    .hero-trastornos h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-trastornos h2 {
+        font-size: 1.1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .intro-image {
+        margin-bottom: 30px;
+    }
+}

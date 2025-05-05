@@ -1,56 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/Styles.css">
+    <title>Memoria Alimentos | FonoAudioTest</title>
     
-    <title>Document</title>
+    <!-- Favicon -->
+    <link href="/assets/img/logo-copia.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/memoria/Juego_Memoria_Alimentos/css/Styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/memoria/Juego_Memoria_Alimentos/img/">
 </head>
+
 <body>
-    <main>
-        <section class="section1">
-        <h1>MEMORIA ALIMENTOS</h1>
-        <table>
-            <tr>
-                <td><button id="0" onclick="destapar(0)"></button></td>
-                <td><button id="1" onclick="destapar(1)"></button></td>
-                <td><button id="2" onclick="destapar(2)"></button></td>
-                <td><button id="3" onclick="destapar(3)"></button></td>
-            </tr>
-            <tr>
-                <td><button id="4" onclick="destapar(4)"></button></td>
-                <td><button id="5" onclick="destapar(5)"></button></td>
-                <td><button id="6" onclick="destapar(6)"></button></td>
-                <td><button id="7" onclick="destapar(7)"></button></td>
-            </tr>
-            <tr>
-                <td><button id="8" onclick="destapar(8)"></button></td>
-                <td><button id="9" onclick="destapar(9)"></button></td>
-                <td><button id="10" onclick="destapar(10)"></button></td>
-                <td><button id="11" onclick="destapar(11)"></button></td>
-            </tr>
-            <tr>
-                <td><button id="12" onclick="destapar(12)"></button></td>
-                <td><button id="13" onclick="destapar(13)"></button></td>
-                <td><button id="14" onclick="destapar(14)"></button></td>
-                <td><button id="15" onclick="destapar(15)"></button></td>
-            </tr>
-        </table>
-        </section>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <a href="/index.html" class="logo me-auto">
+                <img src="/assets/img/logo - copia.png" alt="Logo FonoAudioTest">
+            </a>
+            <h1 class="me-auto">FonoAudioTest</h1>
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li><a class="nav-link" href="../paginas/nosotros.html">Nosotros</a></li>
+                    <li><a class="nav-link" href="../paginas/servicios.html">Servicios</a></li>
+                    <li><a class="nav-link" href="../paginas/materiales.html">Materiales</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Conocimiento</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../paginas/Fonoaudiologia.html">¿Qué es fonoaudiología?</a></li>
+                            <li><a href="../paginas/Transtornos.html">Trastornos Infantiles más comunes</a></li>
+                            <li><a href="../paginas/Hitos.html">Hitos del desarrollo en infancia</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header>
 
-        <section class="section2">
-            <h2 id="Aciertos" class="estadisticas">Aciertos:0</h2>
-            <h2 id="Tiempo" class="estadisticas">Tiempo:60 segundos</h2>
-            <h2 id="Movimientos" class="estadisticas">Movimientos:0</h2>
-        </section>
+    <!-- ======= Main Content ======= -->
+    <main id="main" class="food-memory-container">
+        <section class="container py-5">
+            <div class="section-title text-center mb-5">
+                <h1>MEMORIA ALIMENTOS</h1>
+                <p>Encuentra los pares de alimentos iguales</p>
+            </div>
 
-        
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="game-board">
+                        <div class="memory-grid">
+                            <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="game-stats">
+                        <div class="stat-card mb-3">
+                            <h3 id="Aciertos" class="stat-title">Aciertos: <span class="stat-value">0</span></h3>
+                        </div>
+                        <div class="stat-card mb-3">
+                            <h3 id="Tiempo" class="stat-title">Tiempo: <span class="stat-value">60</span> segundos</h3>
+                        </div>
+                        <div class="stat-card mb-3">
+                            <h3 id="Movimientos" class="stat-title">Movimientos: <span class="stat-value">0</span></h3>
+                        </div>
+                        <button id="restart-btn" class="btn btn-primary w-100 mt-3">
+                            <i class="fas fa-redo me-2"></i>Reiniciar Juego
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>Juego programado por 👉 FonoAudioTest👩‍⚕️</p>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="text-center py-3">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>FonoAudioTest</span></strong>. Todos los derechos reservados
+            </div>
+            <p class="mb-0">Juego programado por 👉 FonoAudioTest👩‍⚕️</p>
+        </div>
     </footer>
+
+    <!-- Vendor JS Files -->
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Main JS File -->
     <script src="js/main.js"></script>
 </body>
 </html>

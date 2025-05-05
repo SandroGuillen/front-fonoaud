@@ -1,0 +1,240 @@
+/* Variables de color */
+:root {
+    --primary-color: #3fbbc0;
+    --secondary-color: #65c9cd;
+    --dark-color: #1f3e5c;
+    --light-color: #f6f9fe;
+    --text-color: #444;
+    --white: #fff;
+}
+
+/* Hero Section */
+.hero-fono {
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(31, 62, 92, 0.7), rgba(31, 62, 92, 0.7)), url('../assets/img/fono-hero.jpg') center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.hero-fono h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-fono h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Definición Section */
+.definicion-section {
+    padding: 80px 0;
+}
+
+.definicion-img img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.definicion-img img:hover {
+    transform: scale(1.02);
+}
+
+.definicion-content {
+    padding: 20px;
+}
+
+.definicion-content h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.definicion-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Section Header */
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.divider {
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 15px auto;
+}
+
+/* Objetivos Section */
+.objetivos-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.objetivo-card {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.objetivo-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-right: 30px;
+    flex-shrink: 0;
+}
+
+.objetivo-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Motivos Consulta Section */
+.motivos-section {
+    padding: 80px 0;
+}
+
+.motivo-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.motivo-card:hover {
+    transform: translateY(-10px);
+}
+
+.motivo-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.motivo-card h4 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.motivo-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.motivo-card li {
+    padding: 5px 0;
+    position: relative;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 0;
+    background: linear-gradient(rgba(63, 187, 192, 0.9), rgba(63, 187, 192, 0.9)), url('../assets/img/cta-bg.jpg') center center;
+    background-size: cover;
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-section h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-fono {
+        height: 50vh;
+    }
+    
+    .hero-fono h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-fono h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .objetivo-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .objetivo-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-fono {
+        height: 40vh;
+    }
+    
+    .hero-fono h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-fono h2 {
+        font-size: 1.1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .definicion-img {
+        margin-bottom: 30px;
+    }
+}

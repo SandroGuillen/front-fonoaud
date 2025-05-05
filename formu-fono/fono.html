@@ -11,31 +11,63 @@
       href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/assets/img/logo - copia.png">
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <link href="/assets/vendor/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet"/>
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"  rel="stylesheet"/>
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/formu-fono/estilo.css" />
+    <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body class="bg-light">
-    <!-- Header con botón de sidebar -->
-    <header
-      class="dashboard-header d-flex justify-content-between align-items-center"
-    >
-      <div class="d-flex align-items-center">
-        <button class="btn btn-outline-light me-3" id="sidebarToggle">
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <!-- Botón para abrir/cerrar el sidebar (ícono de menú) -->
+        <button class="btn btn-link text-white me-2" id="sidebarToggle">
           <i class="bi bi-list"></i>
         </button>
-        <h1 class="h4 mb-0">FonoAudioTest</h1>
+    
+        <!-- Logo -->
+        <a href="../index.html" class="logo me-auto">
+          <img src="../assets/img/logo-copia.png" alt="" />
+        </a>
+        
+        <h1>FonoAudioTest</h1>
+    
+        <!-- Navbar (menú principal) -->
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="../index.html">Inicio</a>
+            </li>
+            <li class="dropdown">
+              <a href="/datosFono/datos-fono.html"><span>Mi Perfil</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a class="nav-link scrollto active" href="#">Datos Personales</a></li>
+                <li><a class="nav-link scrollto" href="#">Experiencia Laboral</a></li>
+                <li><a class="nav-link scrollto" href="#">Formación Académica</a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/formu-fono/fono.html">Pacientes</a>
+            </li>
+            <li>
+              <a href="../Login/index.html">
+                <img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión
+              </a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
       </div>
-      <nav class="d-none d-md-block">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">
-              <i class="bi bi-person-circle me-1"></i>Mi Perfil
-            </a>
-          </li>
-        </ul>
-      </nav>
     </header>
-
-    <!-- Sidebar -->
+    
+    <!-- Sidebar (fuera del header, pero en el mismo nivel) -->
     <div class="sidebar" id="sidebarMenu">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
@@ -67,6 +99,9 @@
         </ul>
       </div>
     </div>
+    <!-- End Header -->
+
+    
 
     <!-- Main Content -->
     <main id="main" class="main-content">
@@ -89,9 +124,11 @@
               <div class="card-header bg-primary text-white">
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Gestión de Pacientes</span>
+                  <a href="/agendar-cita/agendarcita.html">
                   <button id="btn-nuevo" class="btn btn-sm btn-light">
-                    <i class="bi bi-plus-circle"></i> Nuevo
+                    <i class="bi bi-plus-circle"></i> Agendar Cita
                   </button>
+                  </a>
                 </div>
               </div>
               <div class="card-body">
@@ -187,7 +224,39 @@
         </div>
       </div>
     </main>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
 
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>FonoAduioTest</h3>
+              <p>
+
+                <strong>Phone:</strong> +57 321 4568907<br>
+                <strong>Email:</strong> fonoaudiotest@gmail.com<br>
+              </p>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
     <!-- Bootstrap Bundle JS -->
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Tu archivo JS -->

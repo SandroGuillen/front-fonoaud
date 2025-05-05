@@ -1,0 +1,290 @@
+/* Variables de color */
+:root {
+    --primary-color: #3fbbc0;
+    --secondary-color: #65c9cd;
+    --dark-color: #1f3e5c;
+    --light-color: #f6f9fe;
+    --text-color: #444;
+    --white: #fff;
+}
+
+/* Hero Section */
+.hero-autocuidado {
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(31, 62, 92, 0.7), rgba(31, 62, 92, 0.7)), url('../assets/img/cuidado.jpg') center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.hero-autocuidado h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-autocuidado h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Blocks */
+.section-block {
+    margin-bottom: 50px;
+}
+
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 15px 0;
+}
+
+/* Intro Section */
+.intro-image img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.intro-image img:hover {
+    transform: scale(1.02);
+}
+
+.intro-content {
+    padding: 20px;
+}
+
+.intro-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Benefit Cards */
+.benefit-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.benefit-card h5 {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Key Points List */
+.key-point-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.key-point-list li {
+    padding: 8px 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 30px;
+}
+
+.key-point-list i {
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-size: 1.1rem;
+}
+
+/* Benefit Boxes */
+.benefit-box {
+    text-align: center;
+    padding: 25px 15px;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.benefit-box i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.benefit-box h5 {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.benefit-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Activity Steps */
+.activity-steps {
+    margin-top: 30px;
+}
+
+.step {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.step-number {
+    background: var(--primary-color);
+    color: var(--white);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-content p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* Routine Accordion */
+.routine-accordion .accordion-button {
+    font-weight: 500;
+    padding: 15px 20px;
+    background-color: rgba(63, 187, 192, 0.1);
+}
+
+.routine-accordion .accordion-button:not(.collapsed) {
+    background-color: rgba(63, 187, 192, 0.2);
+    color: var(--dark-color);
+}
+
+.routine-accordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(63, 187, 192, 0.2);
+}
+
+.routine-accordion .accordion-body {
+    padding: 20px;
+}
+
+.routine-accordion .accordion-body p {
+    margin-bottom: 10px;
+}
+
+.routine-accordion .accordion-body ul {
+    padding-left: 20px;
+}
+
+.routine-accordion .accordion-body li {
+    margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-autocuidado {
+        height: 50vh;
+    }
+    
+    .hero-autocuidado h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-autocuidado h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-autocuidado {
+        height: 40vh;
+    }
+    
+    .hero-autocuidado h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-autocuidado h2 {
+        font-size: 1.1rem;
+    }
+    
+    .section-header h3 {
+        font-size: 1.4rem;
+    }
+    
+    .intro-image {
+        margin-bottom: 30px;
+    }
+    
+    .key-point-list {
+        margin-bottom: 20px;
+    }
+}

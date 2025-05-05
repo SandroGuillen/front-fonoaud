@@ -1,179 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
+<html lang="es">
+<head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  
-    <title>FonoAduioTest</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es Fonoaudiología? - FonoAudioTest</title>
+    <meta name="description" content="Información profesional sobre la fonoaudiología, sus áreas de intervención y motivos de consulta más comunes">
+    <meta name="keywords" content="fonoaudiología, logopedia, trastornos del habla, terapia del lenguaje, comunicación humana">
+
     <!-- Favicons -->
-    <link href="../assets/img/logo - copia.png" rel="icon">
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  
+    <link href="/assets/img/logo-copia.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="/fonoaudiologia/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="/fonoaudiologia/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="/proyectoBootstrap/fonoaudiologia/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/fonoaudiologia/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/fonoaudiologia/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/fonoaudiologia/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/fonoaudiologia/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/fonoaudiologia/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  
-    <!-- Template Main CSS File -->
-    <link href="/fonoaudiologia/assets/css/style.css" rel="stylesheet">
-  
-    <!-- =======================================================
-    * Template Name: Medicio - v4.9.1
-    * Template URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
-  </head>
+    <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <!-- Page Specific CSS -->
+    <link href="/assets/css/fonoaudiologia.css" rel="stylesheet">
+</head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-      <a href="index.html" class="logo me-auto"><img src="../assets/img/logo - copia.png" alt=""></a>
-      <h1>FonoAudioTest</h1>
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto " href="/fonoaudiologia/index.html">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="../paginas/nosotros.html">Nosotros</a></li>
-          <li><a class="nav-link scrollto" href="../paginas/servicios.html">Servicios</a></li>
-          <li><a class="nav-link scrollto" href="../paginas/materiales.html">Materiales</a></li>
-          <li class="dropdown"><a href="#"><span>Conocimiento</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-                <li><a href="../paginas/Fonoaudiologia.html">¿Qué es fonoaudiología?</a></li>
-                <li><a href="../paginas/Transtornos.html">Trastornos Infantiles mas comunes</a></li>
-                <li><a href="../paginas/Hitos.html">Hitos del desarrollo en infancia</a></li>
-            </ul>
-          </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-    </div>
-  </header><!-- End Header -->
-
-  <main id="main">
-
-
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>¿Qué es fonoaudiología?</h2>
-    
-          <img src="../assets/img/img2.jpg" class="rounded" alt="Cinque Terre" width="300" height="239"> 
-
-          <section class="Informacion"> 
-            La fonoaudiología es una disciplina profesional relacionada con la salud, la psicología y la lingüística aplicada.
-            Es responsable de la investigación, prevención, evaluación, diagnóstico y tratamiento de los procesos normales y 
-            anormales en la comunicación humana y opera en cinco áreas principales: lenguaje oral y escrito, habla, sonido,
-            audición y función. Orofaringe (deglución) en cualquier etapa del ciclo vital humano, desde lactantes hasta ancianos.
-            <br>
-            <br>
-            Las bases para el desarrollo del lenguaje se sientan en los primeros 6 años de vida, por lo que es durante este tiempo
-            cuando comienzan a manifestarse la mayoría de los trastornos del habla y el lenguaje. Es por ello que la mayoría de las
-            veces los niños acuden al consultorio de un logopeda, pues es muy importante tratar y tratar a tiempo estos problemas 
-            para lograr una solución eficaz y evitar las condiciones antes mencionadas que afectan negativamente el proceso de comunicación.
-            y desarrollo psicosocial.
-            <br>
-            <br>
-            <br>
-            <h4><b>OBJETIVO DE LA FONOAUDILOGÍA </b></h4>
-            El objetivo principal de la fonoaudiología es restaurar la función alterada tanto como sea posible mientras confía en la función
-            preservada para proporcionar a los pacientes nuevas estrategias para usar sus habilidades que les servirán bien en el futuro.
-            En el futuro, interactuar adecuadamente con los demás en todas las actividades de la vida diaria.
-            <br>
-            <br>
-            <br>
-            <h4><b>MOTIVO DE CONSULTA FONOAUDÍOLOGICA</b></h4>
-            Los problemas más importantes que un logopeda puede ayudar a resolver son:
-            <br>
-            <br>
-            <b> • Dificultades y cambios en la producción de la voz:</b>afonía y disfonía
-            <br>
-            <b>• Adquisición del lenguaje:</b>retrasos y trastornos del habla
-            <br>
-            <b>• Expresión oral y pronunciación:</b>disartria, habla y habla
-            <br>
-            <b>• Leer y escribir:</b>dislexia y disgrafía
-            <br>
-            <b>• Pérdida del lenguaje expresivo e integrado:</b>afasia
-            <br>
-            <b>• Fluidez del habla:</b>tartamudeo
-            <br>
-            <b>• Disfagia:</b>disfagia, deglución atípica.
-
-          </section>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <a href="../index.html" class="logo me-auto">
+                <img src="../assets/img/logo - copia.png" alt="Logo FonoAudioTest">
+            </a>
+            <h1>FonoAudioTest</h1>
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li><a class="nav-link" href="../paginas/nosotros.html">Nosotros</a></li>
+                    <li><a class="nav-link" href="../paginas/servicios.html">Servicios</a></li>
+                    <li><a class="nav-link" href="../paginas/materiales.html">Materiales</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Conocimiento</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="../paginas/Fonoaudiologia.html">¿Qué es fonoaudiología?</a></li>
+                            <li><a href="../paginas/Transtornos.html">Trastornos Infantiles más comunes</a></li>
+                            <li><a href="../paginas/Hitos.html">Hitos del desarrollo en infancia</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
         </div>
+    </header>
 
-        
-      </div>
-    </section><!-- End Testimonials Section -->
+    <main id="main">
+        <!-- ======= Definición Section ======= -->
+        <section id="definicion" class="definicion-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="definicion-img">
+                            <img src="/assets/img/img2.jpg" alt="Fonoaudiología" class="img-fluid rounded shadow">
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="definicion-content">
+                            <h3>Definición de Fonoaudiología</h3>
+                            <p>La fonoaudiología es una disciplina profesional relacionada con la salud, la psicología y la lingüística aplicada. Es responsable de la investigación, prevención, evaluación, diagnóstico y tratamiento de los procesos normales y anormales en la comunicación humana.</p>
+                            <div class="alert alert-primary">
+                                <i class="bi bi-lightbulb-fill me-2"></i> Opera en cinco áreas principales: lenguaje oral y escrito, habla, voz, audición y función orofaríngea (deglución) en cualquier etapa del ciclo vital humano.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- ======= Importancia Section ======= -->
+        <section id="importancia" class="importancia-section bg-light">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <h2 data-aos="fade-up">Importancia en la Infancia</h2>
+                    <div class="divider mx-auto" data-aos="fade-up" data-aos-delay="100"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                        <p>Las bases para el desarrollo del lenguaje se establecen en los primeros 6 años de vida, por lo que es durante este tiempo cuando comienzan a manifestarse la mayoría de los trastornos del habla y el lenguaje.</p>
+                        <p>Es fundamental detectar y tratar estos problemas a tiempo para lograr soluciones efectivas y evitar condiciones que afecten negativamente el proceso de comunicación y el desarrollo psicosocial del niño.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
- <!-- ======= Footer ======= -->
- <footer id="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div class="row">
+        <!-- ======= Objetivos Section ======= -->
+        <section id="objetivos" class="objetivos-section">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <h2 data-aos="fade-up">Objetivos de la Fonoaudiología</h2>
+                    <div class="divider mx-auto" data-aos="fade-up" data-aos-delay="100"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-10 mx-auto" data-aos="fade-up">
+                        <div class="objetivo-card">
+                            <div class="objetivo-icon">
+                                <i class="bi bi-bullseye"></i>
+                            </div>
+                            <div class="objetivo-content">
+                                <p>El objetivo principal es restaurar la función alterada tanto como sea posible mientras se aprovecha la función preservada, proporcionando a los pacientes nuevas estrategias para utilizar sus habilidades, lo que les permitirá interactuar adecuadamente con los demás en todas las actividades de la vida diaria.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="col-lg-3 col-md-6">
-          <div class="footer-info">
-            <h3>FonoAduioTest</h3>
-            <p>
+        <!-- ======= Motivos Consulta Section ======= -->
+        <section id="motivos" class="motivos-section bg-light">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <h2 data-aos="fade-up">Motivos de Consulta Fonoaudiológica</h2>
+                    <div class="divider mx-auto" data-aos="fade-up" data-aos-delay="100"></div>
+                    <p data-aos="fade-up" data-aos-delay="200">Los problemas más comunes que un fonoaudiólogo puede ayudar a resolver:</p>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Dificultades voz -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                        <div class="motivo-card">
+                            <div class="motivo-icon bg-primary">
+                                <i class="bi bi-mic-fill"></i>
+                            </div>
+                            <h4>Dificultades en la voz</h4>
+                            <ul>
+                                <li>Afonía</li>
+                                <li>Disfonía</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Adquisición lenguaje -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="motivo-card">
+                            <div class="motivo-icon bg-success">
+                                <i class="bi bi-chat-square-text-fill"></i>
+                            </div>
+                            <h4>Adquisición del lenguaje</h4>
+                            <ul>
+                                <li>Retrasos del habla</li>
+                                <li>Trastornos del lenguaje</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Expresión oral -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="motivo-card">
+                            <div class="motivo-icon bg-info">
+                                <i class="bi bi-chat-left-quote-fill"></i>
+                            </div>
+                            <h4>Expresión oral</h4>
+                            <ul>
+                                <li>Disartria</li>
+                                <li>Problemas de pronunciación</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Lectoescritura -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="motivo-card">
+                            <div class="motivo-icon bg-warning">
+                                <i class="bi bi-book-fill"></i>
+                            </div>
+                            <h4>Lectoescritura</h4>
+                            <ul>
+                                <li>Dislexia</li>
+                                <li>Disgrafía</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Pérdida lenguaje -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="motivo-card">
+                            <div class="motivo-icon bg-danger">
+                                <i class="bi bi-chat-left-text-fill"></i>
+                            </div>
+                            <h4>Pérdida del lenguaje</h4>
+                            <ul>
+                                <li>Afasia</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Otros problemas -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="motivo-card">
+                            <div class="motivo-icon bg-secondary">
+                                <i class="bi bi-heart-fill"></i>
+                            </div>
+                            <h4>Otros problemas</h4>
+                            <ul>
+                                <li>Tartamudeo</li>
+                                <li>Disfagia</li>
+                                <li>Deglución atípica</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-              <strong>Phone:</strong> +57 321 4568907<br>
-              <strong>Email:</strong> fonoaudiotest@gmail.com<br>
-            </p>
-            
-          </div>
+        <!-- ======= CTA Section ======= -->
+        <section id="cta" class="cta-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h3>¿Necesitas evaluación fonoaudiológica?</h3>
+                        <p>Si identificas alguno de estos problemas en ti o en tu hijo, no dudes en contactarnos para una evaluación profesional.</p>
+                        <a href="/paginas/servicios.html" class="btn btn-primary btn-lg mt-3">Conoce nuestros servicios</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-info">
+                            <h3>FonoAudioTest</h3>
+                            <p>
+                                <strong>Teléfono:</strong> +57 321 4568907<br>
+                                <strong>Email:</strong> fonoaudiotest@gmail.com<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-6 footer-newsletter">
-          <div class="social-links mt-3">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          </div>
-        </div>
+    </footer><!-- End Footer -->
 
-      </div>
-    </div>
-  </div>
+    <!-- Vendor JS Files -->
+    <script src="/assets/vendor/aos/aos.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS File -->
+    <script src="../assets/js/main.js"></script>
 
-</footer><!-- End Footer -->
-
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="../assets/vendor/aos/aos.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="../assets/js/main.js"></script>
-
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+    </script>
 </body>
-
 </html>

@@ -182,7 +182,7 @@ submitBtn.addEventListener('click', () => {
            `
            // Función que realiza el redireccionamiento
     function redireccionar() {
-        window.location.href = "./Login";
+        window.location.href = "/Login/login.html";
       }
   
       // Llamada a la función para redireccionar después de 5 segundos (5000 milisegundos)

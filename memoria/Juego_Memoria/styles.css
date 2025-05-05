@@ -1,62 +1,157 @@
-body{
-    background: rgb(74,72,112);
-    background: linear-gradient(90deg, rgba(74,72,112,1) 0%, rgba(90,211,236,1) 91%); 
-    font-family: sans-serif;
+/* Estilos generales */
+.memory-game-container {
+    padding-top: 80px; /* Para compensar el header fixed */
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(74,72,112,1) 0%, rgba(90,211,236,1) 100%);
     color: white;
-}
-.container{
-    width: 100%;
-    align-items: center;
-}
-main{
-    width: 730px;
-    margin: 30px auto 40px;
-    display: flex;
-    align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 
-.section1{
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 0 10px 10px 10px;
-    border-radius: 8px;
+.section-title h1 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
-h1{
+.section-title{
+    background:linear-gradient(135deg, rgba(74,72,112,1) 0%, rgba(90,211,236,1) 100%);
+}
+
+/* Tablero de juego */
+.game-board {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 0 auto;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    background-color: transparent;
+    border-radius: 10px;
+    perspective: 1000px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    position: relative;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
     text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
 }
-button{
-    height: 100px;
-    width: 100px;
-    font-size: 40px;
-    color: rgb(248, 246, 246);
+
+.memory-card.revealed .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
     font-weight: bold;
 }
 
-button:hover{
-    cursor: pointer;
+.card-front {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-.section2{
+.card-back {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #4a4870;
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched .card-back {
+    background-color: rgba(46, 204, 113, 0.8);
+    color: white;
+}
+
+.memory-card:hover:not(.revealed):not(.matched) .card-front {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Estadísticas del juego */
+.game-stats {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.stat-card {
     background-color: rgba(255, 255, 255, 0.2);
-    width: 250px;
-    height: 400px;
-    padding: 0 10px 10px 10px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    padding: 0 20px;
-}
-
-.estadisticas{
-    border: 1px solid white;
-    height: 105px;
-    border-radius: 8px;
-    padding: 8px 20px;
-    box-sizing: border-box;
-}
-
-footer{
+    border-radius: 10px;
+    padding: 15px;
     text-align: center;
 }
 
-a{
-    text-decoration: none;
+.stat-title {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: #ffeb3b;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: rgba(74, 72, 112, 0.8);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: rgba(74, 72, 112, 1);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+#footer {
+    background-color: rgba(74, 72, 112, 0.8);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .memory-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .card-front, .card-back {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .memory-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    
+    .game-stats {
+        margin-top: 20px;
+    }
 }

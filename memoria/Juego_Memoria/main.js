@@ -1,112 +1,196 @@
-//Inicializacion de variables
-let tarjetasDestapadas =0;
-let tarjeta1 = null;
-let tarjeta2 = null;
-let primerResultado=null;
-let SegundoResultado=null;
-let Movimientos=0;
-let Aciertos=0;
-let Tiempo=false;
-let timer =40;
-let TiempoInicial =timer;
-let TiempoRegrecivoId = null;
-
-let clickAudio = new Audio('./mp3/click.mp3');
-let correctoAudio = new Audio('./mp3/correcto.mp3');
-let perderAudio = new Audio('./mp3/perder.mp3');
-let ganarAudio = new Audio('./mp3/ganar.mp3');
-let incorrectoAudio = new Audio('./mp3/incorrecto.mp3');
-
-//Apuntado a documento HTML
-let mostrarMovimientos = document.getElementById('Movimientos');
-let mostrarAciertos = document.getElementById('Aciertos');
-let mostrarTiempo = document.getElementById('Tiempo');
-
-//Generacion de numeros Aleatorios
-let numeros =[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-numeros =numeros.sort(()=> {return Math.random()-0.5})
-console.log(numeros);
-
-//Funciones
-function contarTiempo(){
-    TiempoRegrecivoId= setInterval(()=>{
- timer--;
- mostrarTiempo.innerHTML = `Tiempo:${timer} segundos`;
- if(timer==0){
-  clearInterval(TiempoRegrecivoId);
-  bloquearTjetas();
-  perderAudio.play();
- }
-    },1000);
-}
-
-function bloquearTjetas(){
-    for(let i=0; i<=15; i++){
-        let tarjetaBloqueada = document.getElementById(i);
-        tarjetaBloqueada.innerHTML = numeros[i];
-        tarjetaBloqueada.disabled = true;
+document.addEventListener('DOMContentLoaded', function() {
+    // Variables del juego
+    let cardsRevealed = 0;
+    let firstCard = null;
+    let secondCard = null;
+    let firstValue = null;
+    let secondValue = null;
+    let moves = 0;
+    let matches = 0;
+    let timerOn = false;
+    let timeLeft = 40;
+    let countdown = null;
+    let gameActive = true;
+    
+    // Elementos del DOM
+    const movesDisplay = document.getElementById('Movimientos');
+    const matchesDisplay = document.getElementById('Aciertos');
+    const timerDisplay = document.getElementById('Tiempo');
+    const memoryGrid = document.querySelector('.memory-grid');
+    const restartBtn = document.getElementById('restart-btn');
+    
+    // Sonidos
+    const sounds = {
+        click: new Audio('./mp3/click.mp3'),
+        correct: new Audio('./mp3/correcto.mp3'),
+        wrong: new Audio('./mp3/incorrecto.mp3'),
+        lose: new Audio('./mp3/perder.mp3'),
+        win: new Audio('./mp3/ganar.mp3')
+    };
+    
+    // Números para el juego (8 pares)
+    const numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+    
+    // Inicializar el juego
+    function initGame() {
+        // Resetear variables
+        cardsRevealed = 0;
+        firstCard = null;
+        secondCard = null;
+        firstValue = null;
+        secondValue = null;
+        moves = 0;
+        matches = 0;
+        timeLeft = 40;
+        timerOn = false;
+        gameActive = true;
+        
+        // Limpiar intervalos previos
+        if (countdown) {
+            clearInterval(countdown);
+        }
+        
+        // Actualizar displays
+        updateDisplays();
+        
+        // Mezclar números
+        const shuffledNumbers = [...numbers].sort(() => Math.random() - 0.5);
+        
+        // Limpiar el tablero
+        memoryGrid.innerHTML = '';
+        
+        // Crear las tarjetas
+        shuffledNumbers.forEach((number, index) => {
+            const card = document.createElement('button');
+            card.className = 'memory-card';
+            card.dataset.value = number;
+            card.dataset.index = index;
+            
+            // Contenedor para el contenido de la tarjeta (frente y reverso)
+            card.innerHTML = `
+                <div class="card-inner">
+                    <div class="card-front"></div>
+                    <div class="card-back">${number}</div>
+                </div>
+            `;
+            
+            card.addEventListener('click', () => revealCard(card));
+            memoryGrid.appendChild(card);
+        });
     }
+    
+    // Revelar una tarjeta
+    function revealCard(card) {
+        if (!gameActive || card === firstCard || card.classList.contains('revealed')) return;
+        
+        // Iniciar temporizador en el primer click
+        if (!timerOn) {
+            startTimer();
+            timerOn = true;
+        }
+        
+        // Mostrar la tarjeta
+        card.classList.add('revealed');
+        sounds.click.play();
+        
+        // Registrar la tarjeta clickeada
+        if (cardsRevealed === 0) {
+            firstCard = card;
+            firstValue = card.dataset.value;
+            cardsRevealed = 1;
+        } else {
+            secondCard = card;
+            secondValue = card.dataset.value;
+            cardsRevealed = 2;
+            moves++;
+            updateDisplays();
+            checkMatch();
+        }
     }
-
-
-//funcion principal
-function destapar(id){
-if(Tiempo==false){
-    contarTiempo();
-    Tiempo = true;
-}
-
-tarjetasDestapadas++;
-console.log(tarjetasDestapadas);
-
-if(tarjetasDestapadas==1){
-    //mostrar primer numero
-tarjeta1=document.getElementById(id);
-primerResultado = numeros[id];
-tarjeta1.innerHTML = primerResultado;
-clickAudio.play();
-
-//Deshabilitar primer boton
-tarjeta1.disabled = true;
-}else if(tarjetasDestapadas==2){
-    //mostrar Segundo numero
-    tarjeta2 = document.getElementById(id);
-    SegundoResultado = numeros[id];
-    tarjeta2.innerHTML = SegundoResultado;
-
-    //Deshabilitar segundo boton
-    tarjeta2.disabled = true;
-
-    //Incrementar movimiento
-    Movimientos++;
-    mostrarMovimientos.innerHTML = `Movimientos:${Movimientos}`;
-
-    if(primerResultado==SegundoResultado){
-        //Encerar contador tarjetas destapadas
-        tarjetasDestapadas=0;
-        correctoAudio.play();
-
-        //Aumentar aciertos
-     Aciertos++;
-     mostrarAciertos.innerHTML = `Aciertos:${Aciertos}`;
-
-     if(Aciertos==8){
-        ganarAudio.play();
-        clearInterval(TiempoRegrecivoId);
-        mostrarAciertos.innerHTML =`Aciertos:${Aciertos}🤗`;
-        mostrarTiempo.innerHTML =`Demoraste ${TiempoInicial - timer} segundos 😋`;
-        mostrarMovimientos.innerHTML=`Movimientos:${Movimientos}😎`;
-     }
-    }else{
-        incorrectoAudio.play();
-       //Mostrar momentaniamente valores y valoes a tapar
-       setTimeout(()=>{
-        tarjeta1.innerHTML= ``;
-        tarjeta2.innerHTML= ``;
-        tarjeta1.disabled=false;
-        tarjeta2.disabled=false;
-        tarjetasDestapadas = 0;
-       },700) 
+    
+    // Verificar si hay coincidencia
+    function checkMatch() {
+        if (firstValue === secondValue) {
+            // Coincidencia
+            sounds.correct.play();
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            matches++;
+            updateDisplays();
+            
+            // Verificar si ganó
+            if (matches === 8) {
+                gameWon();
+            }
+            
+            resetTurn();
+        } else {
+            // No coincidencia
+            sounds.wrong.play();
+            setTimeout(() => {
+                firstCard.classList.remove('revealed');
+                secondCard.classList.remove('revealed');
+                resetTurn();
+            }, 700);
+        }
     }
-}
-}
+    
+    // Resetear turno
+    function resetTurn() {
+        cardsRevealed = 0;
+        firstCard = null;
+        secondCard = null;
+        firstValue = null;
+        secondValue = null;
+    }
+    
+    // Iniciar temporizador
+    function startTimer() {
+        countdown = setInterval(() => {
+            timeLeft--;
+            updateDisplays();
+            
+            if (timeLeft <= 0) {
+                gameOver();
+            }
+        }, 1000);
+    }
+    
+    // Actualizar displays
+    function updateDisplays() {
+        movesDisplay.querySelector('.stat-value').textContent = moves;
+        matchesDisplay.querySelector('.stat-value').textContent = matches;
+        timerDisplay.querySelector('.stat-value').textContent = timeLeft;
+    }
+    
+    // Juego ganado
+    function gameWon() {
+        gameActive = false;
+        clearInterval(countdown);
+        sounds.win.play();
+        
+        // Mostrar mensaje de victoria
+        matchesDisplay.innerHTML = `Aciertos: <span class="stat-value">${matches} 🤗</span>`;
+        timerDisplay.innerHTML = `Tiempo: <span class="stat-value">${40 - timeLeft}</span> segundos 😋`;
+        movesDisplay.innerHTML = `Movimientos: <span class="stat-value">${moves}</span> 😎`;
+    }
+    
+    // Juego perdido
+    function gameOver() {
+        gameActive = false;
+        clearInterval(countdown);
+        sounds.lose.play();
+        
+        // Mostrar todas las tarjetas
+        const cards = document.querySelectorAll('.memory-card');
+        cards.forEach(card => {
+            card.classList.add('revealed');
+        });
+    }
+    
+    // Evento para reiniciar el juego
+    restartBtn.addEventListener('click', initGame);
+    
+    // Iniciar el juego al cargar la página
+    initGame();
+});

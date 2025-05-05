@@ -1,0 +1,221 @@
+/* Variables de color */
+:root {
+    --primary-color: #3fbbc0;
+    --secondary-color: #65c9cd;
+    --dark-color: #1f3e5c;
+    --light-color: #f6f9fe;
+    --text-color: #444;
+    --white: #fff;
+}
+
+/* Hero Section */
+.hero-doctores {
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(31, 62, 92, 0.7), rgba(31, 62, 92, 0.7)), url('../assets/img/doctors-hero.jpg') center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.hero-doctores h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-doctores h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Header */
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.divider {
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 15px auto;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Doctor Cards */
+.doctor-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.doctor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.doctor-img img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.doctor-card:hover .doctor-img img {
+    transform: scale(1.05);
+}
+
+.doctor-social {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    background: rgba(63, 187, 192, 0.8);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.doctor-card:hover .doctor-social {
+    bottom: 0;
+}
+
+.doctor-social a {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.doctor-social a:hover {
+    color: var(--dark-color);
+}
+
+.doctor-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.doctor-info h4 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.doctor-info span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.btn-appointment {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-appointment:hover {
+    background: var(--dark-color);
+    color: var(--white);
+}
+
+/* CTA Section */
+.cta-doctores {
+    padding: 80px 0;
+    background: linear-gradient(rgba(63, 187, 192, 0.9), rgba(63, 187, 192, 0.9)), url('../assets/img/cta-doctores.jpg') center center;
+    background-size: cover;
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-doctores h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cta-doctores p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-doctores {
+        height: 50vh;
+    }
+    
+    .hero-doctores h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-doctores h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-doctores {
+        height: 40vh;
+    }
+    
+    .hero-doctores h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-doctores h2 {
+        font-size: 1.1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .doctor-card {
+        margin-bottom: 30px;
+    }
+}
