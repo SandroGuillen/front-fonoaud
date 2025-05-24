@@ -1,9 +1,12 @@
 const BASE_URL = "http://localhost:3000";
 
+const user = {};
+
 const request = {
-  async get(url) {
+  async get(url, query = {}) {
+    const queryString = new URLSearchParams(query).toString();
     return await (
-      await fetch(`${BASE_URL}${url}`, {
+      await fetch(`${BASE_URL}${url}?${queryString}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

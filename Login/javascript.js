@@ -75,6 +75,17 @@ loginButton.addEventListener("click", async () => {
 
   try {
     const response = await request.post("/sign-in", { username, password });
+    if (response.status === 200) {
+      user = response.user;
+
+      if (user.role === "admin") {
+        window.location.href = "/administrador/administrador.html";
+      } else if (user.role === "fono") {
+        window.location.href = "/formu-fono/fono.html";
+      } else {
+        window.location.href = "/index.html";
+      }
+    }
   } catch (error) {
     console.log(error);
   }

@@ -53,10 +53,14 @@ registerButton.addEventListener("click", async () => {
     const persona = await request.post("/personas/registrar-persona", userData);
 
     if (!persona || !persona._id) {
-      throw new Error(
-        "No se recibió respuesta válida del servidor al registrar persona"
-      );
+      console.log(persona);
     }
+
+    console.log(cedulaInput.value);
+
+    const paciente = await request.post("/pacientes", {
+      identificacion: parseInt(cedulaInput.value),
+    });
 
     // 2. Registrar usuario/auth
     const authData = {
