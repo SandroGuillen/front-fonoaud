@@ -17,7 +17,7 @@ function citaFila(cita) {
 
 async function obtenerCitas() {
   const query = {
-    idFonoaudiologo_FK: user.id,
+    idFonoaudiologo_FK: user.username,
   };
   const response = await request.get("/citas", query);
   console.log(response);

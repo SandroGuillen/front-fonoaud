@@ -1,44 +1,58 @@
 const BASE_URL = "http://localhost:3000";
 
-const user = {};
+let user = {};
 
 const request = {
   async get(url, query = {}) {
     const queryString = new URLSearchParams(query).toString();
-    return await (
-      await fetch(`${BASE_URL}${url}?${queryString}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-    ).json();
+    const response = await fetch(`${BASE_URL}${url}?${queryString}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return {
+      data: await response.json(),
+      status: response.status,
+    };
   },
   async post(url, data = {}) {
-    return await (
-      await fetch(`${BASE_URL}${url}`, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-    ).json();
+    const response = await fetch(`${BASE_URL}${url}`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return {
+      data: await response.json(),
+      status: response.status,
+    };
   },
   async put(url) {
-    return await fetch(`${BASE_URL}${url}`, {
+    const response = await fetch(`${BASE_URL}${url}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
     });
+    return {
+      data: await response.json(),
+      status: response.status,
+    };
   },
   async delete(url) {
-    return await fetch(`${BASE_URL}${url}`, {
+    const response = await fetch(`${BASE_URL}${url}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
+    return {
+      data: await response.json(),
+      status: response.status,
+    };
   },
 };

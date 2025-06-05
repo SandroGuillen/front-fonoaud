@@ -50,24 +50,25 @@ registerButton.addEventListener("click", async () => {
 
   try {
     // 1. Registrar persona
-    const persona = await request.post("/personas/registrar-persona", userData);
+    const response = await request.post("/personas", userData);
 
-    if (!persona || !persona._id) {
-      console.log(persona);
+    if (!response || !response.data) {
+      console.log(response);
     }
 
-    console.log(cedulaInput.value);
+    const identificacion = parseInt(cedulaInput.value);
 
     const paciente = await request.post("/pacientes", {
-      identificacion: parseInt(cedulaInput.value),
+      identificacion,
     });
 
     // 2. Registrar usuario/auth
     const authData = {
       username: userData.identificacion,
       contrasena: userData.contrasena,
+      idPersona_FK: response.data._id,
+      idPersona: identificacion,
       rol: "paciente",
-      idPersona_FK: persona._id,
     };
 
     const authResponse = await request.post("/auth/register", authData);
@@ -76,7 +77,7 @@ registerButton.addEventListener("click", async () => {
 
     // Redirigir al login después de 2 segundos
     setTimeout(() => {
-      window.location.href = "../../index.html";
+      window.location.href = "../index.html";
     }, 2000);
   } catch (error) {
     console.error("Error en el registro:", error);
