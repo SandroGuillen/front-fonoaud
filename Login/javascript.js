@@ -80,8 +80,9 @@ loginButton.addEventListener("click", async () => {
     });
 
     if (response.data) {
-      user = response.data;
-      console.log(user);
+      const user = response.data;
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log(user.nombre);
 
       if (user.rol == "admin") {
         window.location.href = "/administrador/administrador.html";

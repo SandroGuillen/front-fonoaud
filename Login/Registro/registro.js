@@ -28,9 +28,7 @@ registerButton.addEventListener("click", async () => {
 
   // Formatear fecha de nacimiento (DD/MM/YYYY)
   const fechaNacimiento = new Date(fechaNacimientoInput.value);
-  const formattedFechaNacimiento = `${fechaNacimiento.getDate()}/${
-    fechaNacimiento.getMonth() + 1
-  }/${fechaNacimiento.getFullYear()}`;
+  const formattedFechaNacimiento = fechaNacimiento.toISOString().split("T")[0];
 
   // Obtener valores del formulario
   const userData = {

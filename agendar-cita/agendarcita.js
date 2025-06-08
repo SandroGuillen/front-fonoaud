@@ -15,13 +15,16 @@ button.addEventListener("click", async (e) => {
   const motivo = motivoInput.value;
   const fechaCita = fechaCitaInput.value;
   const alergias = alergiasInput.value;
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  console.log(user);
 
   const data = {
     motivo,
     alergias,
     fechaCita,
     idPaciente_FK: parseInt(identificacion),
-    idFonoaudilogo_FK: user.identificacion,
+    idFonoaudiologo_FK: user.identificacion,
   };
 
   const response = await request.post("/citas", data);

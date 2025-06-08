@@ -3,10 +3,17 @@ let tableBody = document.getElementById("cuerpo-tabla");
 function citaFila(cita) {
   return `
   <tr>
-    <td>${cita.nombre}</td>
-    <td>${cita.edad}</td>
-    <td>${cita.telefono}</td>
-    <td>${cita.fecha}</td>
+    <td>${cita.paciente.nombre}</td>
+    <td>${
+      new Date().getFullYear() -
+      new Date(cita.paciente.fechaNacimiento).getFullYear()
+    }</td>
+    <td>${cita.paciente.telefono}</td>
+    <td>${new Date(cita.fechaCita).toLocaleDateString("es-ES", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    })}</td>
     <td>
       <button class="btn btn-sm btn-primary">Modificar</button>
       <button class="btn btn-sm btn-danger">Eliminar</button>
@@ -16,17 +23,20 @@ function citaFila(cita) {
 }
 
 async function obtenerCitas() {
+  const user = JSON.parse(localStorage.getItem("user"));
   const query = {
-    idFonoaudiologo_FK: user.username,
+    idFonoaudiologo_FK: user.identificacion,
   };
-  const response = await request.get("/citas", query);
+  const response = await request.get("/citas/all", query);
   console.log(response);
   if (response.status === 200) {
-    response.citas.forEach((cita) => {
+    response.data.data.forEach((cita) => {
       tableBody.innerHTML += citaFila(cita);
     });
   }
 }
+
+obtenerCitas();
 
 document.addEventListener("DOMContentLoaded", function () {
   // Mostrar fecha actual
@@ -36,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     month: "long",
     day: "numeric",
   };
+
   document.getElementById("fecha-hoy").textContent =
     new Date().toLocaleDateString("es-ES", options);
 
