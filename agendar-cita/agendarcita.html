@@ -2,37 +2,36 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-      name="viewport"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agendar Cita - FonoAudioTest</title>
-    <link rel="stylesheet" href="/assets/img/logo - copia.png" />
-
+    <!-- Favicons -->
+    <link href="../assets/img/logo-copia.png" rel="icon" />
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet"
     />
 
+    <!-- Vendor CSS Files -->
     <link
-      href="/assets/vendor/bootstrap/css/bootstrap-grid.min.css"
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
     <link
-      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      href="../assets/vendor/boxicons/css/boxicons.min.css"
       rel="stylesheet"
     />
 
-    <!-- Favicons -->
-    <link href="/assets/css/style.css" rel="stylesheet" />
-    <link href="/agendar-cita/agendarcita.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../agendar-cita/agendarcita.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center">
         <a href="../index.html" class="logo me-auto"
@@ -44,23 +43,10 @@
             <li>
               <a class="nav-link scrollto" href="../index.html">Inicio</a>
             </li>
-            <li class="dropdown">
-              <a href="#"
-                ><span>Mi Perfil</span> <i class="bi bi-chevron-down"></i
-              ></a>
-              <ul>
-                <li>
-                  <a class="nav-link scrollto active" href="#"
-                    >Datos Personales</a
-                  >
-                </li>
-                <li>
-                  <a class="nav-link scrollto" href="#">Experiencia Laboral</a>
-                </li>
-                <li>
-                  <a class="nav-link scrollto" href="#">Formación Académica</a>
-                </li>
-              </ul>
+            <li>
+              <a class="nav-link scrollto" href="/datosFono/datos-fono.html"
+                ><span>Mi Perfil</span>
+              </a>
             </li>
             <li>
               <a class="nav-link scrollto" href="/formu-fono/fono.html"
@@ -68,7 +54,7 @@
               >
             </li>
             <li>
-              <a href="../Login/index.html"
+              <a id="login-link" href="../Login/index.html"
                 ><img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión</a
               >
             </li>
@@ -78,81 +64,89 @@
       </div>
     </header>
     <!-- End Header -->
-    <div class="container">
-      <h1>Agendar Cita</h1>
-      <form id="citaForm">
-        <!-- Campo para buscar usuario existente -->
-        <div class="form-group">
-          <label for="buscarUsuario">¿Ya estás registrado?</label>
-          <input
-            type="text"
-            id="buscarUsuario"
-            placeholder="Ingresa tu número de documento"
-          />
-          <button type="button" id="btnBuscar">Buscar</button>
-        </div>
 
-        <!-- Datos del paciente -->
-        <div class="form-group">
-          <label for="documento">Número de documento*</label>
-          <input type="text" id="documento" name="documento" required />
-        </div>
+    <main id="main">
+      <div class="container">
+        <h1>Agendar Cita</h1>
+        <form id="citaForm">
+          <!-- Campo para buscar usuario existente -->
+          <div class="form-group">
+            <label for="buscarUsuario">¿Ya estás registrado?</label>
+            <div class="search-container">
+              <input
+                type="text"
+                id="buscarUsuario"
+                placeholder="Ingresa tu número de documento"
+              />
+              <button type="button" id="btnBuscar">Buscar</button>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label for="nombre">Nombre completo*</label>
-          <input type="text" id="nombre" name="nombre" required />
-        </div>
+          <!-- Datos del paciente -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="documento">Número de documento*</label>
+              <input type="text" id="documento" name="documento" required />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="nombre">Nombre completo*</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label for="fechaNacimiento">Fecha de nacimiento*</label>
-          <input
-            type="date"
-            id="fechaNacimiento"
-            name="fechaNacimiento"
-            required
-          />
-        </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="fechaNacimiento">Fecha de nacimiento*</label>
+              <input
+                type="date"
+                id="fechaNacimiento"
+                name="fechaNacimiento"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="telefono">Teléfono*</label>
+              <input type="tel" id="telefono" name="telefono" required />
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label for="telefono">Teléfono*</label>
-          <input type="tel" id="telefono" name="telefono" required />
-        </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico*</label>
+            <input type="email" id="email" name="email" required />
+          </div>
 
-        <div class="form-group">
-          <label for="email">Correo electrónico*</label>
-          <input type="email" id="email" name="email" required />
-        </div>
+          <!-- Información de la cita -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="motivo">Motivo de consulta*</label>
+              <select id="motivo" name="motivo" required>
+                <option value="">Seleccione...</option>
+                <option value="evaluacion">Evaluación inicial</option>
+                <option value="terapia">Terapia de lenguaje</option>
+                <option value="seguimiento">Seguimiento</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="fechaCita">Fecha y hora deseada*</label>
+              <input
+                type="datetime-local"
+                id="fechaCita"
+                name="fechaCita"
+                required
+              />
+            </div>
+          </div>
 
-        <!-- Información de la cita -->
-        <div class="form-group">
-          <label for="motivo">Motivo de consulta*</label>
-          <select id="motivo" name="motivo" required>
-            <option value="">Seleccione...</option>
-            <option value="evaluacion">Evaluación inicial</option>
-            <option value="terapia">Terapia de lenguaje</option>
-            <option value="seguimiento">Seguimiento</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="alergias">Alergias o condiciones especiales</label>
+            <textarea id="alergias" name="alergias" rows="3"></textarea>
+          </div>
 
-        <div class="form-group">
-          <label for="fechaCita">Fecha y hora deseada*</label>
-          <input
-            type="datetime-local"
-            id="fechaCita"
-            name="fechaCita"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="alergias">Alergias o condiciones especiales</label>
-          <textarea id="alergias" name="alergias" rows="3"></textarea>
-        </div>
-
-        <button type="submit" id="btnAgendar">Agendar Cita</button>
-      </form>
-    </div>
+          <button type="submit" id="btnAgendar">Agendar Cita</button>
+        </form>
+      </div>
+    </main>
   </body>
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -183,8 +177,9 @@
     </div>
   </footer>
   <!-- End Footer -->
-
+  <!-- JS Files -->
   <script src="../assets/js/request.js"></script>
   <script src="../assets/js/main.js"></script>
   <script src="agendarcita.js"></script>
+  <script src="/config.js"></script>
 </html>

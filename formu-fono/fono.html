@@ -3,33 +3,18 @@
   <head>
     <!-- Meta tags y Bootstrap CSS -->
     <link
-      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"  rel="stylesheet" />
     <!-- Iconos de Bootstrap Icons -->
-    <link
-      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/img/logo - copia.png" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet" />
 
-    <link
-      href="/assets/vendor/bootstrap/css/bootstrap-grid.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link
-      href="/assets/vendor/boxicons/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <link  href="/assets/vendor/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link  href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"  />
     <link rel="stylesheet" href="/formu-fono/estilo.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
@@ -54,23 +39,8 @@
             <li>
               <a class="nav-link scrollto" href="../index.html">Inicio</a>
             </li>
-            <li class="dropdown">
-              <a href="/datosFono/datos-fono.html"
-                ><span>Mi Perfil</span> <i class="bi bi-chevron-down"></i
-              ></a>
-              <ul>
-                <li>
-                  <a class="nav-link scrollto active" href="#"
-                    >Datos Personales</a
-                  >
-                </li>
-                <li>
-                  <a class="nav-link scrollto" href="#">Experiencia Laboral</a>
-                </li>
-                <li>
-                  <a class="nav-link scrollto" href="#">Formación Académica</a>
-                </li>
-              </ul>
+            <li class="nav-link scrollto">
+              <a href="/datosFono/datos-fono.html">Mi Perfil </a>
             </li>
             <li>
               <a class="nav-link scrollto" href="/formu-fono/fono.html"
@@ -78,8 +48,8 @@
               >
             </li>
             <li>
-              <a href="../Login/index.html">
-                <img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión
+              <a id="login-link" href="../Login/index.html"
+                ><img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión
               </a>
             </li>
           </ul>
@@ -103,7 +73,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">
+            <a class="nav-link text-white" href="/formu-fono/fono.html">
               <i class="bi bi-people me-2"></i>Pacientes
             </a>
           </li>
@@ -279,5 +249,6 @@
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Tu archivo JS -->
     <script src="/formu-fono/fono.js"></script>
+    <script src="/config.js"></script>
   </body>
 </html>
