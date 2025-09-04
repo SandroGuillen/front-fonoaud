@@ -30,8 +30,8 @@
       href="/assets/vendor/boxicons/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/formu-fono/estilo.css" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/historia_clinica/historia_clinica.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
   <body class="bg-light">
     <header id="header" class="fixed-top">
@@ -93,17 +93,17 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/valoracion/valoracion.html">
-              <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico
-            </a>
-          </li>
-          <li class="nav-item">
             <a
               class="nav-link text-white"
               href="/historia_clinica/historia_clinica.html
             "
             >
               <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico PDF
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/valoracion/valoracion.html">
+              <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico
             </a>
           </li>
           <li class="nav-item">
@@ -141,62 +141,36 @@
             <div class="card dashboard-card">
               <div class="card-header bg-primary text-white">
                 <div class="d-flex justify-content-between align-items-center">
-                  <span>Gestión de Pacientes</span>
-                  <a href="/agendar-cita/agendarcita.html">
-                    <button id="btn-nuevo" class="btn btn-sm btn-light">
-                      <i class="bi bi-plus-circle"></i> Agendar Cita
-                    </button>
-                  </a>
+                  <span>Buscar por paciente</span>
                 </div>
               </div>
               <div class="card-body">
-                <form id="form-paciente" class="dashboard-form row g-3">
-                  <input type="hidden" id="paciente-id" />
-                  <div class="col-md-4">
-                    <label class="form-label">Nombre</label>
+                <form
+                  id="form-paciente"
+                  onsubmit="false"
+                  style="
+                    display: flex;
+                    flex-direction: row;
+                    align-items: end;
+                    gap: 12px;
+                    width: max-content;
+                  "
+                >
+                  <div style="width: 200px">
+                    <label class="form-label">Identificación</label>
                     <input
                       type="text"
-                      id="nombre"
+                      id="buscar-input"
                       class="form-control form-control-sm"
                       required
                     />
                   </div>
-                  <div class="col-md-2">
-                    <label class="form-label">Edad</label>
-                    <input
-                      type="number"
-                      id="edad"
-                      class="form-control form-control-sm"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-3">
-                    <label class="form-label">Teléfono</label>
-                    <input
-                      type="tel"
-                      id="telefono"
-                      class="form-control form-control-sm"
-                    />
-                  </div>
-                  <div class="col-md-3">
-                    <label class="form-label">Fecha Cita</label>
-                    <input
-                      type="datetime-local"
-                      id="fecha"
-                      class="form-control form-control-sm"
-                      required
-                    />
-                  </div>
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-sm btn-success me-2">
-                      <i class="bi bi-check-circle"></i> Guardar
-                    </button>
+                  <div class="">
                     <button
-                      type="button"
-                      id="btn-cancelar"
-                      class="btn btn-sm btn-secondary"
+                      id="buscar-button"
+                      class="btn btn-sm btn-success me-2"
                     >
-                      <i class="bi bi-x-circle"></i> Cancelar
+                      <i class="bi bi-check-circle"></i> Buscar
                     </button>
                   </div>
                 </form>
@@ -210,12 +184,8 @@
               >
                 <thead class="table-dark">
                   <thead>
-                    <th>documento</th>
-                    <th>Nombre</th>
-
-                    <th>Edad</th>
-                    <th>Teléfono</th>
-                    <th>Fecha Cita</th>
+                    <th>Paciente</th>
+                    <th>Fecha</th>
                     <th>Acciones</th>
                   </thead>
                 </thead>
@@ -279,7 +249,59 @@
     <script src="../assets/js/request.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Tu archivo JS -->
-    <script src="/formu-fono/fono.js"></script>
-    <script src="/config.js"></script>
+    <script src="/historia_clinica/index.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sidebar = document.getElementById("sidebarMenu");
+        const sidebarToggle = document.getElementById("sidebarToggle");
+        const mainContent = document.querySelector(".main-content");
+
+        // Función para alternar el sidebar
+        function toggleSidebar() {
+          sidebar.classList.toggle("active");
+
+          // Ajustar el contenido principal
+          if (sidebar.classList.contains("active")) {
+            mainContent.classList.add("shifted");
+            document.body.style.overflow = "hidden";
+          } else {
+            mainContent.classList.remove("shifted");
+            document.body.style.overflow = "";
+          }
+        }
+
+        // Evento para el botón toggle
+        sidebarToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          toggleSidebar();
+        });
+
+        // Cerrar sidebar al hacer clic fuera de él
+        document.addEventListener("click", function (e) {
+          if (
+            sidebar.classList.contains("active") &&
+            !sidebar.contains(e.target) &&
+            e.target !== sidebarToggle
+          ) {
+            toggleSidebar();
+          }
+        });
+
+        // Prevenir que el clic dentro del sidebar lo cierre
+        sidebar.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+
+        // Mostrar fecha actual
+        const fechaHoy = document.getElementById("fecha-hoy");
+        const hoy = new Date();
+        fechaHoy.textContent = hoy.toLocaleDateString("es-ES", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      });
+    </script>
   </body>
 </html>

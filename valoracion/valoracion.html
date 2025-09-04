@@ -4,49 +4,112 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valoración Fonoaudiológica</title>
+     <!-- Meta tags y Bootstrap CSS -->
+     <link
+     href="../assets/vendor/bootstrap/css/bootstrap.min.css"  rel="stylesheet" />
+   <!-- Iconos de Bootstrap Icons -->
+   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+   <link rel="stylesheet" href="/assets/img/logo - copia.png" />
+
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+     rel="stylesheet" />
+
+   <link  href="/assets/vendor/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
+   <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+   <link  href="/assets/vendor/boxicons/css/boxicons.min.css"
+     rel="stylesheet"  />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="estilo.css" />
+    <link rel="stylesheet" href="/valoracion/estilo.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center">
-        <a href="../index.html" class="logo me-auto"
-          ><img src="/assets/img/logo - copia.png" alt=""
-        /></a>
+        <!-- Botón para abrir/cerrar el sidebar (ícono de menú) -->
+        <button class="btn btn-link text-white me-2" id="sidebarToggle">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Logo -->
+        <a href="../index.html" class="logo me-auto">
+          <img src="../assets/img/logo-copia.png" alt="" />
+        </a>
+
         <h1>FonoAudioTest</h1>
+
+        <!-- Navbar (menú principal) -->
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
             <li>
               <a class="nav-link scrollto" href="../index.html">Inicio</a>
             </li>
             <li class="nav-link scrollto">
-              <a href="/datosFono/datos-fono.html"
-                ><span>Mi Perfil</span> <i class="bi bi-chevron-down"></i
-              ></a>
-              <ul></ul>
+              <a href="/datosFono/datos-fono.html">Mi Perfil </a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="/datosFono/datos-fono.html"
+              <a class="nav-link scrollto" href="/formu-fono/fono.html"
                 >Pacientes</a
               >
             </li>
             <li>
-              <a href="../Login/index.html"
-                ><img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión</a
-              >
+              <a id="login-link" href="../Login/index.html"
+                ><img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión
+              </a>
             </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
       </div>
     </header>
+   <!-- Sidebar (fuera del header, pero en el mismo nivel) -->
+   <div class="sidebar" id="sidebarMenu">
+    <div class="position-sticky pt-3">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-white active" href="#">
+            <i class="bi bi-calendar-day me-2"></i>Pacientes Hoy
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <i class="bi bi-calendar-month me-2"></i>Agenda Mensual
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/formu-fono/fono.html">
+            <i class="bi bi-people me-2"></i>Pacientes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/valoracion/valoracion.html">
+            <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="/historia_clinica/historia_clinica.html">
+              <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico PDF
+            </a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <i class="bi bi-file-earmark-text me-2"></i>Reportes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <i class="bi bi-gear me-2"></i>Configuración
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
     <!-- End Header -->
-    <div class="container-fluid">
+    <!-- End Header -->
+    <div class="container-fluid" id="contenido-a-pdf">
       <div class="row">
         <div class="col-md-12">
           <h1 class="text-center my-4">Valoración Fonoaudiológica</h1>
@@ -115,74 +178,201 @@
             </div>
           </div>
 
-          <!-- Formulario de valoración -->
-          <form id="formValoracion">
-            <div class="card mb-4">
-              <div class="card-header bg-primary text-white">
-                <h5>Evaluación Fonoaudiológica</h5>
-              </div>
-              <div class="card-body">
-                <div class="mb-3">
-                  <label for="comunicacion" class="form-label"
-                    >Comunicación y Lenguaje</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="comunicacion"
-                    rows="4"
-                    required
-                  ></textarea>
-                </div>
-
-                <div class="mb-3">
-                  <label for="alimentacion" class="form-label"
-                    >Proceso de Alimentación y Deglución</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="alimentacion"
-                    rows="4"
-                    required
-                  ></textarea>
-                </div>
-
-                <div class="mb-3">
-                  <label for="diagnostico" class="form-label"
-                    >Conclusión Diagnóstica</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="diagnostico"
-                    rows="4"
-                    required
-                  ></textarea>
-                </div>
-
-                <div class="mb-3">
-                  <label for="intervencion" class="form-label"
-                    >Plan de Intervención</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="intervencion"
-                    rows="4"
-                    required
-                  ></textarea>
-                </div>
-
-                <div class="mb-3">
-                  <label for="recomendaciones" class="form-label"
-                    >Recomendaciones</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="recomendaciones"
-                    rows="4"
-                    required
-                  ></textarea>
-                </div>
-              </div>
+         <!-- Formulario de valoración -->
+    <form id="formValoracion">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          <h5>Evaluación Fonoaudiológica</h5>
+        </div>
+        <div class="card-body">
+          <!-- Sección de datos generales -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Datos Generales</h6>
+            <div class="mb-3">
+              <label for="motivoConsulta" class="form-label">Motivo de Consulta</label>
+              <textarea class="form-control" id="motivoConsulta" rows="2" required></textarea>
             </div>
+            <div class="mb-3">
+              <label for="observacionGeneral" class="form-label">Observación General</label>
+              <textarea class="form-control" id="observacionGeneral" rows="3" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección de antecedentes -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Antecedentes</h6>
+            <div class="mb-3">
+              <label for="prenatales" class="form-label">Prenatales</label>
+              <textarea class="form-control" id="prenatales" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="perinatales" class="form-label">Perinatales</label>
+              <textarea class="form-control" id="perinatales" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="posnatales" class="form-label">Posnatales</label>
+              <textarea class="form-control" id="posnatales" rows="2" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección de desarrollo -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Desarrollo</h6>
+            <div class="mb-3">
+              <label for="sostenCefalico" class="form-label">Sostén Cefálico</label>
+              <input type="text" class="form-control" id="sostenCefalico" required>
+            </div>
+            <div class="mb-3">
+              <label for="posicionSedente" class="form-label">Posición Sedente</label>
+              <input type="text" class="form-control" id="posicionSedente" required>
+            </div>
+            <div class="mb-3">
+              <label for="gateo" class="form-label">Gateo</label>
+              <input type="text" class="form-control" id="gateo" required>
+            </div>
+            <div class="mb-3">
+              <label for="marcha" class="form-label">Marcha</label>
+              <input type="text" class="form-control" id="marcha" required>
+            </div>
+            <div class="mb-3">
+              <label for="gorjeo" class="form-label">Gorjeo</label>
+              <input type="text" class="form-control" id="gorjeo" required>
+            </div>
+            <div class="mb-3">
+              <label for="balbuceo" class="form-label">Balbuceo</label>
+              <input type="text" class="form-control" id="balbuceo" required>
+            </div>
+            <div class="mb-3">
+              <label for="silabas" class="form-label">Silabas</label>
+              <input type="text" class="form-control" id="silabas" required>
+            </div>
+            <div class="mb-3">
+              <label for="palabras" class="form-label">Primeras Palabras</label>
+              <input type="text" class="form-control" id="palabras" required>
+            </div>
+            <div class="mb-3">
+              <label for="lactancia" class="form-label">Lactancia</label>
+              <textarea class="form-control" id="lactancia" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="alimentacionComplementaria" class="form-label">Alimentación Complementaria</label>
+              <textarea class="form-control" id="alimentacionComplementaria" rows="2" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección de audición -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Audición</h6>
+            <div class="mb-3">
+              <label for="respuestaEstimulacion" class="form-label">Respuesta a Estimulación</label>
+              <textarea class="form-control" id="respuestaEstimulacion" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="identificacionSonidos" class="form-label">Identificación de Sonidos</label>
+              <textarea class="form-control" id="identificacionSonidos" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="respuestaVoz" class="form-label">Respuesta a la Voz</label>
+              <textarea class="form-control" id="respuestaVoz" rows="2" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección de lenguaje -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Lenguaje</h6>
+            <div class="mb-3">
+              <label for="fonologico" class="form-label">Aspecto Fonológico</label>
+              <textarea class="form-control" id="fonologico" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="semantico" class="form-label">Aspecto Semántico</label>
+              <textarea class="form-control" id="semantico" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="pragmatico" class="form-label">Aspecto Pragmático</label>
+              <textarea class="form-control" id="pragmatico" rows="2" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección de habla -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Habla</h6>
+            <div class="mb-3">
+              <label for="respiracion" class="form-label">Respiración</label>
+              <textarea class="form-control" id="respiracion" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="produccionesOrales" class="form-label">Producciones Orales</label>
+              <textarea class="form-control" id="produccionesOrales" rows="2" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección área miofuncional -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Área Miofuncional</h6>
+            <div class="mb-3">
+              <label for="estructurasEstomatognaticas" class="form-label">Estructuras Estomatognáticas</label>
+              <textarea class="form-control" id="estructurasEstomatognaticas" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="deglucion" class="form-label">Deglución</label>
+              <textarea class="form-control" id="deglucion" rows="3" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección de conclusiones -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Conclusiones</h6>
+            <div class="mb-3">
+              <label for="comunicacionLenguaje" class="form-label">Comunicación y Lenguaje</label>
+              <textarea class="form-control" id="comunicacionLenguaje" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="procesoAlimentacionDeglucion" class="form-label">Proceso de Alimentación y Deglución</label>
+              <textarea class="form-control" id="procesoAlimentacionDeglucion" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="conclusionDiagnostica" class="form-label">Conclusión Diagnóstica</label>
+              <textarea class="form-control" id="conclusionDiagnostica" rows="3" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección de plan de intervención -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Plan de Intervención</h6>
+            <div class="mb-3">
+              <label for="objetivosGenerales" class="form-label">Objetivos Generales</label>
+              <textarea class="form-control" id="objetivosGenerales" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="objetivosEspecificos" class="form-label">Objetivos Específicos (separados por punto y coma)</label>
+              <textarea class="form-control" id="objetivosEspecificos" rows="3" required></textarea>
+            </div>
+          </div>
+
+          <!-- Sección de recomendaciones -->
+          <div class="mb-4 p-3 border rounded">
+            <h6>Recomendaciones</h6>
+            <div class="mb-3">
+              <label for="terapiaFonoaudiologica" class="form-label">Terapia Fonoaudiológica</label>
+              <textarea class="form-control" id="terapiaFonoaudiologica" rows="3" required></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
+        <button
+          type="button"
+          class="btn btn-secondary me-md-2"
+          id="btnLimpiar"
+        >
+          Limpiar Formulario
+        </button>
+        <button class="btn btn-primary" id="btnGuardar">
+          Guardar Valoración
+        </button>
+      </div>
+    </form>
 
             <!-- Datos del profesional -->
             <div class="card mb-4">
@@ -228,24 +418,16 @@
               </div>
             </div>
 
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
-              <button
-                type="button"
-                class="btn btn-secondary me-md-2"
-                id="btnLimpiar"
-              >
-                Limpiar Formulario
-              </button>
-              <button type="submit" class="btn btn-primary" id="btnGuardar">
-                Guardar Valoración
-              </button>
-            </div>
+           
           </form>
         </div>
       </div>
     </div>
 
+    <script src="../assets/js/request.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="valoracion.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   </body>
 </html>

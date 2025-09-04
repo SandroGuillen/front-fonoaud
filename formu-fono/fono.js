@@ -3,6 +3,9 @@ let tableBody = document.getElementById("cuerpo-tabla");
 function citaFila(cita) {
   return `
   <tr>
+   //agregar más campos 
+    <td>${cita.idPaciente_FK}</td>
+
     <td>${cita.paciente.nombre}</td>
     <td>${
       new Date().getFullYear() -

@@ -16,6 +16,10 @@ const pacienteService = {
     });
     return await response.json();
   },
+
+  dirigirSolicitarCita(idPciente = null) {
+    let url = "../solicitarCita/solicitar-cita.html";
+  },
 };
 
 export default pacienteService;

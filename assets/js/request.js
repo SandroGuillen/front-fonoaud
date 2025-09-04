@@ -4,12 +4,13 @@ let user = {};
 
 const request = {
   async get(url, query = {}) {
-    const queryString = new URLSearchParams(query).toString();
+    const queryString = Object.entries(query).map(([key, value]) => `${key}=${value}`).join("&");
+    console.log(queryString);
     const response = await fetch(`${BASE_URL}${url}?${queryString}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-      },
+      }
     });
 
     return {

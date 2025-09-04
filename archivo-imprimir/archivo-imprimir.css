@@ -1,0 +1,177 @@
+/* Estilos específicos para impresión */
+@page {
+  margin: 1cm;
+  size: letter;
+}
+
+body {
+  font-family: "Georgia", serif;
+  line-height: 1.4;
+  color: #000;
+  background: #fff;
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 21cm;
+  margin: 0 auto;
+}
+
+/* Ocultar elementos no necesarios en impresión */
+.actions {
+  display: none;
+}
+
+/* Encabezado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5cm;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.5cm;
+}
+
+.clinic-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5cm;
+}
+
+.logo {
+  width: 2cm;
+  height: auto;
+}
+
+.clinic-info h1 {
+  font-size: 16pt;
+  margin: 0;
+  font-weight: bold;
+}
+
+.clinic-info p {
+  font-size: 10pt;
+  margin: 0;
+  font-style: italic;
+}
+
+.report-info h2 {
+  font-size: 14pt;
+  margin: 0 0 0.2cm 0;
+  text-align: right;
+}
+
+.report-info p {
+  font-size: 10pt;
+  margin: 0.1cm 0;
+  text-align: right;
+}
+
+/* Secciones */
+section {
+  margin-bottom: 0.8cm;
+  page-break-inside: avoid;
+}
+
+h3 {
+  font-size: 13pt;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.2cm;
+  margin-bottom: 0.4cm;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 12pt;
+  margin: 0.3cm 0;
+  font-weight: bold;
+}
+
+/* Información del paciente y evaluación */
+.info-grid,
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7cm, 1fr));
+  gap: 0.3cm;
+}
+
+.info-item,
+.result-item {
+  margin-bottom: 0.2cm;
+}
+
+.label {
+  font-weight: bold;
+  display: inline-block;
+  min-width: 3.5cm;
+}
+
+.value {
+  display: inline;
+}
+
+/* Resultados */
+.result-section {
+  margin-bottom: 0.5cm;
+}
+
+/* Diagnóstico */
+.diagnosis-content {
+  border: 1px solid #000;
+  padding: 0.3cm;
+  background-color: #f9f9f9;
+}
+
+/* Recomendaciones */
+.recommendations ol {
+  padding-left: 1cm;
+  margin: 0.3cm 0;
+}
+
+.recommendations li {
+  margin-bottom: 0.2cm;
+}
+
+/* Firmas */
+.signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5cm;
+}
+
+.signature-box {
+  text-align: center;
+  width: 45%;
+}
+
+.signature-box p {
+  margin: 0.5cm 0;
+}
+
+/* Pie de página */
+.footer {
+  margin-top: 1.5cm;
+  border-top: 1px solid #000;
+  padding-top: 0.3cm;
+  text-align: center;
+  font-size: 9pt;
+}
+
+.print-message {
+  font-style: italic;
+}
+
+/* Evitar saltos de página innecesarios */
+section,
+.info-grid,
+.result-grid {
+  page-break-inside: avoid;
+}
+
+h3,
+h4 {
+  page-break-after: avoid;
+}

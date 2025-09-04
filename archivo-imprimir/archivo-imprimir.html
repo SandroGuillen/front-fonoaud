@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valoración del Paciente - FonoAudioTest</title>
+    <link
+      rel="stylesheet"
+      href="/archivo-imprimir/archivo-imprimir.css"
+      media="print"
+    />
+    <link
+      rel="stylesheet"
+      href="/archivo-imprimir/archivo-screen.css"
+      media="screen"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Encabezado -->
+      <header class="header">
+        <div class="clinic-info">
+          <img src="logo.png" alt="Logo FonoAudioTest" class="logo" />
+          <div>
+            <h1>FonoAudioTest</h1>
+            <p>Centro de Fonoaudiología Especializada</p>
+          </div>
+        </div>
+        <div class="report-info">
+          <h2>Informe de Valoración</h2>
+          <p class="report-date">
+            Fecha: <span id="fecha-informe">15/05/2023</span>
+          </p>
+          <p class="report-id">
+            ID Valoración: <span id="id-valoracion">VAL-2023-00125</span>
+          </p>
+        </div>
+      </header>
+
+      <!-- Información del Paciente -->
+      <section class="patient-info">
+        <h3>Datos del Paciente</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Nombre completo:</span>
+            <span class="value" id="paciente-nombre"
+              >María González Rodríguez</span
+            >
+          </div>
+          <div class="info-item">
+            <span class="label">Documento de identidad:</span>
+            <span class="value" id="paciente-documento">10.235.678</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Fecha de nacimiento:</span>
+            <span class="value" id="paciente-nacimiento"
+              >12/04/2015 (8 años)</span
+            >
+          </div>
+          <div class="info-item">
+            <span class="label">Género:</span>
+            <span class="value" id="paciente-genero">Femenino</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Nombre acudiente:</span>
+            <span class="value" id="acudiente-nombre">Laura Rodríguez</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Teléfono contacto:</span>
+            <span class="value" id="paciente-telefono">300 123 4567</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Dirección:</span>
+            <span class="value" id="paciente-direccion"
+              >Calle 123 # 45-67, Bogotá</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Datos de la Valoración -->
+      <section class="evaluation-info">
+        <h3>Datos de la Valoración</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Fecha de valoración:</span>
+            <span class="value" id="fecha-valoracion">10/05/2023</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Profesional:</span>
+            <span class="value" id="profesional">Dra. Carolina Méndez</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Motivo de consulta:</span>
+            <span class="value" id="motivo-consulta"
+              >Dificultades en la articulación de fonemas /r/ y /s/</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Resultados de la Valoración -->
+      <section class="evaluation-results">
+        <h3>Resultados de la Valoración</h3>
+
+        <div class="result-section">
+          <h4>Área de Lenguaje</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Lenguaje expresivo:</span>
+              <span class="value"
+                >Dentro de los límites normales para la edad</span
+              >
+            </div>
+            <div class="result-item">
+              <span class="label">Lenguaje comprensivo:</span>
+              <span class="value">Adecuado para su edad cronológica</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Vocabulario:</span>
+              <span class="value">Acorde a su edad</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Área Articulatoria</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Fonemas afectados:</span>
+              <span class="value">/r/ múltiple, /s/</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Inteligibilidad del habla:</span>
+              <span class="value">85%</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Observaciones:</span>
+              <span class="value"
+                >Presenta rotacismo y sigmatismo. La /s/ se realiza con
+                interposición lingual</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Otras Áreas Evaluadas</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Audiología:</span>
+              <span class="value"
+                >Umbrales auditivos dentro de límites normales</span
+              >
+            </div>
+            <div class="result-item">
+              <span class="label">Motricidad orofacial:</span>
+              <span class="value"
+                >Tono muscular normal, praxias linguales limitadas</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Diagnóstico -->
+      <section class="diagnosis">
+        <h3>Impresión Diagnóstica</h3>
+        <div class="diagnosis-content">
+          <p>
+            Trastorno fonológico con afectación de los fonemas /r/ múltiple y
+            /s/. Dislalia funcional. Se recomienda iniciar proceso terapéutico
+            para mejorar la articulación y intelligibilidad del habla.
+          </p>
+        </div>
+      </section>
+
+      <!-- Recomendaciones -->
+      <section class="recommendations">
+        <h3>Recomendaciones y Plan de Intervención</h3>
+        <ol>
+          <li>
+            Iniciar terapia fonoaudiológica con frecuencia de dos sesiones por
+            semana.
+          </li>
+          <li>Trabajar praxias linguales para mejorar movilidad y posición.</li>
+          <li>
+            Ejercicios de discriminación auditiva de los fonemas afectados.
+          </li>
+          <li>
+            Entrenamiento en posición articulatoria correcta para /r/ y /s/.
+          </li>
+          <li>Generalización de fonemas en palabras, frases y conversación.</li>
+          <li>
+            Seguimiento y práctica diaria en casa con material proporcionado.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Firmas -->
+      <section class="signatures">
+        <div class="signature-box">
+          <p>___________________________________</p>
+          <p>Nombre y Firma del Profesional</p>
+          <p>Licencia: TF-12345</p>
+        </div>
+        <div class="signature-box">
+          <p>___________________________________</p>
+          <p>Nombre y Firma del Acudiente</p>
+          <p>Fecha: _________________________</p>
+        </div>
+      </section>
+
+      <!-- Pie de página -->
+      <footer class="footer">
+        <p>
+          FonoAudioTest • Calle 123 # 45-67, Bogotá • Tel: (1) 123 4567 •
+          www.fonoaudiotest.com
+        </p>
+        <p class="print-message">Documento generado el 15/05/2023 10:30 AM</p>
+      </footer>
+    </div>
+
+    <div class="actions">
+      <button onclick="window.print()" class="print-button">
+        Imprimir Informe
+      </button>
+      <button onclick="window.close()" class="close-button">Cerrar</button>
+    </div>
+  </body>
+</html>

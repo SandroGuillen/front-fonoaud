@@ -4,16 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administración de Pacientes - FonoAudioTest</title>
-    
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Icons -->
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
     <!-- CSS Personalizado -->
-    <link href="/administrador/admin-paciente/admin-paciente.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link
+      href="/administrador/admin-paciente/admin-paciente.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
     <!-- ======= Header ======= -->
@@ -26,19 +37,33 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
             <li>
-              <a class="nav-link scrollto" href="/index.html" ><i class="bi bi-house-door"></i> Inicio</a>
+              <a class="nav-link scrollto" href="/index.html"
+                ><i class="bi bi-house-door"></i> Inicio</a
+              >
             </li>
             <li>
-              <a class="nav-link scrollto" href="/administrador/administrador.html"><i class="bi bi-people"></i> Fonoaudiólogos</a>
+              <a
+                class="nav-link scrollto"
+                href="/administrador/administrador.html"
+                ><i class="bi bi-people"></i> Fonoaudiólogos</a
+              >
             </li>
             <li>
-              <a class="nav-link scrollto active" href="/administrador/admin-paciente/admin-paciente.html"><i class="bi bi-person-heart"></i> Pacientes</a>
+              <a
+                class="nav-link scrollto active"
+                href="/administrador/admin-paciente/admin-paciente.html"
+                ><i class="bi bi-person-heart"></i> Pacientes</a
+              >
             </li>
             <li>
-              <a class="nav-link scrollto" href="#"><i class="bi bi-calendar-check"></i> Citas</a>
+              <a class="nav-link scrollto" href="#"
+                ><i class="bi bi-calendar-check"></i> Citas</a
+              >
             </li>
             <li>
-              <a class="nav-link scrollto" href="../Login/index.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
+              <a class="nav-link scrollto" href="/Login/index.html"
+                ><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a
+              >
             </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
@@ -57,19 +82,33 @@
             </div>
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="/administrador/administrador.html"><i class="bi bi-people-fill"></i> Fonoaudiólogos</a>
+                <a
+                  class="nav-link active"
+                  href="/administrador/administrador.html"
+                  ><i class="bi bi-people-fill"></i> Fonoaudiólogos</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/administrador/admin-paciente/admin-paciente.html"><i class="bi bi-person-heart"></i> Pacientes</a>
+                <a
+                  class="nav-link"
+                  href="/administrador/admin-paciente/admin-paciente.html"
+                  ><i class="bi bi-person-lines-fill"></i> Pacientes</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" ><i class="bi bi-calendar-event"></i> Agenda</a>
+                <a class="nav-link" href="#"
+                  ><i class="bi bi-calendar-event"></i> Agenda</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-file-earmark-text"></i> Reportes</a>
+                <a class="nav-link" href="#"
+                  ><i class="bi bi-file-earmark-text"></i> Reportes</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-gear-fill"></i> Configuración</a>
+                <a class="nav-link" href="#"
+                  ><i class="bi bi-gear-fill"></i> Configuración</a
+                >
               </li>
             </ul>
           </div>
@@ -79,10 +118,15 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
               <h2>Administración de Pacientes</h2>
               <div>
-                <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#agregarPacienteModal">
+                <button
+                  class="btn btn-primary me-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#agregarPacienteModal"
+                >
                   <i class="bi bi-plus-lg"></i> Nuevo Paciente
                 </button>
-                <button class="btn btn-success" id="exportBtn"> <i class="bi bi-file-earmark-excel"></i> Exportar
+                <button class="btn btn-success" id="exportBtn">
+                  <i class="bi bi-file-earmark-excel"></i> Exportar
                 </button>
               </div>
             </div>
@@ -93,9 +137,17 @@
                 <div class="row">
                   <div class="col-md-6 mb-3 mb-md-0">
                     <div class="input-group">
-                      <input  type="text" id="searchInput" class="form-control"placeholder="Buscar por documento o nombre" />
+                      <input
+                        type="text"
+                        id="searchInput"
+                        class="form-control"
+                        placeholder="Buscar por documento o nombre"
+                      />
                       <button
-                        class="btn btn-outline-secondary" type="button" id="searchButton" >
+                        class="btn btn-outline-secondary"
+                        type="button"
+                        id="searchButton"
+                      >
                         <i class="bi bi-search"></i>
                       </button>
                     </div>
@@ -143,114 +195,158 @@
                     <tbody>
                       <!-- Registro 1 - Niño pequeño -->
                       <tr>
-                          <td>RC12345678</td>
-                          <td>Santiago Gómez Pérez</td>
-                          <td>4 años</td>
-                          <td>María Pérez (Madre)</td>
-                          <td>3101234567</td>
-                          <td>María Gómez Pérez</td>
-                          <td><span class="badge bg-success">Activo</span></td>
-                          <td>
-                              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPacienteModal">
-                                  <i class="bi bi-pencil"></i>
-                              </button>
-                              <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#historialModal">
-                                  <i class="bi bi-file-earmark-text"></i>
-                              </button>
-                              <button class="btn btn-sm btn-danger">
-                                  <i class="bi bi-trash"></i>
-                              </button>
-                          </td>
+                        <td>RC12345678</td>
+                        <td>Santiago Gómez Pérez</td>
+                        <td>4 años</td>
+                        <td>María Pérez (Madre)</td>
+                        <td>3101234567</td>
+                        <td>María Gómez Pérez</td>
+                        <td><span class="badge bg-success">Activo</span></td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#agregarPacienteModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-info"
+                            data-bs-toggle="modal"
+                            data-bs-target="#historialModal"
+                          >
+                            <i class="bi bi-file-earmark-text"></i>
+                          </button>
+                          <button class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
                       </tr>
-                  
+
                       <!-- Registro 2 - Adolescente -->
                       <tr>
-                          <td>TI98765432</td>
-                          <td>Valentina López Martínez</td>
-                          <td>15 años</td>
-                          <td>Carlos López (Padre)</td>
-                          <td>3156789012</td>
-                          <td>Carlos Rodríguez López</td>
-                          <td><span class="badge bg-success">Activo</span></td>
-                          <td>
-                              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPacienteModal">
-                                  <i class="bi bi-pencil"></i>
-                              </button>
-                              <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#historialModal">
-                                  <i class="bi bi-file-earmark-text"></i>
-                              </button>
-                              <button class="btn btn-sm btn-danger">
-                                  <i class="bi bi-trash"></i>
-                              </button>
-                          </td>
+                        <td>TI98765432</td>
+                        <td>Valentina López Martínez</td>
+                        <td>15 años</td>
+                        <td>Carlos López (Padre)</td>
+                        <td>3156789012</td>
+                        <td>Carlos Rodríguez López</td>
+                        <td><span class="badge bg-success">Activo</span></td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#agregarPacienteModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-info"
+                            data-bs-toggle="modal"
+                            data-bs-target="#historialModal"
+                          >
+                            <i class="bi bi-file-earmark-text"></i>
+                          </button>
+                          <button class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
                       </tr>
-                  
+
                       <!-- Registro 3 - Adulto -->
                       <tr>
-                          <td>CC54321678</td>
-                          <td>Andrés Felipe Ramírez</td>
-                          <td>32 años</td>
-                          <td>Marta Ramírez (Esposa)</td>
-                          <td>3178901234</td>
-                          <td>Ana Martínez Sánchez</td>
-                          <td><span class="badge bg-warning text-dark">Inactivo</span></td>
-                          <td>
-                              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPacienteModal">
-                                  <i class="bi bi-pencil"></i>
-                              </button>
-                              <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#historialModal">
-                                  <i class="bi bi-file-earmark-text"></i>
-                              </button>
-                              <button class="btn btn-sm btn-danger">
-                                  <i class="bi bi-trash"></i>
-                              </button>
-                          </td>
+                        <td>CC54321678</td>
+                        <td>Andrés Felipe Ramírez</td>
+                        <td>32 años</td>
+                        <td>Marta Ramírez (Esposa)</td>
+                        <td>3178901234</td>
+                        <td>Ana Martínez Sánchez</td>
+                        <td>
+                          <span class="badge bg-warning text-dark"
+                            >Inactivo</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#agregarPacienteModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-info"
+                            data-bs-toggle="modal"
+                            data-bs-target="#historialModal"
+                          >
+                            <i class="bi bi-file-earmark-text"></i>
+                          </button>
+                          <button class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
                       </tr>
-                  
+
                       <!-- Registro 4 - Niño escolar -->
                       <tr>
-                          <td>RC87654321</td>
-                          <td>Isabella Torres García</td>
-                          <td>8 años</td>
-                          <td>Laura García (Madre)</td>
-                          <td>3201234567</td>
-                          <td>María Gómez Pérez</td>
-                          <td><span class="badge bg-success">Activo</span></td>
-                          <td>
-                              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPacienteModal">
-                                  <i class="bi bi-pencil"></i>
-                              </button>
-                              <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#historialModal">
-                                  <i class="bi bi-file-earmark-text"></i>
-                              </button>
-                              <button class="btn btn-sm btn-danger">
-                                  <i class="bi bi-trash"></i>
-                              </button>
-                          </td>
+                        <td>RC87654321</td>
+                        <td>Isabella Torres García</td>
+                        <td>8 años</td>
+                        <td>Laura García (Madre)</td>
+                        <td>3201234567</td>
+                        <td>María Gómez Pérez</td>
+                        <td><span class="badge bg-success">Activo</span></td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#agregarPacienteModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-info"
+                            data-bs-toggle="modal"
+                            data-bs-target="#historialModal"
+                          >
+                            <i class="bi bi-file-earmark-text"></i>
+                          </button>
+                          <button class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
                       </tr>
-                  
+
                       <!-- Registro 5 - Adulto mayor -->
                       <tr>
-                          <td>CC98765432</td>
-                          <td>Alberto Sánchez Díaz</td>
-                          <td>68 años</td>
-                          <td>Claudia Díaz (Hija)</td>
-                          <td>3189012345</td>
-                          <td>Carlos Rodríguez López</td>
-                          <td><span class="badge bg-success">Activo</span></td>
-                          <td>
-                              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPacienteModal">
-                                  <i class="bi bi-pencil"></i>
-                              </button>
-                              <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#historialModal">
-                                  <i class="bi bi-file-earmark-text"></i>
-                              </button>
-                              <button class="btn btn-sm btn-danger">
-                                  <i class="bi bi-trash"></i>
-                              </button>
-                          </td>
+                        <td>CC98765432</td>
+                        <td>Alberto Sánchez Díaz</td>
+                        <td>68 años</td>
+                        <td>Claudia Díaz (Hija)</td>
+                        <td>3189012345</td>
+                        <td>Carlos Rodríguez López</td>
+                        <td><span class="badge bg-success">Activo</span></td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#agregarPacienteModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-info"
+                            data-bs-toggle="modal"
+                            data-bs-target="#historialModal"
+                          >
+                            <i class="bi bi-file-earmark-text"></i>
+                          </button>
+                          <button class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
                       </tr>
-                  </tbody>
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -261,12 +357,22 @@
     </main>
 
     <!-- Modal Agregar/Editar Paciente -->
-    <div class="modal fade" id="agregarPacienteModal" tabindex="-1"  aria-hidden="true" >
+    <div
+      class="modal fade"
+      id="agregarPacienteModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalTitle">Agregar Nuevo Paciente</h5>
-            <button  type="button"class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <form id="pacienteForm">
@@ -624,19 +730,19 @@
     </div>
 
     <!-- jQuery (PRIMERO) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- DataTables -->
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
-<!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- JS Personalizado -->
-<script src="../assets/js/admin-pacientes.js"></script>
+    <!-- JS Personalizado -->
+    <script src="../assets/js/admin-pacientes.js"></script>
   </body>
 </html>

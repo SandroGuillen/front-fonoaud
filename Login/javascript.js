@@ -79,7 +79,7 @@ loginButton.addEventListener("click", async () => {
       password,
     });
 
-    if (response.data) {
+    if (response.status == 200) {
       const user = response.data;
       localStorage.setItem("user", JSON.stringify(user));
       console.log(user.nombre);
@@ -91,6 +91,8 @@ loginButton.addEventListener("click", async () => {
       } else {
         window.location.href = "/index.html";
       }
+    } else {
+      alert("Usuario y/o contraseña incorrectos.");
     }
   } catch (error) {
     console.log(error);

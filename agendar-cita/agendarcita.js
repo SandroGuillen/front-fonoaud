@@ -1,4 +1,4 @@
-const button = document.getElementById("btnAgendar");
+const agendarButton = document.getElementById("btnAgendar");
 const buscarUsuario = document.getElementById("buscarUsuario");
 const nombre = document.getElementById("nombre");
 const fechaNacimiento = document.getElementById("fechaNacimiento");
@@ -8,7 +8,7 @@ const motivoInput = document.getElementById("motivo");
 const fechaCitaInput = document.getElementById("fechaCita");
 const alergiasInput = document.getElementById("alergias");
 
-button.addEventListener("click", async (e) => {
+agendarButton.addEventListener("click", async (e) => {
   e.preventDefault();
 
   const identificacion = buscarUsuario.value;
@@ -16,8 +16,6 @@ button.addEventListener("click", async (e) => {
   const fechaCita = fechaCitaInput.value;
   const alergias = alergiasInput.value;
   const user = JSON.parse(localStorage.getItem("user"));
-
-  console.log(user);
 
   const data = {
     motivo,
@@ -42,9 +40,9 @@ buscarUsuario.addEventListener("blur", async (e) => {
       identificacion: e.target.value,
     }
   );
-  console.log(response);
-  nombre.value = response.data.nombre;
-  fechaNacimiento.value = response.data.fechaNacimiento;
-  telefono.value = response.data.telefono;
-  email.value = response.data.correo;
+  const paciente = response.data.data;
+  nombre.value = paciente.nombre;
+  fechaNacimiento.value = paciente.fechaNacimiento;
+  telefono.value = paciente.telefono;
+  email.value = paciente.correo;
 });
