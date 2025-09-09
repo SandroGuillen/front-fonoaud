@@ -1,28 +1,21 @@
-/* Estilos específicos para impresión */
-@page {
-  margin: 1cm;
-  size: letter;
-}
-
+/* Estilos para visualización en pantalla */
 body {
-  font-family: "Georgia", serif;
-  line-height: 1.4;
-  color: #000;
-  background: #fff;
-  font-size: 12pt;
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f5f5f5;
+  font-size: 14px;
   margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 
 .container {
   width: 100%;
   max-width: 21cm;
   margin: 0 auto;
-}
-
-/* Ocultar elementos no necesarios en impresión */
-.actions {
-  display: none;
+  background: #fff;
+  padding: 2cm;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Encabezado */
@@ -30,148 +23,229 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1.5cm;
-  border-bottom: 2px solid #000;
-  padding-bottom: 0.5cm;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 15px;
 }
 
 .clinic-info {
   display: flex;
   align-items: center;
-  gap: 0.5cm;
+  gap: 15px;
 }
 
 .logo {
-  width: 2cm;
+  width: 80px;
   height: auto;
 }
 
 .clinic-info h1 {
-  font-size: 16pt;
+  font-size: 24px;
   margin: 0;
-  font-weight: bold;
+  color: #2c3e50;
 }
 
 .clinic-info p {
-  font-size: 10pt;
+  font-size: 14px;
   margin: 0;
-  font-style: italic;
+  color: #7f8c8d;
 }
 
 .report-info h2 {
-  font-size: 14pt;
-  margin: 0 0 0.2cm 0;
+  font-size: 20px;
+  margin: 0 0 5px 0;
+  color: #2c3e50;
   text-align: right;
 }
 
 .report-info p {
-  font-size: 10pt;
-  margin: 0.1cm 0;
+  font-size: 12px;
+  margin: 3px 0;
+  color: #7f8c8d;
   text-align: right;
 }
 
 /* Secciones */
 section {
-  margin-bottom: 0.8cm;
-  page-break-inside: avoid;
+  margin-bottom: 20px;
 }
 
 h3 {
-  font-size: 13pt;
-  border-bottom: 1px solid #000;
-  padding-bottom: 0.2cm;
-  margin-bottom: 0.4cm;
-  font-weight: bold;
+  font-size: 18px;
+  color: #2c3e50;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 h4 {
-  font-size: 12pt;
-  margin: 0.3cm 0;
-  font-weight: bold;
+  font-size: 16px;
+  color: #3498db;
+  margin: 15px 0 10px 0;
 }
 
 /* Información del paciente y evaluación */
 .info-grid,
 .result-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7cm, 1fr));
-  gap: 0.3cm;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
 }
 
 .info-item,
 .result-item {
-  margin-bottom: 0.2cm;
+  margin-bottom: 8px;
+  padding: 5px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.result-item.full-width {
+  grid-column: 1 / -1;
 }
 
 .label {
   font-weight: bold;
+  color: #2c3e50;
   display: inline-block;
-  min-width: 3.5cm;
+  min-width: 160px;
 }
 
 .value {
-  display: inline;
+  color: #34495e;
 }
 
 /* Resultados */
 .result-section {
-  margin-bottom: 0.5cm;
+  margin-bottom: 15px;
 }
 
 /* Diagnóstico */
 .diagnosis-content {
-  border: 1px solid #000;
-  padding: 0.3cm;
-  background-color: #f9f9f9;
+  border-left: 4px solid #3498db;
+  padding: 10px 15px;
+  background-color: #ebf5fb;
+  border-radius: 4px;
 }
 
 /* Recomendaciones */
 .recommendations ol {
-  padding-left: 1cm;
-  margin: 0.3cm 0;
+  padding-left: 20px;
+  margin: 10px 0;
 }
 
 .recommendations li {
-  margin-bottom: 0.2cm;
+  margin-bottom: 8px;
+  padding-left: 5px;
 }
 
 /* Firmas */
 .signatures {
   display: flex;
   justify-content: space-between;
-  margin-top: 1.5cm;
+  margin-top: 40px;
 }
 
 .signature-box {
   text-align: center;
   width: 45%;
+  padding: 15px;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
 }
 
 .signature-box p {
-  margin: 0.5cm 0;
+  margin: 10px 0;
+  color: #7f8c8d;
 }
 
 /* Pie de página */
 .footer {
-  margin-top: 1.5cm;
-  border-top: 1px solid #000;
-  padding-top: 0.3cm;
+  margin-top: 40px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
   text-align: center;
-  font-size: 9pt;
+  font-size: 12px;
+  color: #7f8c8d;
 }
 
 .print-message {
   font-style: italic;
 }
 
-/* Evitar saltos de página innecesarios */
-section,
-.info-grid,
-.result-grid {
-  page-break-inside: avoid;
+/* Botones de acción */
+.actions {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
 }
 
-h3,
-h4 {
-  page-break-after: avoid;
+.print-button,
+.close-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.print-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.print-button:hover {
+  background-color: #2980b9;
+}
+
+.close-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.close-button:hover {
+  background-color: #c0392b;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .report-info {
+    margin-top: 15px;
+    text-align: left !important;
+  }
+
+  .info-grid,
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signatures {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .signature-box {
+    width: 100%;
+  }
+
+  .actions {
+    position: static;
+    margin-top: 20px;
+    justify-content: center;
+  }
 }

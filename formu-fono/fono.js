@@ -1,9 +1,15 @@
 let tableBody = document.getElementById("cuerpo-tabla");
+const logOutButton = document.getElementById("login-link");
+
+logOutButton.addEventListener("click", () => {
+  localStorage.removeItem("user");
+  window.location = "/Login/index.html";
+});
 
 function citaFila(cita) {
   return `
   <tr>
-   //agregar más campos 
+
     <td>${cita.idPaciente_FK}</td>
 
     <td>${cita.paciente.nombre}</td>

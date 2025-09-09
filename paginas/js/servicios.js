@@ -1,15 +1,14 @@
+const onClickPedirCita = async (idFono) => {
+  console.log("funciona");
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log("user");
+  if (user) {
+    window.location = `/solicitarCita/solicitar-cita.html?idFono=${idFono}`;
+  } else {
+    window.location = "/Login/index.html";
+  }
+};
 const renderFono = (fono) => {
-  const onClickPedirCita = async () => {
-    console.log("funciona");
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log("user");
-    if (user) {
-      window.location = "/index.html";
-    } else {
-      window.location = "/Login/index.html";
-    }
-  };
-
   return `
             <div
               class="col-lg-3 col-md-6"
@@ -33,8 +32,8 @@ const renderFono = (fono) => {
                 <div class="doctor-info">
                   <h4>${fono.nombre} ${fono.apellido}</h4>
                   <span>${fono.especialidad}</span>
-                  <div onclick="onClickPedirCita" class="doctor-cta">
-                    <a class="btn-appointment"
+                  <div class="doctor-cta">
+                    <a class="btn-appointment" data-link="/solicitarCitar/solicitar-cita.html?idFono=${fono.identificacion}" 
                       >Pedir cita</a
                     >
                   </div>
@@ -49,9 +48,10 @@ document.addEventListener("click", function (e) {
     const onClickPedirCita = async () => {
       console.log("funciona");
       const user = JSON.parse(localStorage.getItem("user"));
+      const link = e.target.dataset.link;
       console.log("user:", user);
       if (user) {
-        window.location = "/agendar-cita/agendarcita.html";
+        window.location = link;
       } else {
         window.location = "/Login/index.html";
       }

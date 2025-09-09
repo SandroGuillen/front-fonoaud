@@ -31,9 +31,6 @@
           <p class="report-date">
             Fecha: <span id="fecha-informe">15/05/2023</span>
           </p>
-          <p class="report-id">
-            ID Valoración: <span id="id-valoracion">VAL-2023-00125</span>
-          </p>
         </div>
       </header>
 
@@ -43,37 +40,27 @@
         <div class="info-grid">
           <div class="info-item">
             <span class="label">Nombre completo:</span>
-            <span class="value" id="paciente-nombre"
-              >María González Rodríguez</span
-            >
+            <span class="value" id="paciente-nombre"></span>
           </div>
           <div class="info-item">
             <span class="label">Documento de identidad:</span>
-            <span class="value" id="paciente-documento">10.235.678</span>
+            <span class="value" id="paciente-documento"> </span>
           </div>
           <div class="info-item">
             <span class="label">Fecha de nacimiento:</span>
-            <span class="value" id="paciente-nacimiento"
-              >12/04/2015 (8 años)</span
-            >
+            <span class="value" id="paciente-nacimiento"></span>
           </div>
           <div class="info-item">
             <span class="label">Género:</span>
-            <span class="value" id="paciente-genero">Femenino</span>
-          </div>
-          <div class="info-item">
-            <span class="label">Nombre acudiente:</span>
-            <span class="value" id="acudiente-nombre">Laura Rodríguez</span>
+            <span class="value" id="paciente-genero"></span>
           </div>
           <div class="info-item">
             <span class="label">Teléfono contacto:</span>
-            <span class="value" id="paciente-telefono">300 123 4567</span>
+            <span class="value" id="paciente-telefono"></span>
           </div>
           <div class="info-item">
             <span class="label">Dirección:</span>
-            <span class="value" id="paciente-direccion"
-              >Calle 123 # 45-67, Bogotá</span
-            >
+            <span class="value" id="paciente-direccion"></span>
           </div>
         </div>
       </section>
@@ -84,17 +71,15 @@
         <div class="info-grid">
           <div class="info-item">
             <span class="label">Fecha de valoración:</span>
-            <span class="value" id="fecha-valoracion">10/05/2023</span>
+            <span class="value" id="fecha-valoracion"></span>
           </div>
           <div class="info-item">
             <span class="label">Profesional:</span>
-            <span class="value" id="profesional">Dra. Carolina Méndez</span>
+            <span class="value" id="profesional"></span>
           </div>
           <div class="info-item">
             <span class="label">Motivo de consulta:</span>
-            <span class="value" id="motivo-consulta"
-              >Dificultades en la articulación de fonemas /r/ y /s/</span
-            >
+            <span class="value" id="motivo-consulta"></span>
           </div>
         </div>
       </section>
@@ -104,60 +89,172 @@
         <h3>Resultados de la Valoración</h3>
 
         <div class="result-section">
-          <h4>Área de Lenguaje</h4>
+          <h4>Observaciones Generales</h4>
           <div class="result-grid">
             <div class="result-item">
-              <span class="label">Lenguaje expresivo:</span>
-              <span class="value"
-                >Dentro de los límites normales para la edad</span
-              >
-            </div>
-            <div class="result-item">
-              <span class="label">Lenguaje comprensivo:</span>
-              <span class="value">Adecuado para su edad cronológica</span>
-            </div>
-            <div class="result-item">
-              <span class="label">Vocabulario:</span>
-              <span class="value">Acorde a su edad</span>
+              <span class="label">Observación:</span>
+              <span class="value" id="observacion-general"></span>
             </div>
           </div>
         </div>
 
         <div class="result-section">
-          <h4>Área Articulatoria</h4>
+          <h4>Antecedentes</h4>
           <div class="result-grid">
             <div class="result-item">
-              <span class="label">Fonemas afectados:</span>
-              <span class="value">/r/ múltiple, /s/</span>
+              <span class="label">Prenatales:</span>
+              <span class="value" id="antecedentes-prenatales"></span>
             </div>
             <div class="result-item">
-              <span class="label">Inteligibilidad del habla:</span>
-              <span class="value">85%</span>
+              <span class="label">Perinatales:</span>
+              <span class="value" id="antecedentes-perinatales"></span>
             </div>
             <div class="result-item">
-              <span class="label">Observaciones:</span>
-              <span class="value"
-                >Presenta rotacismo y sigmatismo. La /s/ se realiza con
-                interposición lingual</span
-              >
+              <span class="label">Posnatales:</span>
+              <span class="value" id="antecedentes-posnatales"></span>
             </div>
           </div>
         </div>
 
         <div class="result-section">
-          <h4>Otras Áreas Evaluadas</h4>
+          <h4>Desarrollo Motor</h4>
           <div class="result-grid">
             <div class="result-item">
-              <span class="label">Audiología:</span>
-              <span class="value"
-                >Umbrales auditivos dentro de límites normales</span
-              >
+              <span class="label">Sostén cefálico:</span>
+              <span class="value" id="desarrollo-motor-sosten"></span>
             </div>
             <div class="result-item">
-              <span class="label">Motricidad orofacial:</span>
-              <span class="value"
-                >Tono muscular normal, praxias linguales limitadas</span
-              >
+              <span class="label">Posición sedente:</span>
+              <span class="value" id="desarrollo-motor-sedente"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Gateo:</span>
+              <span class="value" id="desarrollo-motor-gateo"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Marcha:</span>
+              <span class="value" id="desarrollo-motor-marcha"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Desarrollo Comunicativo</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Gorjeo:</span>
+              <span class="value" id="desarrollo-comunicativo-gorjeo"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Balbuceo:</span>
+              <span class="value" id="desarrollo-comunicativo-balbuceo"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Sílabas:</span>
+              <span class="value" id="desarrollo-comunicativo-silabas"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Palabras:</span>
+              <span class="value" id="desarrollo-comunicativo-palabras"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Desarrollo Alimentación</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Lactancia:</span>
+              <span class="value" id="desarrollo-alimentacion-lactancia"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Alimentación complementaria:</span>
+              <span
+                class="value"
+                id="desarrollo-alimentacion-complementaria"
+              ></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Audiología</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Respuesta a estimulación:</span>
+              <span class="value" id="audicion-respuesta"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Identificación de sonidos:</span>
+              <span class="value" id="audicion-identificacion"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Respuesta a voz:</span>
+              <span class="value" id="audicion-respuesta-voz"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Lenguaje</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Fonológico:</span>
+              <span class="value" id="lenguaje-fonologico"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Semántico:</span>
+              <span class="value" id="lenguaje-semantico"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Pragmático:</span>
+              <span class="value" id="lenguaje-pragmatico"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Habla</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Respiración:</span>
+              <span class="value" id="habla-respiracion"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Producciones orales:</span>
+              <span class="value" id="habla-producciones"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Área Miofuncional</h4>
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Estructuras estomatognáticas:</span>
+              <span class="value" id="miofuncional-estructuras"></span>
+            </div>
+            <div class="result-item">
+              <span class="label">Deglución:</span>
+              <span class="value" id="miofuncional-deglucion"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Comunicación y Lenguaje</h4>
+          <div class="result-grid">
+            <div class="result-item full-width">
+              <span class="value" id="comunicacion-lenguaje"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h4>Proceso de Alimentación y Deglución</h4>
+          <div class="result-grid">
+            <div class="result-item full-width">
+              <span class="value" id="proceso-alimentacion-deglucion"></span>
             </div>
           </div>
         </div>
@@ -167,34 +264,16 @@
       <section class="diagnosis">
         <h3>Impresión Diagnóstica</h3>
         <div class="diagnosis-content">
-          <p>
-            Trastorno fonológico con afectación de los fonemas /r/ múltiple y
-            /s/. Dislalia funcional. Se recomienda iniciar proceso terapéutico
-            para mejorar la articulación y intelligibilidad del habla.
-          </p>
+          <p id="conclusion-diagnostica"></p>
         </div>
       </section>
 
       <!-- Recomendaciones -->
       <section class="recommendations">
         <h3>Recomendaciones y Plan de Intervención</h3>
-        <ol>
-          <li>
-            Iniciar terapia fonoaudiológica con frecuencia de dos sesiones por
-            semana.
-          </li>
-          <li>Trabajar praxias linguales para mejorar movilidad y posición.</li>
-          <li>
-            Ejercicios de discriminación auditiva de los fonemas afectados.
-          </li>
-          <li>
-            Entrenamiento en posición articulatoria correcta para /r/ y /s/.
-          </li>
-          <li>Generalización de fonemas en palabras, frases y conversación.</li>
-          <li>
-            Seguimiento y práctica diaria en casa con material proporcionado.
-          </li>
-        </ol>
+        <div id="objetivos-generales"></div>
+        <ol id="objetivos-especificos"></ol>
+        <div id="recomendaciones-terapia"></div>
       </section>
 
       <!-- Firmas -->
@@ -217,7 +296,9 @@
           FonoAudioTest • Calle 123 # 45-67, Bogotá • Tel: (1) 123 4567 •
           www.fonoaudiotest.com
         </p>
-        <p class="print-message">Documento generado el 15/05/2023 10:30 AM</p>
+        <p class="print-message">
+          Documento generado el <span id="fecha-generacion"></span>
+        </p>
       </footer>
     </div>
 
@@ -227,5 +308,8 @@
       </button>
       <button onclick="window.close()" class="close-button">Cerrar</button>
     </div>
+
+    <script src="/assets/js/request.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>

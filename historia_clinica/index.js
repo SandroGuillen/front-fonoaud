@@ -19,7 +19,11 @@ function renderRow(valoracion) {
     })}
     </td>
     <td>
-      <button class="btn btn-sm btn-primary">Descargar</button>
+        <a class="btn btn-sm btn-primary" href="/archivo-imprimir/archivo-imprimir.html?id=${
+          valoracion._id
+        }">
+          Descargar
+        </a>
     </td>
   </tr>
   `;
