@@ -1,0 +1,132 @@
+:root {
+  --primary-color: #3fbbc0;
+  --secondary-color: #65c9cd;
+  --dark-color: #1f3e5c;
+  --light-color: #f6f9fe;
+  --correct-color: #4caf50;
+  --incorrect-color: #f44336;
+  --text-color: #333;
+  --white: #fff;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #04798b 0%, #03197e 100%);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simon {
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  max-width: 400px;
+  width: 120%;
+  text-align: center;
+}
+
+.title {
+  font-family: "Fredoka One", cursive;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+#startButton {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 2rem;
+}
+
+#startButton:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.buttonContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  grid-template-rows: repeat(2, 120px);
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 auto 2rem auto;
+}
+
+.square {
+  border-radius: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.square:active {
+  transform: scale(0.95);
+}
+
+.red {
+  background-color: #e74c3c;
+}
+
+.yellow {
+  background-color: #f1c40f;
+}
+
+.blue {
+  background-color: #3498db;
+}
+
+.green {
+  background-color: #2ecc71;
+}
+
+#round {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--dark-color);
+  background: var(--light-color);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: var(--shadow);
+}
+
+/* Animación de iluminación */
+.active {
+  filter: brightness(1.3);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .buttonContainer {
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(2, 100px);
+    gap: 0.8rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  #startButton {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+}

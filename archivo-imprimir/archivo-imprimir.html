@@ -9,6 +9,7 @@
       href="/archivo-imprimir/archivo-imprimir.css"
       media="print"
     />
+    <link href="/assets/img/logo - copia.png" rel="icon" />
     <link
       rel="stylesheet"
       href="/archivo-imprimir/archivo-screen.css"
@@ -20,7 +21,11 @@
       <!-- Encabezado -->
       <header class="header">
         <div class="clinic-info">
-          <img src="logo.png" alt="Logo FonoAudioTest" class="logo" />
+          <img
+            src="/assets/img/logo - copia.png"
+            alt="Logo FonoAudioTest"
+            class="logo"
+          />
           <div>
             <h1>FonoAudioTest</h1>
             <p>Centro de Fonoaudiología Especializada</p>
@@ -306,7 +311,9 @@
       <button onclick="window.print()" class="print-button">
         Imprimir Informe
       </button>
-      <button onclick="window.close()" class="close-button">Cerrar</button>
+      <a href="/historia_clinica/historia_clinica.html">
+        <button onclick="window.close()" class="close-button">Cerrar</button></a
+      >
     </div>
 
     <script src="/assets/js/request.js"></script>

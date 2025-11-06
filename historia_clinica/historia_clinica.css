@@ -1,7 +1,7 @@
 /* Estilos para el sidebar */
 .sidebar {
   position: fixed;
-  top: 90px;
+  top: 60px;
   bottom: 0;
   left: -280px;
   z-index: 1000;

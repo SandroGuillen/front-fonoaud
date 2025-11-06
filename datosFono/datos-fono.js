@@ -11,6 +11,8 @@ let documentos = [];
 // Inicialización cuando se carga la página
 document.addEventListener("DOMContentLoaded", function () {
   loadUserData();
+  loadExperiencia();
+  loadFormacion();
   initializeEventListeners();
 });
 
@@ -18,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadUserData() {
   try {
     const userData = JSON.parse(localStorage.getItem("user"));
-    console.log(userData);
     if (userData) {
       user = userData;
       populateUserData();
@@ -74,6 +75,10 @@ function initializeEventListeners() {
     .getElementById("documentosUpload")
     .addEventListener("change", handleDocumentUpload);
 
+  document
+    .getElementById("guardar-todo")
+    .addEventListener("click", () => saveAll());
+
   // Event delegation para botones de eliminar
   document.addEventListener("click", function (e) {
     if (
@@ -97,17 +102,17 @@ function initializeEventListeners() {
 }
 
 // Manejar envío del formulario de datos personales
-function handlePersonalDataSubmit(e) {
+async function handlePersonalDataSubmit(e) {
   e.preventDefault();
 
   // Actualizar objeto user
   user.nombre = document.getElementById("nombres").value;
   user.apellido = document.getElementById("apellidos").value;
   user.especialidad = document.getElementById("especialidadInput").value;
-  user.tipoDocumento = document
-    .getElementById("tipoDocumento")
-    .value.toUpperCase();
-  user.identificacion = document.getElementById("numeroDocumento").value;
+  // user.tipoDocumento = document
+  //   .getElementById("tipoDocumento")
+  //   .value.toUpperCase();
+  // user.identificacion = document.getElementById("numeroDocumento").value;
   user.fechaNacimiento = document.getElementById("fechaNacimiento").value;
   user.correo = document.getElementById("email").value;
   user.telefono = document.getElementById("telefono").value;
@@ -115,6 +120,12 @@ function handlePersonalDataSubmit(e) {
 
   // Guardar en localStorage
   localStorage.setItem("user", JSON.stringify(user));
+
+  try {
+    const response = await request.put(`/fonoaudiologo`, user);
+  } catch (error) {
+    console.log(error);
+  }
 
   // Actualizar vista
   populateUserData();
@@ -200,11 +211,95 @@ function createEducationItem() {
   return div;
 }
 
+async function saveExperiencia(data) {
+  try {
+    const response = await request.post("/fonoaudilogo/experiencia", data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function save() {}
+
 // Agregar nuevo item de experiencia
 function addExperienceItem() {
   const container = document.getElementById("experienciaContainer");
   const newItem = createExperienceItem();
   container.appendChild(newItem);
+}
+
+async function loadExperiencia() {
+  try {
+    const response = await request.get("/fonoaudiologo/experiencia", {
+      identificacion: user.identificacion,
+    });
+    renderExperienciaList(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function loadFormacion() {
+  try {
+    const response = await request.get("/fonoaudiologo/formacion", {
+      identificacion: user.identificacion,
+    });
+    renderEducacionList(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function renderEducacionList(educacionList = []) {
+  const container = document.getElementById("educacionContainer");
+  if (educacionList.length === 0) return;
+  container.innerHTML = ""; // limpiar contenido previo
+
+  educacionList.forEach((edu) => {
+    const item = createEducationItem();
+
+    item.querySelector('[name="titulo[]"]').value = edu.titulo || "";
+    item.querySelector('[name="institucion_educativa[]"]').value =
+      edu.institucion || "";
+    item.querySelector('[name="fecha_inicio_estudio[]"]').value =
+      edu.fechaInicio || "";
+    item.querySelector('[name="fecha_fin_estudio[]"]').value =
+      edu.fechaFin || "";
+    item.querySelector('[name="actualmente_estudiando[]"]').value =
+      edu.actualmente || "no";
+    item.querySelector('[name="descripcion_estudio[]"]').value =
+      edu.descripcion || "";
+
+    // Si está "actualmente cursando", deshabilitar fecha de fin
+    handleCurrentStatusChange(
+      item.querySelector('[name="actualmente_estudiando[]"]')
+    );
+
+    container.appendChild(item);
+  });
+}
+
+function renderExperienciaList(experienciaList = []) {
+  const container = document.getElementById("experienciaContainer");
+  if (experienciaList.length === 0) return;
+  container.innerHTML = ""; // limpiar contenido previo
+
+  experienciaList.forEach((exp) => {
+    const item = createExperienceItem();
+
+    item.querySelector('[name="puesto[]"]').value = exp.puesto || "";
+    item.querySelector('[name="institucion[]"]').value = exp.institucion || "";
+    item.querySelector('[name="fecha_inicio[]"]').value = exp.fechaInicio || "";
+    item.querySelector('[name="fecha_fin[]"]').value = exp.fechaFin || "";
+    item.querySelector('[name="actualmente[]"]').value =
+      exp.actualmente || "no";
+    item.querySelector('[name="descripcion[]"]').value = exp.descripcion || "";
+
+    // Si está "actualmente trabajando", deshabilitar fecha de fin
+    handleCurrentStatusChange(item.querySelector('[name="actualmente[]"]'));
+
+    container.appendChild(item);
+  });
 }
 
 // Crear elemento de experiencia
@@ -253,7 +348,6 @@ function createExperienceItem() {
     `;
   return div;
 }
-
 // Remover item
 function removeItem(item) {
   if (item) {
@@ -430,26 +524,31 @@ function saveProfileData() {
 
 function getEducationData() {
   const items = document.querySelectorAll(".education-item");
-  return Array.from(items).map((item) => ({
-    titulo: item.querySelector('[name="titulo[]"]').value,
-    institucion: item.querySelector('[name="institucion_educativa[]"]').value,
-    fechaInicio: item.querySelector('[name="fecha_inicio_estudio[]"]').value,
-    fechaFin: item.querySelector('[name="fecha_fin_estudio[]"]').value,
-    actualmente: item.querySelector('[name="actualmente_estudiando[]"]').value,
-    descripcion: item.querySelector('[name="descripcion_estudio[]"]').value,
-  }));
+  return Array.from(items)
+    .map((item) => ({
+      titulo: item.querySelector('[name="titulo[]"]').value,
+      institucion: item.querySelector('[name="institucion_educativa[]"]').value,
+      fechaInicio: item.querySelector('[name="fecha_inicio_estudio[]"]').value,
+      fechaFin: item.querySelector('[name="fecha_fin_estudio[]"]').value,
+      actualmente: item.querySelector('[name="actualmente_estudiando[]"]')
+        .value,
+      descripcion: item.querySelector('[name="descripcion_estudio[]"]').value,
+    }))
+    .filter((edu) => edu.titulo && edu.institucion); // Filtrar entradas vacías
 }
 
 function getExperienceData() {
   const items = document.querySelectorAll(".experience-item");
-  return Array.from(items).map((item) => ({
-    puesto: item.querySelector('[name="puesto[]"]').value,
-    institucion: item.querySelector('[name="institucion[]"]').value,
-    fechaInicio: item.querySelector('[name="fecha_inicio[]"]').value,
-    fechaFin: item.querySelector('[name="fecha_fin[]"]').value,
-    actualmente: item.querySelector('[name="actualmente[]"]').value,
-    descripcion: item.querySelector('[name="descripcion[]"]').value,
-  }));
+  return Array.from(items)
+    .map((item) => ({
+      puesto: item.querySelector('[name="puesto[]"]').value,
+      institucion: item.querySelector('[name="institucion[]"]').value,
+      fechaInicio: item.querySelector('[name="fecha_inicio[]"]').value,
+      fechaFin: item.querySelector('[name="fecha_fin[]"]').value,
+      actualmente: item.querySelector('[name="actualmente[]"]').value,
+      descripcion: item.querySelector('[name="descripcion[]"]').value,
+    }))
+    .filter((exp) => exp.puesto && exp.institucion); // Filtrar entradas vacías
 }
 
 // Exportar datos del perfil (opcional)
@@ -467,4 +566,21 @@ function exportProfile() {
   linkElement.setAttribute("href", dataUri);
   linkElement.setAttribute("download", exportFileDefaultName);
   linkElement.click();
+}
+
+async function saveAll() {
+  const { personalData, education, experience, documents } = saveProfileData();
+
+  if (experience.length > 0)
+    await request.post("/fonoaudiologo/save-experiencia", {
+      experiencia: experience,
+      identificacion: user.identificacion,
+    });
+
+  if (education.length > 0)
+    await request.post("/fonoaudiologo/save-formacion", {
+      formacion: education,
+      identificacion: user.identificacion,
+    });
+  showNotification("Todos los datos guardados correctamente", "success");
 }

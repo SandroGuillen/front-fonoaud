@@ -1,3 +1,55 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.getElementById("sidebarMenu");
+  const sidebarToggle = document.getElementById("sidebarToggle");
+  const mainContent = document.querySelector(".main-content");
+
+  // Función para alternar el sidebar
+  function toggleSidebar() {
+    sidebar.classList.toggle("active");
+
+    // Ajustar el contenido principal
+    if (sidebar.classList.contains("active")) {
+      mainContent.classList.add("shifted");
+      document.body.style.overflow = "hidden";
+    } else {
+      mainContent.classList.remove("shifted");
+      document.body.style.overflow = "";
+    }
+  }
+
+  // Evento para el botón toggle
+  sidebarToggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    toggleSidebar();
+  });
+
+  // Cerrar sidebar al hacer clic fuera de él
+  document.addEventListener("click", function (e) {
+    if (
+      sidebar.classList.contains("active") &&
+      !sidebar.contains(e.target) &&
+      e.target !== sidebarToggle
+    ) {
+      toggleSidebar();
+    }
+  });
+
+  // Prevenir que el clic dentro del sidebar lo cierre
+  sidebar.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+
+  // Mostrar fecha actual
+  const fechaHoy = document.getElementById("fecha-hoy");
+  const hoy = new Date();
+  fechaHoy.textContent = hoy.toLocaleDateString("es-ES", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+});
+
 const obtenerHistoria = async (data) => {
   const response = await request.post("/valoraciones/search", data);
   return response.data;

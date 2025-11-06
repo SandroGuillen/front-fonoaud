@@ -86,7 +86,7 @@ loginButton.addEventListener("click", async () => {
 
       if (user.rol == "admin") {
         window.location.href = "/administrador/administrador.html";
-      } else if (user.rol == "fono") {
+      } else if (user.rol == "fonoaudiologo") {
         window.location.href = "/formu-fono/fono.html";
       } else {
         window.location.href = "/index.html";

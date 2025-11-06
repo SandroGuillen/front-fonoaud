@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tareas de Juegos - FonoAudioTest</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Iconos de Bootstrap Icons -->
+    <link
+      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/img/logo - copia.png" rel="icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap-grid.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="tareas-paciente.css" />
+  </head>
+  <body class="bg-light">
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <button class="btn btn-link text-white me-2" id="sidebarToggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <!-- Logo -->
+        <a href="../index.html" class="logo me-auto">
+          <img src="/assets/img/logo - copia.png" alt="FonoAudioTest" />
+        </a>
+
+        <h1>FonoAudioTest</h1>
+
+        <!-- Navbar (menú principal) -->
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="../index.html">Inicio</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto active" href="tareas-paciente.html"
+                >Mis Tareas</a
+              >
+            </li>
+            <!--<li>
+              <a class="nav-link scrollto" href="progreso-paciente.html"
+                >Mi Progreso</a
+              >
+            </li>-->
+            <li>
+              <a id="login-link" href="#">
+                <img src="../assets/img/acceso1.png" alt="Cerrar Sesión" />
+                Cerrar Sesión
+              </a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+    <!-- Sidebar (fuera del header, pero en el mismo nivel) -->
+    <!-- <div class="sidebar" id="sidebarMenu">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column"> -->
+    <!-- <li class="nav-item">
+            <a class="nav-link text-white active" href="#">
+              <i class="bi bi-calendar-day me-2"></i>Pacientes Hoy
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-calendar-month me-2"></i>Agenda Mensual
+            </a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/formu-fono/fono.html">
+              <i class="bi bi-people me-2"></i>Pacientes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/valoracion/valoracion.html">
+              <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white"
+              href="/historia_clinica/historia_clinica.html
+            "
+            >
+              <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico PDF
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white"
+              href="/asingar-tareas/asignar-tareas.html"
+            >
+              <i class="bi bi-file-earmark-text me-2"></i>Asignar Tareas
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-file-earmark-text me-2"></i>Reportes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-gear me-2"></i>Configuración
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    End Header -->
+
+    <!-- Main Content -->
+    <main id="main" class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Header secundario -->
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+            >
+              <h2 class="h2">Mis Tareas de Juegos</h2>
+              <div class="date-indicator">
+                <i class="bi bi-calendar-check me-2"></i>
+                <span id="fecha-hoy"></span>
+              </div>
+            </div>
+
+            <!-- Tareas Pendientes -->
+            <div class="card dashboard-card mb-4">
+              <div class="card-header bg-warning text-dark">
+                <span><i class="bi bi-clock me-2"></i>Tareas Pendientes</span>
+              </div>
+              <div class="card-body">
+                <div class="row" id="tareas-pendientes">
+                  <!-- Tarea 1 -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card task-card">
+                      <div class="card-body">
+                        <div
+                          class="d-flex justify-content-between align-items-start mb-2"
+                        >
+                          <span class="badge bg-primary">Memoria</span>
+                          <small class="text-muted">Vence: 20/09/2023</small>
+                        </div>
+                        <h5 class="card-title">Memorama de Animales</h5>
+                        <p class="card-text">
+                          Encuentra las parejas de animales iguales. Juego
+                          diseñado para mejorar la memoria visual.
+                        </p>
+                        <div class="task-info">
+                          <small
+                            ><i class="bi bi-clock me-1"></i>Duración: 10
+                            min</small
+                          >
+                          <small class="ms-3"
+                            ><i class="bi bi-bar-chart me-1"></i>Dificultad:
+                            Media</small
+                          >
+                        </div>
+                        <div class="mt-3">
+                          <button class="btn btn-success btn-sm w-100">
+                            <i class="bi bi-play-circle me-1"></i> Iniciar Juego
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tarea 2 -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card task-card">
+                      <div class="card-body">
+                        <div
+                          class="d-flex justify-content-between align-items-start mb-2"
+                        >
+                          <span class="badge bg-info">Lenguaje</span>
+                          <small class="text-muted">Vence: 22/09/2023</small>
+                        </div>
+                        <h5 class="card-title">Adivina la Palabra</h5>
+                        <p class="card-text">
+                          Completa las palabras con las letras faltantes.
+                          Ejercicio para mejorar vocabulario.
+                        </p>
+                        <div class="task-info">
+                          <small
+                            ><i class="bi bi-clock me-1"></i>Duración: 15
+                            min</small
+                          >
+                          <small class="ms-3"
+                            ><i class="bi bi-bar-chart me-1"></i>Dificultad:
+                            Baja</small
+                          >
+                        </div>
+                        <div class="mt-3">
+                          <button class="btn btn-success btn-sm w-100">
+                            <i class="bi bi-play-circle me-1"></i> Iniciar Juego
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tarea 3 -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card task-card">
+                      <div class="card-body">
+                        <div
+                          class="d-flex justify-content-between align-items-start mb-2"
+                        >
+                          <span class="badge bg-success">Atención</span>
+                          <small class="text-danger">Vence: Hoy</small>
+                        </div>
+                        <h5 class="card-title">Encuentra el Sonido</h5>
+                        <p class="card-text">
+                          Identifica el sonido diferente entre varios.
+                          Desarrolla la atención auditiva.
+                        </p>
+                        <div class="task-info">
+                          <small
+                            ><i class="bi bi-clock me-1"></i>Duración: 8
+                            min</small
+                          >
+                          <small class="ms-3"
+                            ><i class="bi bi-bar-chart me-1"></i>Dificultad:
+                            Alta</small
+                          >
+                        </div>
+                        <div class="mt-3">
+                          <button class="btn btn-success btn-sm w-100">
+                            <i class="bi bi-play-circle me-1"></i> Iniciar Juego
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tareas Completadas -->
+            <div class="card dashboard-card">
+              <div class="card-header bg-success text-white">
+                <span
+                  ><i class="bi bi-check-circle me-2"></i>Tareas
+                  Completadas</span
+                >
+              </div>
+              <div class="card-body">
+                <div class="row" id="tareas-completadas">
+                  <!-- Tarea Completada 1 -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card task-card completed">
+                      <div class="card-body">
+                        <div
+                          class="d-flex justify-content-between align-items-start mb-2"
+                        >
+                          <span class="badge bg-primary">Memoria</span>
+                          <span class="badge bg-success">Completada</span>
+                        </div>
+                        <h5 class="card-title">Memorama de Colores</h5>
+                        <p class="card-text">
+                          Encuentra las parejas de colores iguales.
+                        </p>
+                        <div class="task-info">
+                          <small
+                            ><i class="bi bi-clock me-1"></i>Completado:
+                            15/09/2023</small
+                          >
+                          <small class="ms-3"
+                            ><i class="bi bi-star me-1"></i>Puntaje: 85%</small
+                          >
+                        </div>
+                        <div class="mt-3">
+                          <button
+                            class="btn btn-outline-secondary btn-sm w-100"
+                            disabled
+                          >
+                            <i class="bi bi-check-circle me-1"></i> Completada
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tarea Completada 2 -->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card task-card completed">
+                      <div class="card-body">
+                        <div
+                          class="d-flex justify-content-between align-items-start mb-2"
+                        >
+                          <span class="badge bg-info">Lenguaje</span>
+                          <span class="badge bg-success">Completada</span>
+                        </div>
+                        <h5 class="card-title">Completa la Frase</h5>
+                        <p class="card-text">
+                          Selecciona la palabra correcta para completar la
+                          frase.
+                        </p>
+                        <div class="task-info">
+                          <small
+                            ><i class="bi bi-clock me-1"></i>Completado:
+                            12/09/2023</small
+                          >
+                          <small class="ms-3"
+                            ><i class="bi bi-star me-1"></i>Puntaje: 92%</small
+                          >
+                        </div>
+                        <div class="mt-3">
+                          <button
+                            class="btn btn-outline-secondary btn-sm w-100"
+                            disabled
+                          >
+                            <i class="bi bi-check-circle me-1"></i> Completada
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-info">
+                <h3>FonoAudioTest</h3>
+                <p>
+                  <strong>Phone:</strong> +57 321 4568907<br />
+                  <strong>Email:</strong> fonoaudiotest@gmail.com<br />
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"
+                  ><i class="bx bxl-instagram"></i
+                ></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Script específico de la página -->
+    <script src="../assets/js/request.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agendar Cita - FonoAudioTest</title>
     <!-- Favicons -->
-    <link href="../assets/img/logo-copia.png" rel="icon" />
+    <link href="../assets/img/logo - copia.png" rel="icon" />
+
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -14,28 +17,40 @@
 
     <!-- Vendor CSS Files -->
     <link
-      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
+      href="/assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
     <link
-      href="../assets/vendor/boxicons/css/boxicons.min.css"
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="../assets/css/style.css" rel="stylesheet" />
-    <link href="../agendar-cita/agendarcita.css" rel="stylesheet" />
+    <link href="/assets/css/Boton.css" rel="stylesheet" />
+    <link href="/solicitarCitar/solicitar-cita.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center">
-        <a href="../index.html" class="logo me-auto"
-          ><img src="../assets/img/logo-copia.png" alt=""
+        <a href="/index.html" class="logo me-auto"
+          ><img src="/assets/img/logo - copia.png" alt=""
         /></a>
         <h1>FonoAudioTest</h1>
         <nav id="navbar" class="navbar order-last order-lg-0">
@@ -44,29 +59,56 @@
               <a class="nav-link scrollto" href="../index.html">Inicio</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="/datosFono/datos-fono.html"
-                ><span>Mi Perfil</span>
-              </a>
-            </li>
-            <li>
-              <a class="nav-link scrollto" href="/formu-fono/fono.html"
-                >Pacientes</a
+              <a class="nav-link scrollto" href="../paginas/nosotros.html"
+                >Nosotros</a
               >
             </li>
             <li>
-              <a id="login-link" href="../Login/index.html"
-                ><img src="../assets/img/acceso1.png" alt="" /> Cerrar Sesión</a
+              <a class="nav-link scrollto" href="../paginas/servicios.html"
+                >Servicios</a
               >
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="../paginas/materiales.html"
+                >Materiales</a
+              >
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                ><span>Conocimiento</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li><a href="/paginas.html">¿Qué es fonoaudiología?</a></li>
+                <li>
+                  <a href="/paginas/Transtornos.html"
+                    >Trastornos Infantiles mas comunes</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Hitos.html"
+                    >Hitos del desarrollo en infancia</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a id="login-link" href="#"
+                ><img src="./assets/img/acceso1.png" alt="" />inicio sesion</a
+              >
+            </li>
+            <li style="display: none" id="logout-button">
+              <a href="#"> Cerrar Sesión </a>
             </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
+        <!-- .navbar -->
       </div>
     </header>
     <!-- End Header -->
 
     <main id="main">
-      <div class="container">
+      <div class="containerr">
         <h1>Agendar Cita</h1>
         <form id="citaForm">
           <!-- Datos del paciente -->
@@ -138,7 +180,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
-      <div class="container">
+      <div class="containerr">
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
@@ -165,8 +207,9 @@
   </footer>
   <!-- End Footer -->
   <!-- JS Files -->
-  <script src="../assets/js/request.js"></script>
+  <script src="/assets/js/request.js"></script>
   <script src="../assets/js/main.js"></script>
-  <script src="index.js"></script>
+  <script src="/solicitarCitar/index.js"></script>
   <script src="/config.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </html>

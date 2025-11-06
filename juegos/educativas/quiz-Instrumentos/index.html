@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Adivina el Instrumento | FonoAudioTest</title>
+
+    <!-- Favicon -->
+    <link href="/assets/img/logo-copia.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="/juegos/educativas/quiz-Instrumentos/css/estilo.css"
+    />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <a href="/index.html" class="logo me-auto">
+          <img src="/assets/img/logo - copia.png" alt="Logo FonoAudioTest" />
+        </a>
+        <h1 class="me-auto">FonoAudioTest</h1>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link" href="/index.html">Inicio</a></li>
+            <li>
+              <a class="nav-link" href="/paginas/nosotros.html">Nosotros</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/paginas/servicios.html">Servicios</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/paginas/materiales.html">Materiales</a>
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                ><span>Conocimiento</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li>
+                  <a href="/paginas/Fonoaudiologia.html"
+                    >¿Qué es fonoaudiología?</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Transtornos.html"
+                    >Trastornos Infantiles más comunes</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Hitos.html"
+                    >Hitos del desarrollo en infancia</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ======= Main Content ======= -->
+    <main id="main" class="instrument-game-container">
+      <section class="container py-5">
+        <div class="section-title text-center mb-5">
+          <h1>ADIVINA EL INSTRUMENTO</h1>
+          <p>Selecciona el nombre correcto del instrumento musical mostrado</p>
+        </div>
+
+        <!-- Pantalla inicial -->
+        <div id="pantalla-inicial" class="game-screen text-center">
+          <div class="start-screen-content">
+            <div class="start-icon mb-4">
+              <i class="fas fa-music"></i>
+            </div>
+            <h2 class="mb-4">¿Estás listo para jugar?</h2>
+            <p class="mb-4">
+              Identifica correctamente los instrumentos musicales y demuestra tu
+              conocimiento.
+            </p>
+            <button class="btn btn-primary btn-lg" onclick="comenzarJuego()">
+              <i class="fas fa-play me-2"></i>COMENZAR A JUGAR
+            </button>
+          </div>
+        </div>
+
+        <!-- Pantalla juego -->
+        <div id="pantalla-juego" class="game-screen" style="display: none">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 text-center mb-4">
+              <div class="instrument-image-container">
+                <img
+                  src="img/ad.svg"
+                  alt="Instrumento musical"
+                  id="imgBandera"
+                  class="instrument-image"
+                />
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="game-stats mb-4">
+                <div class="stat-card">
+                  <h3 class="stat-title">
+                    <i class="fas fa-check-circle me-2"></i>Aciertos:
+                    <span class="stat-value" id="aciertos-count">0</span>
+                  </h3>
+                </div>
+                <div class="stat-card">
+                  <h3 class="stat-title">
+                    <i class="fas fa-arrows-alt me-2"></i>Movimientos:
+                    <span class="stat-value" id="movimientos-count">0</span>
+                  </h3>
+                </div>
+                <div class="stat-card">
+                  <h3 class="stat-title">
+                    <i class="far fa-clock me-2"></i>Tiempo:
+                    <span class="stat-value" id="time-count">0</span> segundos
+                  </h3>
+                </div>
+              </div>
+
+              <div class="opciones">
+                <div
+                  class="opcion mb-3"
+                  id="op0"
+                  onclick="comprobarRespuesta(0)"
+                >
+                  <div class="letra" id="l0">A</div>
+                  <div class="nombre" id="n0">OPCION A</div>
+                </div>
+                <div
+                  class="opcion mb-3"
+                  id="op1"
+                  onclick="comprobarRespuesta(1)"
+                >
+                  <div class="letra" id="l1">B</div>
+                  <div class="nombre" id="n1">OPCION B</div>
+                </div>
+                <div
+                  class="opcion mb-3"
+                  id="op2"
+                  onclick="comprobarRespuesta(2)"
+                >
+                  <div class="letra" id="l2">C</div>
+                  <div class="nombre" id="n2">OPCION C</div>
+                </div>
+              </div>
+
+              <button
+                class="btn btn-outline-primary w-100 mt-3"
+                onclick="resetGame()"
+              >
+                <i class="fas fa-redo me-2"></i>Reiniciar Juego
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pantalla final -->
+        <div
+          id="pantalla-final"
+          class="game-screen text-center"
+          style="display: none"
+        >
+          <div class="result-screen-content">
+            <div class="result-icon mb-4">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h2 class="mb-4">¡Juego Terminado!</h2>
+
+            <div class="results-stats mb-4">
+              <div class="result-stat correct-stat">
+                <h3>CORRECTAS</h3>
+                <div class="stat-number" id="numCorrectas">0</div>
+              </div>
+              <div class="result-stat incorrect-stat">
+                <h3>INCORRECTAS</h3>
+                <div class="stat-number" id="numIncorrectas">0</div>
+              </div>
+            </div>
+
+            <div class="final-stats mb-4">
+              <p>
+                <i class="fas fa-arrows-alt me-2"></i>Movimientos totales:
+                <span id="final-movimientos">0</span>
+              </p>
+              <p>
+                <i class="far fa-clock me-2"></i>Tiempo total:
+                <span id="final-tiempo">0</span> segundos
+              </p>
+            </div>
+
+            <button class="btn btn-primary btn-lg" onclick="volverAlInicio()">
+              <i class="fas fa-home me-2"></i>VOLVER AL INICIO
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="text-center py-3">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>FonoAudioTest</span></strong
+          >. Todos los derechos reservados
+        </div>
+        <p class="mb-0">Juego programado por 👉 FonoAudioTest👩‍⚕️</p>
+      </div>
+    </footer>
+
+    <!-- Vendor JS Files -->
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="/assets/js/request.js"></script>
+    <script src="/assets/js/games.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

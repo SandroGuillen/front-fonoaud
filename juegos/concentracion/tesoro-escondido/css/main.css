@@ -1,0 +1,67 @@
+/* Fuente principal */
+body {
+  font-family: "Merriweather", serif;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  margin: 98px;
+  padding: 0;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Título */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #222;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del mapa */
+#map {
+  border: 5px solid #333;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+#map:hover {
+  transform: scale(1.05);
+}
+
+/* Texto de distancia */
+#distance {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 15px;
+  border-radius: 15px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones generales */
+button {
+  padding: 12px 24px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #4cafef;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #2e8ece;
+  transform: translateY(-2px);
+}

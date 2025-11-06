@@ -9,6 +9,8 @@ const fechaCitaInput = document.getElementById("fechaCita");
 const alergiasInput = document.getElementById("alergias");
 
 agendarButton.addEventListener("click", async (e) => {
+  console.log("Click en el botón");
+
   e.preventDefault();
 
   const identificacion = buscarUsuario.value;

@@ -1,12 +1,25 @@
 // Variables globales
 let userData = {};
 let selectedFono = {};
+const logOutButton = document.getElementById("login-link");
+
+logOutButton.addEventListener("click", () => {
+  localStorage.removeItem("user");
+  window.location = "/Login/index.html";
+});
 
 // =====================================================
 // INICIALIZACIÓN
 // =====================================================
 
 document.addEventListener("DOMContentLoaded", function () {
+  const user = localStorage.getItem("user");
+  if (!user) {
+    window.location = "/Login/index.html";
+    return;
+  }
+
+  console.log(user);
   initializePage();
   setupEventListeners();
   loadUserData();
@@ -267,7 +280,7 @@ function getFormData() {
     idFonoaudiologo_FK: parseInt(idFono),
     fechaCreacion: new Date().toISOString(),
     estado: "pendiente",
-    userId: userData._id || null,
+    pacienteId: userData._id || null,
   };
 
   return formData;

@@ -1,0 +1,419 @@
+/* Estilos para el juego de Puzzle de Números - FonoAudioTest */
+
+/* Estilos generales */
+.puzzle-game-container {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 1) 0%,
+    rgba(90, 211, 236, 1) 100%
+  );
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title h1 {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-title p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+.section-title {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 1) 0%,
+    rgba(90, 211, 236, 1) 100%
+  );
+  padding: 2rem 1rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Tablero de juego */
+.game-board {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 400px;
+  width: 100%;
+}
+
+.grid button {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 0.9) 0%,
+    rgba(90, 211, 236, 0.9) 100%
+  );
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-family: "Fredoka One", cursive;
+}
+
+.grid button:hover:not(.empty) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 1) 0%,
+    rgba(90, 211, 236, 1) 100%
+  );
+}
+
+.grid button:active:not(.empty) {
+  transform: translateY(-1px);
+}
+
+.grid button.empty {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: default;
+  visibility: visible;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+/* Estadísticas del juego */
+.game-stats {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  height: fit-content;
+}
+
+.stat-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.stat-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #ffeb3b;
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin-left: 0.5rem;
+}
+
+/* Botones */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 0.9) 0%,
+    rgba(90, 211, 236, 0.9) 100%
+  );
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 1) 0%,
+    rgba(90, 211, 236, 1) 100%
+  );
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border: 2px solid rgba(74, 72, 112, 0.9);
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.btn-outline-primary:hover {
+  background: rgba(74, 72, 112, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/* Footer */
+#footer {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 0.9) 0%,
+    rgba(90, 211, 236, 0.9) 100%
+  );
+  color: white;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+#footer .copyright {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+#footer p {
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+/* Efecto de victoria */
+.victoria-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.mensaje-victoria {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 0.95) 0%,
+    rgba(90, 211, 236, 0.95) 100%
+  );
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.mensaje-victoria h2 {
+  font-family: "Fredoka One", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffeb3b;
+}
+
+.mensaje-victoria p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.win-stats {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.win-stats p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Estados especiales para el temporizador */
+.tiempo-urgente {
+  background-color: rgba(255, 107, 107, 0.3) !important;
+  border-color: rgba(255, 107, 107, 0.5) !important;
+}
+
+.tiempo-urgente .stat-value {
+  color: #ff6b6b;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animaciones para las piezas del puzzle */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.grid button:not(.empty) {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes celebration {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.victoria-overlay .mensaje-victoria {
+  animation: celebration 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .grid {
+    max-width: 350px;
+  }
+
+  .grid button {
+    font-size: 1.3rem;
+  }
+
+  .section-title h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    max-width: 300px;
+    gap: 8px;
+  }
+
+  .grid button {
+    font-size: 1.2rem;
+  }
+
+  .game-stats {
+    margin-top: 20px;
+  }
+
+  .section-title h1 {
+    font-size: 2rem;
+  }
+
+  .stat-title {
+    font-size: 1.1rem;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    max-width: 280px;
+    gap: 6px;
+  }
+
+  .grid button {
+    font-size: 1.1rem;
+  }
+
+  .game-board {
+    padding: 20px;
+  }
+
+  .section-title h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-title p {
+    font-size: 1rem;
+  }
+
+  .btn-primary,
+  .btn-outline-primary {
+    font-size: 1rem;
+    padding: 10px 16px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+}

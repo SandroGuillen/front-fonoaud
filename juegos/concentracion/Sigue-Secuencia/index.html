@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simón dice</title>
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Iconos de Bootstrap Icons -->
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/img/logo - copia.png" rel="icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap-grid.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/img/logo - copia.png" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link
+      href="/juegos/concentracion/Sigue-Secuencia/css/styles.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <a href="index.html" class="logo me-auto"
+          ><img src="/assets/img/logo - copia.png" alt=""
+        /></a>
+        <h1>FonoAudioTest</h1>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto" href="/index.html">Inicio</a></li>
+            <li>
+              <a class="nav-link scrollto" href="/paginas/nosotros.html"
+                >Nosotros</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/paginas/servicios.html"
+                >Servicios</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/paginas/materiales.html"
+                >Materiales</a
+              >
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                ><span>Conocimiento</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li>
+                  <a href="/paginas/Fonoaudiologia.html"
+                    >¿Qué es fonoaudiología?</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Transtornos.html"
+                    >Trastornos Infantiles mas comunes</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Hitos.html"
+                    >Hitos del desarrollo en infancia</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <a id="login-link" href="/Login/index.html"
+              ><img src="" alt="" />inicio sesion</a
+            >
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+
+    <main style="margin-top: 120px; text-align: center">
+      <div class="simon">
+        <div class="title">Sigue la secuencia</div>
+        <br />
+        <button id="startButton" class="btn btn-success">Comenzar</button>
+
+        <div class="buttonContainer" style="margin-top: 20px">
+          <div class="square red"></div>
+          <div class="square yellow"></div>
+          <div class="square blue"></div>
+          <div class="square green"></div>
+        </div>
+        <div id="round" style="margin-top: 20px; font-size: 1.5rem"></div>
+      </div>
+
+      <!-- Pantalla final (ganar/perder) -->
+      <div
+        id="end-screen"
+        style="display: none; text-align: center; margin-top: 2rem"
+      >
+        <h2 id="end-message"></h2>
+        <button class="btn btn-primary" onclick="restartGame()">
+          Volver a jugar
+        </button>
+      </div>
+    </main>
+
+    <script src="./js/script.js" type="text/javascript" defer></script>
+    <script src="/assets/js/games.js"></script>
+    <script src="/assets/js/request.js"></script>
+  </body>
+</html>

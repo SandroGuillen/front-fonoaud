@@ -1,0 +1,382 @@
+/* Estilos para el juego de Memoria Instrumentos - FonoAudioTest */
+
+/* Estilos generales */
+.memory-game-container {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 1) 0%,
+    rgba(90, 211, 236, 1) 100%
+  );
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title h1 {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-title p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+.section-title {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 1) 0%,
+    rgba(90, 211, 236, 1) 100%
+  );
+  padding: 2rem 1rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Tablero de juego */
+.game-board {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.memory-table {
+  border-spacing: 15px;
+  border-collapse: separate;
+  margin: 0 auto;
+}
+
+.memory-table td {
+  padding: 0;
+}
+
+/* Botones del juego */
+.memory-table button {
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 0.8) 0%,
+    rgba(90, 211, 236, 0.8) 100%
+  );
+  color: white;
+  font-size: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-table button:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.memory-table button:disabled {
+  cursor: not-allowed;
+  transform: none;
+}
+
+.memory-table button img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Estados de los botones */
+.memory-table button.matched {
+  background: linear-gradient(
+    135deg,
+    rgba(46, 204, 113, 0.9) 0%,
+    rgba(52, 152, 219, 0.9) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.memory-table button.matched::after {
+  content: "✓";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2ecc71;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Estadísticas del juego */
+.game-stats {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  height: fit-content;
+}
+
+.stat-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.stat-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #ffeb3b;
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Botones */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 0.9) 0%,
+    rgba(90, 211, 236, 0.9) 100%
+  );
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 1) 0%,
+    rgba(90, 211, 236, 1) 100%
+  );
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+/* Footer */
+#footer {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 0.9) 0%,
+    rgba(90, 211, 236, 0.9) 100%
+  );
+  color: white;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+#footer .copyright {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+#footer p {
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+/* Estados especiales para el temporizador */
+.tiempo-urgente .stat-value {
+  color: #ff6b6b;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Efecto de victoria */
+.victoria-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.mensaje-victoria {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 0.95) 0%,
+    rgba(90, 211, 236, 0.95) 100%
+  );
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.mensaje-victoria h2 {
+  font-family: "Fredoka One", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffeb3b;
+}
+
+.mensaje-victoria p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .memory-table button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .section-title h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .memory-table {
+    border-spacing: 10px;
+  }
+
+  .memory-table button {
+    width: 65px;
+    height: 65px;
+  }
+
+  .game-stats {
+    margin-top: 20px;
+  }
+
+  .section-title h1 {
+    font-size: 2rem;
+  }
+
+  .stat-title {
+    font-size: 1.1rem;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .memory-table {
+    border-spacing: 8px;
+  }
+
+  .memory-table button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .game-board {
+    padding: 20px;
+  }
+
+  .section-title h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-title p {
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+    padding: 10px 16px;
+  }
+}
+
+/* Animaciones */
+@keyframes cardReveal {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.memory-table button:not(:disabled) {
+  animation: cardReveal 0.3s ease;
+}
+
+@keyframes matchCelebration {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.memory-table button.matched {
+  animation: matchCelebration 0.5s ease;
+}

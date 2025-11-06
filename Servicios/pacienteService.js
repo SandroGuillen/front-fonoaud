@@ -1,4 +1,4 @@
-import { backendUrl } from "../config";
+const backendUrl = "http://localhost:3000";
 
 const pacienteService = {
   async getPacientes(idPaciente = undefined, filter = {}) {

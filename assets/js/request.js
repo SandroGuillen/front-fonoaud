@@ -1,16 +1,17 @@
-const BASE_URL = "http://localhost:3000";
-
-let user = {};
+const BASE_URL = window.location.href.includes("127")
+  ? "http://localhost:3000"
+  : "https://9dt9sktn-3000.use.devtunnels.ms";
 
 const request = {
   async get(url, query = {}) {
-    const queryString = Object.entries(query).map(([key, value]) => `${key}=${value}`).join("&");
-    console.log(queryString);
+    const queryString = Object.entries(query)
+      .map(([key, value]) => `${key}=${value}`)
+      .join("&");
     const response = await fetch(`${BASE_URL}${url}?${queryString}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-      }
+      },
     });
 
     return {
@@ -32,12 +33,13 @@ const request = {
       status: response.status,
     };
   },
-  async put(url) {
+  async put(url, data = {}) {
     const response = await fetch(`${BASE_URL}${url}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(data),
     });
     return {
       data: await response.json(),

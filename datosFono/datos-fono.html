@@ -9,7 +9,7 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="../assets/img/logo-copia.png" rel="icon" />
+    <link href="/assets/img/logo - copia.png" rel="icon" />
 
     <!-- Google Fonts -->
     <link
@@ -41,7 +41,7 @@
     <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center">
         <a href="../index.html" class="logo me-auto"
-          ><img src="../assets/img/logo-copia.png" alt=""
+          ><img src="/assets/img/logo - copia.png" alt=""
         /></a>
         <h1>FonoAudioTest</h1>
         <nav id="navbar" class="navbar order-last order-lg-0">
@@ -134,14 +134,15 @@
                   <div class="col-md-4 mb-3">
                     <label class="form-label">Tipo de Documento</label>
                     <select class="form-select" id="tipoDocumento">
-                      <option value="cc">Cédula de Ciudadanía</option>
-                      <option value="ce">Cédula de Extranjería</option>
-                      <option value="pasaporte">Pasaporte</option>
+                      <option disabled value="cc">Cédula de Ciudadanía</option>
+                      <option disabled value="ce">Cédula de Extranjería</option>
+                      <option disabled value="pasaporte">Pasaporte</option>
                     </select>
                   </div>
                   <div class="col-md-4 mb-3">
                     <label class="form-label">Número de Documento</label>
                     <input
+                      readonly
                       type="text"
                       class="form-control"
                       id="numeroDocumento"
@@ -355,6 +356,7 @@
 
             <!-- Sección de Documentos -->
             <div class="profile-section">
+              <!--
               <h3>
                 <i class="bi bi-file-earmark-arrow-up me-2"></i>Documentos
                 Adjuntos
@@ -376,9 +378,13 @@
               </div>
 
               <h5 class="mb-3">Documentos Subidos</h5>
+              -->
               <div class="list-group" id="documentosLista">
                 <!-- Los documentos subidos aparecerán aquí -->
               </div>
+              <button class="btn-add-item" id="guardar-todo">
+                Guardar todo
+              </button>
             </div>
           </div>
         </div>
@@ -412,8 +418,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/localization/messages_es.min.js"></script>
 
     <!-- JS Personalizado -->
-    <script src="../assets//js/request.js"></script>
-    <script src="./datos-fono.js"></script>
+    <script src="/assets/js/request.js"></script>
     <script src="/config.js"></script>
+    <script src="./datos-fono.js"></script>
   </body>
 </html>

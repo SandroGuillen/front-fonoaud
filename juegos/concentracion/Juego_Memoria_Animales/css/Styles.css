@@ -1,0 +1,349 @@
+/* Estilos para el juego de Memoria de Animales - FonoAudioTest */
+
+/* Variables de colores y estilos consistentes */
+:root {
+  --primary-color: #1f6ab4;
+  --secondary-color: #198754;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+}
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  padding-top: 0;
+}
+.memory-game-container {
+  padding-top: 60px; /* Para compensar el header fixed */
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 72, 112, 1) 0%,
+    rgba(90, 211, 236, 1) 100%
+  );
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: "Poppins", "Roboto", "Open Sans", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  margin-top: 50px; /* Para compensar el header fijo si lo agregas */
+}
+
+/* Sección del juego */
+.section1 {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.section1 h1 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Tabla del juego */
+table {
+  margin: 0 auto;
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+
+td {
+  padding: 0;
+}
+
+/* Botones del juego */
+button {
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
+/* Estados de los botones */
+button.destapado {
+  background-color: white;
+  border: 2px solid var(--primary-color);
+  transform: scale(0.95);
+}
+
+button.encontrado {
+  background-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  cursor: default;
+}
+
+button.encontrado:hover {
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de estadísticas */
+.section2 {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.estadisticas {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--dark-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: var(--light-color);
+  min-width: 150px;
+  text-align: center;
+}
+
+#Aciertos {
+  color: var(--secondary-color);
+}
+
+#Tiempo {
+  color: var(--primary-color);
+}
+
+#Movimientos {
+  color: var(--warning-color);
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Efectos visuales para el juego */
+@keyframes flipIn {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+button.destapado {
+  animation: flipIn 0.5s ease;
+}
+
+@keyframes matchAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button.encontrado {
+  animation: matchAnimation 0.5s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem 0.5rem;
+    margin-top: 60px;
+  }
+
+  .section1 {
+    padding: 1.5rem;
+  }
+
+  .section1 h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 70px;
+    height: 70px;
+  }
+
+  table {
+    border-spacing: 8px;
+  }
+
+  .section2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .estadisticas {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section1 {
+    padding: 1rem;
+  }
+
+  .section1 h1 {
+    font-size: 1.3rem;
+  }
+
+  button {
+    width: 60px;
+    height: 60px;
+  }
+
+  table {
+    border-spacing: 5px;
+  }
+
+  .estadisticas {
+    font-size: 1rem;
+    min-width: 120px;
+  }
+}
+
+/* Estados especiales para el temporizador */
+.tiempo-urgente {
+  color: var(--danger-color) !important;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Efecto de victoria */
+.victoria {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.mensaje-victoria {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+}
+
+.mensaje-victoria h2 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.mensaje-victoria p {
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+}
+
+.boton-reiniciar {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.boton-reiniciar:hover {
+  background-color: #1a5a9a;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

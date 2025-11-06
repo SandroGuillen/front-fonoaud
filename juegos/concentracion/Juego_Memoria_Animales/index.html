@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link href="/assets/img/logo-copia.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/juegos/concentracion/Juego_Memoria_Animales/css/Styles.css"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <a href="/index.html" class="logo me-auto">
+          <img src="/assets/img/logo - copia.png" alt="Logo FonoAudioTest" />
+        </a>
+        <h1 class="me-auto">FonoAudioTest</h1>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link" href="/index.html">Inicio</a></li>
+            <li>
+              <a class="nav-link" href="/paginas/nosotros.html">Nosotros</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/paginas/servicios.html">Servicios</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/paginas/materiales.html">Materiales</a>
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                ><span>Conocimiento</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li>
+                  <a href="/paginas/Fonoaudiologia.html"
+                    >¿Qué es fonoaudiología?</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Transtornos.html"
+                    >Trastornos Infantiles más comunes</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Hitos.html"
+                    >Hitos del desarrollo en infancia</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+
+    <main class="memory-game-container">
+      <section class="section1">
+        <h1>MEMORIA ANIMALES</h1>
+        <table>
+          <tr>
+            <td><button id="0" onclick="destapar(0)"></button></td>
+            <td><button id="1" onclick="destapar(1)"></button></td>
+            <td><button id="2" onclick="destapar(2)"></button></td>
+            <td><button id="3" onclick="destapar(3)"></button></td>
+          </tr>
+          <tr>
+            <td><button id="4" onclick="destapar(4)"></button></td>
+            <td><button id="5" onclick="destapar(5)"></button></td>
+            <td><button id="6" onclick="destapar(6)"></button></td>
+            <td><button id="7" onclick="destapar(7)"></button></td>
+          </tr>
+          <tr>
+            <td><button id="8" onclick="destapar(8)"></button></td>
+            <td><button id="9" onclick="destapar(9)"></button></td>
+            <td><button id="10" onclick="destapar(10)"></button></td>
+            <td><button id="11" onclick="destapar(11)"></button></td>
+          </tr>
+          <tr>
+            <td><button id="12" onclick="destapar(12)"></button></td>
+            <td><button id="13" onclick="destapar(13)"></button></td>
+            <td><button id="14" onclick="destapar(14)"></button></td>
+            <td><button id="15" onclick="destapar(15)"></button></td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="section2">
+        <h2 id="Aciertos" class="estadisticas">Aciertos:0</h2>
+        <h2 id="Tiempo" class="estadisticas">Tiempo:60 segundos</h2>
+        <h2 id="Movimientos" class="estadisticas">Movimientos:0</h2>
+      </section>
+    </main>
+    <footer>
+      <p>Juego programado por 👉 FonoAudioTest👩‍⚕️</p>
+    </footer>
+    <script src="/juegos/concentracion/Juego_Memoria_Animales/js/main.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/request.js"></script>
+    <script src="/assets/js/games.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

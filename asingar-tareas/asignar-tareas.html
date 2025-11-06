@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asignar Tareas - FonoAudioTest</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Iconos de Bootstrap Icons -->
+    <link
+      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/img/logo - copia.png" rel="icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap-grid.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/asingar-tareas/asignar-tareas.css" />
+  </head>
+  <body class="bg-light">
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <button class="btn btn-link text-white me-2" id="sidebarToggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <!-- Logo -->
+        <a href="/index.html" class="logo me-auto">
+          <img src="/assets/img/logo - copia.png" alt="FonoAudioTest" />
+        </a>
+
+        <h1>FonoAudioTest</h1>
+
+        <!-- Navbar (menú principal) -->
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="/index.html">Inicio</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="lista-pacientes.html"
+                >Mis Pacientes</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto active" href="asignar-tareas.html"
+                >Asignar Tareas</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="seguimiento-terapeuta.html"
+                >Seguimiento</a
+              >
+            </li>
+            <li>
+              <a id="login-link" href="#">
+                <img src="/assets/img/acceso1.png" alt="Cerrar Sesión" />
+                Cerrar Sesión
+              </a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+    <!-- Sidebar (fuera del header, pero en el mismo nivel) -->
+    <div class="sidebar" id="sidebarMenu">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <!--<li class="nav-item">
+            <a class="nav-link text-white active" href="#">
+              <i class="bi bi-calendar-day me-2"></i>Pacientes Hoy
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-calendar-month me-2"></i>Agenda Mensual
+            </a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/formu-fono/fono.html">
+              <i class="bi bi-people me-2"></i>Pacientes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/valoracion/valoracion.html">
+              <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white"
+              href="/historia_clinica/historia_clinica.html
+            "
+            >
+              <i class="bi bi-file-earmark-text me-2"></i>Historial Clinico PDF
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white"
+              href="/resultado-juegos/resultadojuego.html"
+            >
+              <i class="bi bi-file-earmark-text me-2"></i>Juegos Realizados
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white"
+              href="/asingar-tareas/asignar-tareas.html"
+            >
+              <i class="bi bi-file-earmark-text me-2"></i>Asignar Tareas
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-file-earmark-text me-2"></i>Reportes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <i class="bi bi-gear me-2"></i>Configuración
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Main Content -->
+    <main id="main" class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Header secundario -->
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+            >
+              <h2 class="h2">Asignar Tareas a Pacientes</h2>
+              <div class="date-indicator">
+                <i class="bi bi-calendar-check me-2"></i>
+                <span id="fecha-hoy"></span>
+              </div>
+            </div>
+
+            <!-- Información del terapeuta -->
+
+            <!-- Formulario de asignación de tareas -->
+            <div class="card dashboard-card mb-4">
+              <div class="card-header bg-primary text-white">
+                <span>Nueva Tarea</span>
+              </div>
+              <div class="card-body">
+                <form id="form-asignar-tarea">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="paciente" class="form-label"
+                        >Seleccionar Paciente</label
+                      >
+                      <select class="form-select" id="paciente" required>
+                        <option value="" selected disabled>
+                          Seleccione un paciente
+                        </option>
+                        <option value="1">Ana María López (8 años)</option>
+                        <option value="2">
+                          Carlos Andrés Ramírez (7 años)
+                        </option>
+                        <option value="3">María Fernanda Gómez (9 años)</option>
+                        <option value="4">Juan David Herrera (6 años)</option>
+                        <option value="5">
+                          Sofía Alejandra Torres (10 años)
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="tipo-juego" class="form-label"
+                        >Tipo de Juego</label
+                      >
+                      <select class="form-select" id="tipo-juego" required>
+                        <option value="" selected disabled>
+                          Seleccione un tipo
+                        </option>
+                        <option value="concentracion">Concentración</option>
+                        <option value="educativas">Educativas</option>
+                        <option value="matematica">Matematicas</option>
+                        <option value="adivinanzas">Adivinanzas</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="juego" class="form-label"
+                        >Juego Específico</label
+                      >
+                      <select class="form-select" id="juego" required>
+                        <option value="" selected disabled>
+                          Seleccione un juego
+                        </option>
+                        <!-- Opciones se llenarán dinámicamente según el tipo seleccionado -->
+                      </select>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="fecha-vencimiento" class="form-label"
+                        >Fecha Límite</label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="fecha-vencimiento"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-12">
+                      <label for="instrucciones" class="form-label"
+                        >Instrucciones Adicionales</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="instrucciones"
+                        rows="3"
+                        placeholder="Opcional: agregue instrucciones específicas para esta tarea..."
+                      ></textarea>
+                    </div>
+                    <div class="col-12">
+                      <div
+                        class="d-grid gap-2 d-md-flex justify-content-md-end"
+                      >
+                        <button type="reset" class="btn btn-secondary me-md-2">
+                          Limpiar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                          Asignar Tarea
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Tareas Asignadas Recientemente -->
+            <!-- <div class="card dashboard-card">
+              <div class="card-header bg-success text-white">
+                <span
+                  ><i class="bi bi-clock-history me-2"></i>Tareas Asignadas
+                  Recientemente</span
+                >
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Paciente</th>
+                        <th>Juego</th>
+                        <th>Tipo</th>
+                        <th>Dificultad</th>
+                        <th>Fecha Límite</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ana María López</td>
+                        <td>Memorama de Animales</td>
+                        <td><span class="badge bg-primary">Memoria</span></td>
+                        <td>
+                          <span class="badge bg-warning text-dark">Media</span>
+                        </td>
+                        <td>20/09/2023</td>
+                        <td><span class="badge bg-info">Pendiente</span></td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary me-1"
+                            title="Editar"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-outline-danger"
+                            title="Eliminar"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Carlos Andrés Ramírez</td>
+                        <td>Adivina la Palabra</td>
+                        <td><span class="badge bg-info">Lenguaje</span></td>
+                        <td><span class="badge bg-success">Baja</span></td>
+                        <td>22/09/2023</td>
+                        <td><span class="badge bg-info">Pendiente</span></td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary me-1"
+                            title="Editar"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-outline-danger"
+                            title="Eliminar"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>María Fernanda Gómez</td>
+                        <td>Encuentra el Sonido</td>
+                        <td><span class="badge bg-success">Atención</span></td>
+                        <td><span class="badge bg-danger">Alta</span></td>
+                        <td>18/09/2023</td>
+                        <td>
+                          <span class="badge bg-success">Completada</span>
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary me-1"
+                            title="Editar"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-outline-danger"
+                            title="Eliminar"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-info">
+                <h3>FonoAudioTest</h3>
+                <p>
+                  <strong>Phone:</strong> +57 321 4568907<br />
+                  <strong>Email:</strong> fonoaudiotest@gmail.com<br />
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"
+                  ><i class="bx bxl-instagram"></i
+                ></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="/assets/js/request.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/games.js"></script>
+    <!-- Script específico de la página -->
+    <script src="/asingar-tareas/asignar-tareas.js"></script>
+  </body>
+</html>

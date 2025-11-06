@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagrama ER - Sistema de Fonoaudiología</title>
+    <style>
+      :root {
+        --primary: #2c3e50;
+        --secondary: #3498db;
+        --accent: #e74c3c;
+        --light: #ecf0f1;
+        --dark: #34495e;
+        --success: #2ecc71;
+        --warning: #f39c12;
+        --info: #1abc9c;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+        color: #333;
+        min-height: 100vh;
+        padding: 20px;
+        overflow: hidden;
+      }
+
+      .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        height: calc(100vh - 40px);
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        border-left: 6px solid var(--secondary);
+        flex-shrink: 0;
+      }
+
+      h1 {
+        color: var(--primary);
+        margin-bottom: 10px;
+        font-size: 2.5rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .subtitle {
+        color: var(--dark);
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .main-content {
+        display: flex;
+        gap: 20px;
+        flex: 1;
+        min-height: 0;
+      }
+
+      .controls-panel {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        width: 280px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .panel-title {
+        color: var(--primary);
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--secondary);
+        font-size: 1.3rem;
+      }
+
+      .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      button {
+        padding: 12px 18px;
+        background: var(--secondary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      button:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      button i {
+        font-size: 1.1rem;
+      }
+
+      .diagram-area {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        overflow: auto;
+        position: relative;
+      }
+
+      #diagram {
+        width: 2000px;
+        height: 1500px;
+        position: relative;
+        transform-origin: 0 0;
+        transition: transform 0.3s ease;
+      }
+
+      .entity {
+        position: absolute;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 260px;
+        transition: all 0.3s ease;
+        border-top: 5px solid var(--secondary);
+        z-index: 2;
+        cursor: move;
+        user-select: none;
+      }
+
+      .entity.dragging {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+        transform: rotate(2deg);
+      }
+
+      .entity:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+      }
+
+      .entity-header {
+        background: var(--secondary);
+        color: white;
+        padding: 12px 15px;
+        border-radius: 10px 10px 0 0;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.1rem;
+        cursor: move;
+      }
+
+      .entity-content {
+        padding: 15px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      .attribute {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .attribute:last-child {
+        border-bottom: none;
+      }
+
+      .attribute-name {
+        flex: 1;
+      }
+
+      .attribute-type {
+        color: #7f8c8d;
+        font-size: 0.85rem;
+        background: #f8f9fa;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      .pk {
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .fk {
+        color: var(--info);
+        font-weight: bold;
+      }
+
+      .optional {
+        opacity: 0.7;
+      }
+
+      .relationship {
+        position: absolute;
+        height: 3px;
+        background: var(--primary);
+        transform-origin: 0 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .relationship::after {
+        content: "";
+        position: absolute;
+        right: -8px;
+        top: -4px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid var(--primary);
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+      }
+
+      .relationship-label {
+        position: absolute;
+        background: white;
+        padding: 4px 10px;
+        border-radius: 5px;
+        font-size: 0.85rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        font-weight: 600;
+        color: var(--primary);
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      .cardinality {
+        position: absolute;
+        background: var(--accent);
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: bold;
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      .legend {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .color-box {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+      }
+
+      .pk-color {
+        background: var(--accent);
+      }
+
+      .fk-color {
+        background: var(--info);
+      }
+
+      .entity-color {
+        background: var(--secondary);
+      }
+
+      .relationship-color {
+        background: var(--primary);
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        color: white;
+        font-size: 0.95rem;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        flex-shrink: 0;
+      }
+
+      .entity-group {
+        position: absolute;
+        border: 2px dashed var(--warning);
+        border-radius: 12px;
+        background: rgba(243, 156, 18, 0.05);
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .group-label {
+        position: absolute;
+        top: -12px;
+        left: 15px;
+        background: var(--warning);
+        color: white;
+        padding: 3px 10px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .instructions {
+        background: rgba(52, 152, 219, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .instructions p {
+        margin-bottom: 8px;
+      }
+
+      /* Responsive */
+      @media (max-width: 1200px) {
+        .main-content {
+          flex-direction: column;
+        }
+
+        .controls-panel {
+          width: 100%;
+        }
+
+        .diagram-area {
+          min-height: 500px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .entity {
+          width: 240px;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          <i class="fas fa-database"></i> Diagrama Entidad-Relación Interactivo
+        </h1>
+        <p class="subtitle">
+          Sistema de Gestión de Fonoaudiología - Arrastra las tablas para
+          explorar relaciones
+        </p>
+      </header>
+
+      <div class="main-content">
+        <div class="controls-panel">
+          <h2 class="panel-title">
+            <i class="fas fa-sliders-h"></i> Controles
+          </h2>
+          <div class="controls">
+            <button id="zoomIn">
+              <i class="fas fa-search-plus"></i> Zoom In
+            </button>
+            <button id="zoomOut">
+              <i class="fas fa-search-minus"></i> Zoom Out
+            </button>
+            <button id="resetView">
+              <i class="fas fa-sync-alt"></i> Reset Vista
+            </button>
+            <button id="toggleRelations">
+              <i class="fas fa-project-diagram"></i> Mostrar/Ocultar Relaciones
+            </button>
+            <button id="arrangeLayout">
+              <i class="fas fa-th"></i> Reorganizar Layout
+            </button>
+          </div>
+
+          <div class="instructions">
+            <h2 class="panel-title">
+              <i class="fas fa-info-circle"></i> Instrucciones
+            </h2>
+            <p>
+              <strong>Arrastra las tablas</strong> para moverlas y explorar las
+              relaciones.
+            </p>
+            <p>
+              <strong>Haz clic en una tabla</strong> para resaltar sus
+              relaciones.
+            </p>
+            <p>
+              <strong>Usa la rueda del mouse</strong> para hacer zoom en el
+              diagrama.
+            </p>
+          </div>
+        </div>
+
+        <div class="diagram-area">
+          <div id="diagram">
+            <!-- Las entidades y relaciones se generarán con JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div class="color-box pk-color"></div>
+          <span>Clave Primaria (PK)</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box fk-color"></div>
+          <span>Clave Foránea (FK)</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box entity-color"></div>
+          <span>Entidad</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box relationship-color"></div>
+          <span>Relación</span>
+        </div>
+        <div class="legend-item">
+          <i class="fas fa-asterisk" style="color: var(--accent)"></i>
+          <span>Campo Opcional</span>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          <i class="fas fa-code"></i> Diagrama interactivo - Sistema de
+          Fonoaudiología | Arrastra las tablas para explorar relaciones
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Datos de las entidades
+      const entities = [
+        {
+          id: "persona",
+          name: "Persona",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "nombre", type: "string" },
+            { name: "apellido", type: "string" },
+            { name: "tipoDocumento_FK", type: "string", isFk: true },
+            { name: "identificacion", type: "number" },
+            { name: "sexoBiologico", type: "string" },
+            { name: "fechaNacimiento", type: "string" },
+            { name: "munOrigen", type: "string" },
+            { name: "veredaBarrio", type: "string" },
+            { name: "direccion", type: "string" },
+            { name: "telefono", type: "number" },
+            { name: "correo", type: "string" },
+          ],
+          position: { x: 100, y: 100 },
+          group: "core",
+        },
+        {
+          id: "usuario",
+          name: "Usuario",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "contrasena", type: "string" },
+            { name: "username", type: "string" },
+            { name: "rol", type: "string" },
+            { name: "idPersona", type: "number" },
+            { name: "idPersona_FK", type: "ObjectId", isFk: true },
+          ],
+          position: { x: 400, y: 100 },
+          group: "core",
+        },
+        {
+          id: "paciente",
+          name: "Paciente",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "identificacion", type: "number" },
+            { name: "idRepresentante_FK", type: "ObjectId", isFk: true },
+            { name: "discapacidad", type: "string", optional: true },
+            {
+              name: "idFonoaudiologo_FK",
+              type: "ObjectId",
+              isFk: true,
+              optional: true,
+            },
+            {
+              name: "escolaridad_FK",
+              type: "ObjectId",
+              isFk: true,
+              optional: true,
+            },
+          ],
+          position: { x: 700, y: 100 },
+          group: "pacientes",
+        },
+        {
+          id: "representante",
+          name: "Representante",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "parentesco", type: "string" },
+            { name: "ocupacion", type: "string" },
+            { name: "estadoCivil", type: "string" },
+            { name: "idPersona_FK", type: "ObjectId", isFk: true },
+          ],
+          position: { x: 100, y: 350 },
+          group: "pacientes",
+        },
+        {
+          id: "fonoaudiologo",
+          name: "Fonoaudiólogo",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "identificacion", type: "number" },
+            { name: "especialidad", type: "string" },
+            { name: "perfil", type: "string", optional: true },
+            { name: "img", type: "string" },
+            {
+              name: "idExpLaboral_FK",
+              type: "ObjectId",
+              isFk: true,
+              optional: true,
+            },
+            {
+              name: "idFormacion_FK",
+              type: "ObjectId",
+              isFk: true,
+              optional: true,
+            },
+          ],
+          position: { x: 400, y: 350 },
+          group: "profesionales",
+        },
+        {
+          id: "escolaridad",
+          name: "Escolaridad",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "nombre", type: "string" },
+          ],
+          position: { x: 1000, y: 100 },
+          group: "catalogos",
+        },
+        {
+          id: "municipio",
+          name: "Municipio",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "nombre", type: "string" },
+            { name: "idDepartamento_FK", type: "ObjectId", isFk: true },
+          ],
+          position: { x: 100, y: 600 },
+          group: "ubicacion",
+        },
+        {
+          id: "departamento",
+          name: "Departamento",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "nombre", type: "string" },
+            { name: "idPais_FK", type: "ObjectId", isFk: true },
+          ],
+          position: { x: 400, y: 600 },
+          group: "ubicacion",
+        },
+        {
+          id: "pais",
+          name: "Pais",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "nombre", type: "string" },
+          ],
+          position: { x: 700, y: 600 },
+          group: "ubicacion",
+        },
+        {
+          id: "agendarCita",
+          name: "AgendarCita",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            {
+              name: "idRepresentante_FK",
+              type: "ObjectId",
+              isFk: true,
+              optional: true,
+            },
+            { name: "idFonoaudiologo_FK", type: "number" },
+            { name: "idPaciente_FK", type: "number" },
+            { name: "alergias", type: "string" },
+            { name: "fechaCita", type: "Date" },
+            { name: "motivo", type: "string" },
+          ],
+          position: { x: 700, y: 350 },
+          group: "citas",
+        },
+        {
+          id: "experienciaLaboral",
+          name: "ExperienciaLaboral",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "institucion", type: "string" },
+            { name: "cargo", type: "string" },
+            { name: "inicio", type: "Date" },
+            { name: "descrpcion", type: "string", optional: true },
+            { name: "fin", type: "Date", optional: true },
+            { name: "fono_identificacion", type: "ObjectId", isFk: true },
+          ],
+          position: { x: 1000, y: 350 },
+          group: "profesionales",
+        },
+        {
+          id: "formacionAcademica",
+          name: "FormacionAcademica",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "institucion", type: "string" },
+            { name: "titulo", type: "string" },
+            { name: "descripcion", type: "string", optional: true },
+            { name: "fin", type: "Date", optional: true },
+            { name: "inicio", type: "Date" },
+            { name: "fono_identificacion", type: "ObjectId", isFk: true },
+          ],
+          position: { x: 1000, y: 550 },
+          group: "profesionales",
+        },
+        {
+          id: "historiaClinica",
+          name: "HistoriaClinica",
+          attributes: [
+            { name: "_id", type: "ObjectId", isPk: true },
+            { name: "idValoracion", type: "ObjectId" },
+            { name: "idPaciente_FK", type: "ObjectId", isFk: true },
+          ],
+          position: { x: 1000, y: 750 },
+          group: "pacientes",
+        },
+      ];
+
+      // Relaciones entre entidades
+      const relationships = [
+        {
+          from: "pais",
+          to: "departamento",
+          cardinality: "1:N",
+          label: "tiene",
+        },
+        {
+          from: "departamento",
+          to: "municipio",
+          cardinality: "1:N",
+          label: "contiene",
+        },
+        {
+          from: "municipio",
+          to: "persona",
+          cardinality: "1:N",
+          label: "origen",
+        },
+        { from: "persona", to: "usuario", cardinality: "1:1", label: "crea" },
+        { from: "persona", to: "paciente", cardinality: "1:1", label: "es" },
+        {
+          from: "persona",
+          to: "representante",
+          cardinality: "1:1",
+          label: "es",
+        },
+        {
+          from: "persona",
+          to: "fonoaudiologo",
+          cardinality: "1:1",
+          label: "es",
+        },
+        {
+          from: "representante",
+          to: "paciente",
+          cardinality: "1:N",
+          label: "representa",
+        },
+        {
+          from: "fonoaudiologo",
+          to: "paciente",
+          cardinality: "1:N",
+          label: "atiende",
+        },
+        {
+          from: "escolaridad",
+          to: "paciente",
+          cardinality: "1:N",
+          label: "nivel",
+        },
+        {
+          from: "fonoaudiologo",
+          to: "experienciaLaboral",
+          cardinality: "1:N",
+          label: "tiene",
+        },
+        {
+          from: "fonoaudiologo",
+          to: "formacionAcademica",
+          cardinality: "1:N",
+          label: "posee",
+        },
+        {
+          from: "paciente",
+          to: "historiaClinica",
+          cardinality: "1:1",
+          label: "tiene",
+        },
+        {
+          from: "paciente",
+          to: "agendarCita",
+          cardinality: "1:N",
+          label: "cita",
+        },
+        {
+          from: "fonoaudiologo",
+          to: "agendarCita",
+          cardinality: "1:N",
+          label: "atiende",
+        },
+        {
+          from: "representante",
+          to: "agendarCita",
+          cardinality: "1:N",
+          label: "solicita",
+        },
+      ];
+
+      // Variables globales
+      let zoomLevel = 1;
+      let showRelationships = true;
+      let isDragging = false;
+      let dragEntity = null;
+      let dragOffset = { x: 0, y: 0 };
+
+      // Inicializar el diagrama
+      function initDiagram() {
+        const diagram = document.getElementById("diagram");
+
+        // Crear entidades
+        entities.forEach((entity) => {
+          createEntityElement(entity);
+        });
+
+        // Crear relaciones
+        if (showRelationships) {
+          createRelationships();
+        }
+
+        // Aplicar zoom inicial
+        applyZoom();
+
+        // Agregar eventos de arrastre
+        setupDragEvents();
+
+        // Agregar zoom con rueda del mouse
+        diagram.addEventListener("wheel", handleZoomWheel);
+      }
+
+      // Crear elemento de entidad
+      function createEntityElement(entity) {
+        const diagram = document.getElementById("diagram");
+
+        const entityEl = document.createElement("div");
+        entityEl.className = "entity";
+        entityEl.id = entity.id;
+        entityEl.style.left = `${entity.position.x}px`;
+        entityEl.style.top = `${entity.position.y}px`;
+
+        let attributesHtml = "";
+        entity.attributes.forEach((attr) => {
+          const optionalClass = attr.optional ? "optional" : "";
+          const pkClass = attr.isPk ? "pk" : "";
+          const fkClass = attr.isFk ? "fk" : "";
+          const classAttr = `${optionalClass} ${pkClass} ${fkClass}`.trim();
+
+          attributesHtml += `
+                    <div class="attribute ${classAttr}">
+                        <span class="attribute-name">${attr.name}</span>
+                        <span class="attribute-type">${attr.type}</span>
+                    </div>
+                `;
+        });
+
+        entityEl.innerHTML = `
+                <div class="entity-header">${entity.name}</div>
+                <div class="entity-content">
+                    ${attributesHtml}
+                </div>
+            `;
+
+        // Añadir evento de clic
+        entityEl.addEventListener("click", (e) => {
+          if (!isDragging) {
+            highlightEntity(entity.id);
+          }
+        });
+
+        diagram.appendChild(entityEl);
+      }
+
+      // Configurar eventos de arrastre
+      function setupDragEvents() {
+        const entities = document.querySelectorAll(".entity");
+
+        entities.forEach((entity) => {
+          const header = entity.querySelector(".entity-header");
+
+          header.addEventListener("mousedown", startDrag);
+          entity.addEventListener("mousedown", startDrag);
+
+          // Para dispositivos táctiles
+          header.addEventListener("touchstart", startDragTouch);
+          entity.addEventListener("touchstart", startDragTouch);
+        });
+
+        document.addEventListener("mousemove", drag);
+        document.addEventListener("mouseup", stopDrag);
+
+        // Para dispositivos táctiles
+        document.addEventListener("touchmove", dragTouch);
+        document.addEventListener("touchend", stopDrag);
+      }
+
+      // Iniciar arrastre (ratón)
+      function startDrag(e) {
+        if (e.button !== 0) return; // Solo botón izquierdo
+
+        isDragging = true;
+        dragEntity = e.target.closest(".entity");
+        dragEntity.classList.add("dragging");
+
+        const rect = dragEntity.getBoundingClientRect();
+        const diagramRect = document
+          .getElementById("diagram")
+          .getBoundingClientRect();
+
+        dragOffset.x = e.clientX - rect.left + diagramRect.left;
+        dragOffset.y = e.clientY - rect.top + diagramRect.top;
+
+        e.preventDefault();
+      }
+
+      // Iniciar arrastre (táctil)
+      function startDragTouch(e) {
+        isDragging = true;
+        dragEntity = e.target.closest(".entity");
+        dragEntity.classList.add("dragging");
+
+        const touch = e.touches[0];
+        const rect = dragEntity.getBoundingClientRect();
+        const diagramRect = document
+          .getElementById("diagram")
+          .getBoundingClientRect();
+
+        dragOffset.x = touch.clientX - rect.left + diagramRect.left;
+        dragOffset.y = touch.clientY - rect.top + diagramRect.top;
+
+        e.preventDefault();
+      }
+
+      // Arrastrar (ratón)
+      function drag(e) {
+        if (!isDragging || !dragEntity) return;
+
+        const diagramRect = document
+          .getElementById("diagram")
+          .getBoundingClientRect();
+        const x = e.clientX - dragOffset.x;
+        const y = e.clientY - dragOffset.y;
+
+        dragEntity.style.left = `${x}px`;
+        dragEntity.style.top = `${y}px`;
+
+        // Actualizar relaciones en tiempo real
+        updateRelationships();
+      }
+
+      // Arrastrar (táctil)
+      function dragTouch(e) {
+        if (!isDragging || !dragEntity) return;
+
+        const touch = e.touches[0];
+        const diagramRect = document
+          .getElementById("diagram")
+          .getBoundingClientRect();
+        const x = touch.clientX - dragOffset.x;
+        const y = touch.clientY - dragOffset.y;
+
+        dragEntity.style.left = `${x}px`;
+        dragEntity.style.top = `${y}px`;
+
+        // Actualizar relaciones en tiempo real
+        updateRelationships();
+
+        e.preventDefault();
+      }
+
+      // Detener arrastre
+      function stopDrag() {
+        if (isDragging && dragEntity) {
+          dragEntity.classList.remove("dragging");
+        }
+
+        isDragging = false;
+        dragEntity = null;
+      }
+
+      // Actualizar relaciones cuando se mueve una entidad
+      function updateRelationships() {
+        // Eliminar relaciones existentes
+        document
+          .querySelectorAll(".relationship, .relationship-label, .cardinality")
+          .forEach((el) => {
+            el.remove();
+          });
+
+        // Volver a crear relaciones
+        createRelationships();
+      }
+
+      // Resaltar entidad y sus relaciones
+      function highlightEntity(entityId) {
+        // Quitar resaltado anterior
+        document.querySelectorAll(".entity").forEach((el) => {
+          el.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.1)";
+          el.style.borderTop = "5px solid var(--secondary)";
+        });
+
+        document
+          .querySelectorAll(".relationship, .relationship-label, .cardinality")
+          .forEach((el) => {
+            el.style.opacity = "0.4";
+          });
+
+        // Resaltar entidad seleccionada
+        const entityEl = document.getElementById(entityId);
+        if (entityEl) {
+          entityEl.style.boxShadow = "0 8px 25px rgba(231, 76, 60, 0.3)";
+          entityEl.style.borderTop = "5px solid var(--accent)";
+        }
+
+        // Resaltar relaciones de la entidad
+        relationships.forEach((rel) => {
+          if (rel.from === entityId || rel.to === entityId) {
+            document
+              .querySelectorAll(
+                `.relationship[data-from="${rel.from}"][data-to="${rel.to}"]`
+              )
+              .forEach((el) => {
+                el.style.opacity = "1";
+                el.style.background = "var(--accent)";
+              });
+
+            document
+              .querySelectorAll(
+                `.relationship-label[data-from="${rel.from}"][data-to="${rel.to}"]`
+              )
+              .forEach((el) => {
+                el.style.opacity = "1";
+                el.style.background = "white";
+              });
+
+            document
+              .querySelectorAll(
+                `.cardinality[data-from="${rel.from}"][data-to="${rel.to}"]`
+              )
+              .forEach((el) => {
+                el.style.opacity = "1";
+                el.style.background = "var(--accent)";
+              });
+          }
+        });
+      }
+
+      // Crear relaciones visuales
+      function createRelationships() {
+        const diagram = document.getElementById("diagram");
+
+        relationships.forEach((rel) => {
+          const fromEntity = document.getElementById(rel.from);
+          const toEntity = document.getElementById(rel.to);
+
+          if (!fromEntity || !toEntity) return;
+
+          const fromRect = fromEntity.getBoundingClientRect();
+          const toRect = toEntity.getBoundingClientRect();
+          const diagramRect = diagram.getBoundingClientRect();
+
+          // Calcular puntos de conexión (centro derecho de la entidad origen y centro izquierdo de la destino)
+          const fromX = fromRect.left - diagramRect.left + fromRect.width;
+          const fromY = fromRect.top - diagramRect.top + fromRect.height / 2;
+          const toX = toRect.left - diagramRect.left;
+          const toY = toRect.top - diagramRect.top + toRect.height / 2;
+
+          // Calcular longitud y ángulo de la línea
+          const length = Math.sqrt(
+            Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2)
+          );
+          const angle = (Math.atan2(toY - fromY, toX - fromX) * 180) / Math.PI;
+
+          // Crear línea de relación
+          const relationshipEl = document.createElement("div");
+          relationshipEl.className = "relationship";
+          relationshipEl.style.width = `${length}px`;
+          relationshipEl.style.left = `${fromX}px`;
+          relationshipEl.style.top = `${fromY}px`;
+          relationshipEl.style.transform = `rotate(${angle}deg)`;
+          relationshipEl.setAttribute("data-from", rel.from);
+          relationshipEl.setAttribute("data-to", rel.to);
+
+          diagram.appendChild(relationshipEl);
+
+          // Crear etiqueta de relación
+          const labelEl = document.createElement("div");
+          labelEl.className = "relationship-label";
+          labelEl.textContent = rel.label;
+          labelEl.style.left = `${fromX + length / 2 - 20}px`;
+          labelEl.style.top = `${fromY - 20}px`;
+          labelEl.setAttribute("data-from", rel.from);
+          labelEl.setAttribute("data-to", rel.to);
+
+          diagram.appendChild(labelEl);
+
+          // Crear cardinalidad
+          const cardinalityEl = document.createElement("div");
+          cardinalityEl.className = "cardinality";
+          cardinalityEl.textContent = rel.cardinality;
+          cardinalityEl.style.left = `${fromX + length / 2 - 12}px`;
+          cardinalityEl.style.top = `${fromY + 10}px`;
+          cardinalityEl.setAttribute("data-from", rel.from);
+          cardinalityEl.setAttribute("data-to", rel.to);
+
+          diagram.appendChild(cardinalityEl);
+        });
+      }
+
+      // Manejar zoom con rueda del mouse
+      function handleZoomWheel(e) {
+        e.preventDefault();
+
+        if (e.deltaY < 0) {
+          // Zoom in
+          if (zoomLevel < 2) {
+            zoomLevel += 0.1;
+            applyZoom();
+          }
+        } else {
+          // Zoom out
+          if (zoomLevel > 0.5) {
+            zoomLevel -= 0.1;
+            applyZoom();
+          }
+        }
+      }
+
+      // Aplicar zoom al diagrama
+      function applyZoom() {
+        const diagram = document.getElementById("diagram");
+        diagram.style.transform = `scale(${zoomLevel})`;
+      }
+
+      // Reorganizar el layout
+      function arrangeLayout() {
+        // Esta función reorganizaría las entidades para una mejor visualización
+        // Por simplicidad, aquí solo resetearíamos las posiciones
+        alert(
+          "Función de reorganización de layout. En una implementación completa, esto reorganizaría las entidades automáticamente."
+        );
+      }
+
+      // Event listeners para los controles
+      document.getElementById("zoomIn").addEventListener("click", () => {
+        if (zoomLevel < 2) {
+          zoomLevel += 0.1;
+          applyZoom();
+        }
+      });
+
+      document.getElementById("zoomOut").addEventListener("click", () => {
+        if (zoomLevel > 0.5) {
+          zoomLevel -= 0.1;
+          applyZoom();
+        }
+      });
+
+      document.getElementById("resetView").addEventListener("click", () => {
+        zoomLevel = 1;
+        applyZoom();
+
+        // Quitar resaltado
+        document.querySelectorAll(".entity").forEach((el) => {
+          el.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.1)";
+          el.style.borderTop = "5px solid var(--secondary)";
+        });
+
+        document
+          .querySelectorAll(".relationship, .relationship-label, .cardinality")
+          .forEach((el) => {
+            el.style.opacity = "1";
+            el.style.background = "";
+          });
+      });
+
+      document
+        .getElementById("toggleRelations")
+        .addEventListener("click", () => {
+          showRelationships = !showRelationships;
+          const relationships = document.querySelectorAll(
+            ".relationship, .relationship-label, .cardinality"
+          );
+          relationships.forEach((el) => {
+            if (showRelationships) {
+              el.style.display = "block";
+            } else {
+              el.style.display = "none";
+            }
+          });
+
+          if (
+            showRelationships &&
+            document.querySelectorAll(".relationship").length === 0
+          ) {
+            createRelationships();
+          }
+        });
+
+      document
+        .getElementById("arrangeLayout")
+        .addEventListener("click", arrangeLayout);
+
+      // Inicializar el diagrama cuando se carga la página
+      window.addEventListener("DOMContentLoaded", initDiagram);
+    </script>
+  </body>
+</html>

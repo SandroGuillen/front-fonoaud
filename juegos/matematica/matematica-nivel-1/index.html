@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operaciones Matemáticas | FonoAudioTest</title>
+
+    <!-- Favicon -->
+    <link href="/assets/img/logo - copia.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Vendor CSS Files -->
+    <link
+      href="/assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS -->
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/juegos/matematica/matematica-nivel-1/matematica-nivel-1.css"
+    />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <a href="/index.html" class="logo me-auto">
+          <img src="/assets/img/logo - copia.png" alt="Logo FonoAudioTest" />
+        </a>
+        <h1>FonoAudioTest</h1>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link" href="/index.html">Inicio</a></li>
+            <li>
+              <a class="nav-link" href="/paginas/nosotros.html">Nosotros</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/paginas/servicios.html">Servicios</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/paginas/materiales.html">Materiales</a>
+            </li>
+            <li class="dropdown">
+              <a href="#">
+                <span>Conocimiento</span> <i class="bi bi-chevron-down"></i>
+              </a>
+              <ul>
+                <li>
+                  <a href="/paginas/Fonoaudiologia.html"
+                    >¿Qué es fonoaudiología?</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Transtornos.html"
+                    >Trastornos Infantiles más comunes</a
+                  >
+                </li>
+                <li>
+                  <a href="/paginas/Hitos.html"
+                    >Hitos del desarrollo en infancia</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ======= Contenido principal ======= -->
+    <main class="math-game-container" style="margin-top: 100px">
+      <div class="game-header text-center">
+        <h2>Operaciones Matemáticas</h2>
+        <p class="level-indicator">Nivel 1 - Básico</p>
+        <div class="intentos-counter">
+          <span>Intentos: </span>
+          <span id="intentos-actual">0</span>
+          <span>/10</span>
+        </div>
+      </div>
+
+      <div class="operations-selector text-center my-4">
+        <button id="suma" onclick="btnSumar()" class="operation-btn">
+          <i class="fas fa-plus"></i>
+          <span>Suma</span>
+        </button>
+        <button id="resta" onclick="btnResta()" class="operation-btn">
+          <i class="fas fa-minus"></i>
+          <span>Resta</span>
+        </button>
+        <button id="producto" onclick="btnProducto()" class="operation-btn">
+          <i class="fas fa-times"></i>
+          <span>Multiplicación</span>
+        </button>
+        <button id="division" onclick="btnDivision()" class="operation-btn">
+          <i class="fas fa-divide"></i>
+          <span>División</span>
+        </button>
+      </div>
+
+      <div class="math-problem text-center">
+        <div class="problem-display d-inline-flex align-items-center mb-3">
+          <span id="num1" class="number me-2">0</span>
+          <span id="operacion" class="operator me-2">+</span>
+          <span id="num2" class="number me-2">0</span>
+          <span class="equals me-2">=</span>
+          <input
+            type="text"
+            id="respuesta_usuario"
+            class="answer-input form-control d-inline-block"
+            style="width: 80px"
+            placeholder="?"
+          />
+        </div>
+        <br />
+        <button
+          id="corregir"
+          onclick="corregir()"
+          class="check-btn btn btn-primary"
+        >
+          <i class="fas fa-check"></i> Verificar
+        </button>
+      </div>
+
+      <div class="feedback-container text-center mt-4">
+        <div id="msj_correccion" class="feedback-message mb-3"></div>
+        <div class="stats d-flex justify-content-center gap-4">
+          <div class="stat correct">
+            <i class="fas fa-check-circle text-success"></i>
+            <span id="correct-count">0</span>
+          </div>
+          <div class="stat incorrect">
+            <i class="fas fa-times-circle text-danger"></i>
+            <span id="incorrect-count">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✅ Botón para finalizar el juego -->
+      <div class="end-game-container text-center mt-4">
+        <button id="endGameBtn" class="btn btn-danger">
+          <i class="fas fa-flag-checkered"></i> Finalizar Juego
+        </button>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="/juegos/matematica/matematica-nivel-1/index.js"></script>
+    <script src="/assets/js/request.js"></script>
+    <script src="/assets/js/games.js"></script>
+  </body>
+</html>
